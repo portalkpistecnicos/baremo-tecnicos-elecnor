@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="es">
 <head>
 <meta charset="UTF-8">
@@ -100,7 +100,6 @@
   .wrap{ max-width: 1020px; margin:0 auto; padding: 26px 20px 56px; }
   h1,h2,h3{ font-family:"Barlow Condensed","Public Sans",sans-serif; text-wrap:balance; margin:0; }
   .num{ font-variant-numeric: tabular-nums; }
-  .mono{ font-family:"IBM Plex Mono", ui-monospace, monospace; }
 
   /* ---------- Masthead ---------- */
   .masthead{
@@ -201,65 +200,6 @@
   .sup-card .sup-numbers .arrow{ color:var(--muted); font-size:14px; }
   .sup-card svg.mini{ width:100%; height:34px; margin-top:10px; display:block; }
 
-  /* ---------- Roster controls ---------- */
-  .controls{
-    display:flex; flex-wrap:wrap; gap:8px; align-items:center; margin-bottom:12px;
-  }
-  .search{
-    flex:1 1 180px; min-width:140px;
-    font: inherit; font-size:13px; padding:8px 12px; border-radius:8px;
-    border:1px solid var(--border-strong); background:var(--surface); color:var(--ink);
-  }
-  .search:focus{ outline:2px solid var(--brand); outline-offset:1px; }
-  .chip{
-    font-size:12px; font-weight:600; padding:6px 12px; border-radius:99px;
-    border:1px solid var(--border-strong); background:var(--surface); color:var(--ink-2);
-    cursor:pointer; white-space:nowrap;
-  }
-  .chip[aria-pressed="true"]{ background:var(--ink); color:var(--surface); border-color:var(--ink); }
-  .chip:focus-visible{ outline:2px solid var(--brand); outline-offset:2px; }
-  select.sortsel{
-    font: inherit; font-size:12.5px; font-weight:600; padding:7px 10px; border-radius:8px;
-    border:1px solid var(--border-strong); background:var(--surface); color:var(--ink);
-  }
-
-  /* ---------- Roster list ---------- */
-  .roster-head-row{
-    display:none;
-    padding:0 14px 6px; font-size:11px; color:var(--muted); font-weight:600; letter-spacing:.03em;
-  }
-  .roster-head-row .rh-metrics{ display:flex; align-items:center; gap:10px; }
-  .roster-head-row .rh-jul, .roster-head-row .rh-ago{ width:32px; text-align:right; }
-  .roster-head-row .rh-chart{ width:96px; text-align:center; }
-  .roster-head-row .rh-delta{ width:70px; }
-  .roster{ border:1px solid var(--border); border-radius:10px; overflow:hidden; background:var(--surface); box-shadow:var(--shadow); }
-
-  .row{ padding:11px 14px; border-top:1px solid var(--border); }
-  .row:first-child{ border-top:none; }
-  .row-top{ display:flex; align-items:flex-start; gap:10px; }
-  .row .dot{ width:9px; height:9px; border-radius:50%; margin-top:5px; flex:none; background:var(--dot,var(--brand)); }
-  .row .name-wrap{ min-width:0; flex:1; }
-  .row .name{ font-weight:600; font-size:13.5px; line-height:1.25; }
-  .row .rut{ font-size:11px; color:var(--muted); }
-  .row .metrics{ display:flex; align-items:center; gap:10px; margin-top:7px; padding-left:19px; }
-  .row .mval{ font-family:"IBM Plex Mono"; font-size:12.5px; font-weight:500; width:32px; text-align:right; flex:none; }
-  .row .mval.jul{ color:var(--ink-2); }
-  .row svg.chart{ width:88px; height:22px; flex:none; }
-  .row .delta{ margin-left:auto; flex:none; }
-  .row.no-data .metrics{ color:var(--muted); font-size:12px; font-style:normal; }
-
-  @media (min-width:700px){
-    .roster-head-row{ display:flex; align-items:center; gap:12px; }
-    .roster-head-row .rh-name{ flex:1; }
-    .row{ display:flex; align-items:center; gap:12px; }
-    .row-top{ flex:1; align-items:center; min-width:0; }
-    .row .dot{ margin-top:0; }
-    .row .metrics{ margin-top:0; padding-left:0; flex:none; }
-    .row svg.chart{ width:96px; }
-  }
-
-  .empty-state{ padding:26px 14px; text-align:center; color:var(--muted); font-size:13px; }
-
   /* ---------- Notes ---------- */
   .note{
     background:var(--warn-tint); border:1px solid var(--border); border-left:4px solid var(--warn);
@@ -272,7 +212,7 @@
   footer{ border-top:1px solid var(--border); padding-top:14px; font-size:11.5px; color:var(--muted); display:flex; justify-content:space-between; flex-wrap:wrap; gap:6px; }
 
   @media (prefers-reduced-motion: no-preference){
-    .row, .sup-card, .kpi{ animation: rise .35s ease backwards; }
+    .sup-card, .kpi{ animation: rise .35s ease backwards; }
   }
   @keyframes rise{ from{ opacity:0; transform:translateY(4px);} to{ opacity:1; transform:none; } }
 
@@ -290,9 +230,7 @@
     *{ print-color-adjust:exact; -webkit-print-color-adjust:exact; animation:none !important; }
     body{ background:#fff; }
     .pdf-btn{ display:none; }
-    .controls .search, .controls #chip-group, .controls .sortsel{ display:none; }
-    .kpi, .sup-card, .row, .note{ box-shadow:none; break-inside:avoid; }
-    .roster{ break-inside:auto; }
+    .kpi, .sup-card, .note{ box-shadow:none; break-inside:avoid; }
     section{ break-inside:avoid-page; }
     .wrap{ max-width:100%; padding:0; }
     a[href]:after{ content:""; }
@@ -371,34 +309,19 @@
     <div class="sup-grid" id="sup-grid"></div>
   </section>
 
-  <section aria-label="Detalle por técnico">
+  <section aria-label="Comparativo por agencia">
     <div class="section-head">
-      <h2>Por técnico</h2>
-      <span class="hint" id="roster-count"></span>
+      <h2>Por agencia</h2>
+      <span class="hint">promedio Baremo/día · Jul → Ago</span>
     </div>
-    <div class="controls">
-      <input class="search" id="search" type="search" placeholder="Buscar técnico o RUT…" aria-label="Buscar técnico">
-      <div id="chip-group" role="group" aria-label="Filtrar por supervisor" style="display:flex; gap:8px; flex-wrap:wrap;"></div>
-      <select class="sortsel" id="sortsel" aria-label="Ordenar por">
-        <option value="caida">Mayor caída primero</option>
-        <option value="mejora">Mayor mejora primero</option>
-        <option value="az">Alfabético (A–Z)</option>
-      </select>
-    </div>
-    <div class="roster-head-row" aria-hidden="true">
-      <span style="width:9px;"></span><span class="rh-name">Técnico</span>
-      <span class="rh-metrics">
-        <span class="rh-jul">Jul</span><span class="rh-chart">Julio → Agosto</span><span class="rh-ago">Ago</span><span class="rh-delta">Variación</span>
-      </span>
-    </div>
-    <div class="roster" id="roster"></div>
+    <div class="sup-grid" id="agencia-grid"></div>
   </section>
 
   <section aria-label="Notas de calidad de datos">
     <div class="note">
-      <b>2 técnicos sin actividad registrada en agosto</b> (los 31 días en 0 — probable licencia o desvinculación, no bajo desempeño real). Se excluyen del promedio de su supervisor y del total general; se listan aparte, abajo de su fila de supervisor.
+      <b>2 técnicos sin actividad registrada en agosto</b> (los 31 días en 0 — probable licencia o desvinculación, no bajo desempeño real). Se excluyen del promedio de su supervisor, su agencia y del total general.
       <div class="methodology">
-        Metodología: el promedio diario de cada técnico ignora los días sin turno asignado (celda vacía en la base). Un día con Baremo&nbsp;=&nbsp;0 sí se contabiliza (turno trabajado, sin actividad facturable ese día). Fuente: Julio-Agosto.xlsx · almacenado en Historico_Comparativo_Tecnicos.xlsx.
+        Metodología: el promedio diario de cada técnico ignora los días sin turno asignado (celda vacía en la base). Un día con Baremo&nbsp;=&nbsp;0 sí se contabiliza (turno trabajado, sin actividad facturable ese día). Agencia asignada según Maestro personal final.xlsx (cruce por Rut). Fuente: Julio-Agosto.xlsx · almacenado en Historico_Comparativo_Tecnicos.xlsx.
       </div>
     </div>
   </section>
@@ -414,657 +337,406 @@
 <script id="tecnicos-data" type="application/json">
 [
     {
-        "rut":  "11620226-3",
-        "nombre":  "ABELARDO HIPOLITO VENEGAS HERNANDEZ",
         "supervisor":  "JULIO HERNAN PINTO HERRERA",
-        "agoDias":  31,
-        "agoTotal":  182.18,
-        "agoProm":  5.88,
-        "agoZero":  false,
-        "julDias":  28,
-        "julTotal":  175.59,
-        "julProm":  6.27,
-        "julZero":  false
+        "agencia":  "VIÑA DEL MAR",
+        "julProm":  6.2711,
+        "julZero":  false,
+        "agoProm":  5.8768,
+        "agoZero":  false
     },
     {
-        "rut":  "12056884-1",
-        "nombre":  "ALEJANDRO ENRIQUE LAGOS GONZALEZ",
         "supervisor":  "JULIO HERNAN PINTO HERRERA",
-        "agoDias":  31,
-        "agoTotal":  212.57,
-        "agoProm":  6.86,
-        "agoZero":  false,
-        "julDias":  28,
-        "julTotal":  183.58,
-        "julProm":  6.56,
-        "julZero":  false
+        "agencia":  "VIÑA DEL MAR",
+        "julProm":  6.5564,
+        "julZero":  false,
+        "agoProm":  6.8571,
+        "agoZero":  false
     },
     {
-        "rut":  "17160888-0",
-        "nombre":  "ALEJANDRO NICOLAS PARA GOMEZ",
         "supervisor":  "RAMON CARLOS VARGAS FONTECHA",
-        "agoDias":  31,
-        "agoTotal":  186.13,
-        "agoProm":  6,
-        "agoZero":  false,
-        "julDias":  28,
-        "julTotal":  188.57,
-        "julProm":  6.73,
-        "julZero":  false
+        "agencia":  "VIÑA DEL MAR",
+        "julProm":  6.7346,
+        "julZero":  false,
+        "agoProm":  6.0042,
+        "agoZero":  false
     },
     {
-        "rut":  "16033846-6",
-        "nombre":  "ALEJANDRO SEBASTIAN CISTERNAS MARIN",
         "supervisor":  "RAMON CARLOS VARGAS FONTECHA",
-        "agoDias":  31,
-        "agoTotal":  181.13,
-        "agoProm":  5.84,
-        "agoZero":  false,
-        "julDias":  27,
-        "julTotal":  152.54,
-        "julProm":  5.65,
-        "julZero":  false
+        "agencia":  "VIÑA DEL MAR",
+        "julProm":  5.6496,
+        "julZero":  false,
+        "agoProm":  5.8429,
+        "agoZero":  false
     },
     {
-        "rut":  "9424247-9",
-        "nombre":  "AUGUSTO ANDRES FUENTES TAPIA",
         "supervisor":  "JULIO HERNAN PINTO HERRERA",
-        "agoDias":  31,
-        "agoTotal":  0,
+        "agencia":  "VIÑA DEL MAR",
+        "julProm":  5.2129,
+        "julZero":  false,
         "agoProm":  0,
-        "agoZero":  true,
-        "julDias":  28,
-        "julTotal":  145.96,
-        "julProm":  5.21,
-        "julZero":  false
+        "agoZero":  true
     },
     {
-        "rut":  "19016218-4",
-        "nombre":  "BASTIAN IGNACIO RIOS MADRID",
         "supervisor":  "RAMON CARLOS VARGAS FONTECHA",
-        "agoDias":  31,
-        "agoTotal":  133.95,
-        "agoProm":  4.32,
-        "agoZero":  false,
-        "julDias":  28,
-        "julTotal":  159.78,
-        "julProm":  5.71,
-        "julZero":  false
+        "agencia":  "VIÑA DEL MAR",
+        "julProm":  5.7064,
+        "julZero":  false,
+        "agoProm":  4.321,
+        "agoZero":  false
     },
     {
-        "rut":  "15714377-8",
-        "nombre":  "BENJAMIN ALFREDO MIRANDA IRARRAZABAL",
         "supervisor":  "JUAN CARLOS ESPAÑA GUERRERO",
-        "agoDias":  31,
-        "agoTotal":  93.64,
-        "agoProm":  3.02,
-        "agoZero":  false,
-        "julDias":  28,
-        "julTotal":  104.06,
-        "julProm":  3.72,
-        "julZero":  false
+        "agencia":  "VALPARAÍSO",
+        "julProm":  3.7164,
+        "julZero":  false,
+        "agoProm":  3.0206,
+        "agoZero":  false
     },
     {
-        "rut":  "21504558-7",
-        "nombre":  "CARLOS HERNAN MUNOZ MATUS",
         "supervisor":  "RAMON CARLOS VARGAS FONTECHA",
-        "agoDias":  31,
-        "agoTotal":  176.04,
-        "agoProm":  5.68,
-        "agoZero":  false,
-        "julDias":  25,
-        "julTotal":  193.37,
-        "julProm":  7.73,
-        "julZero":  false
+        "agencia":  "VIÑA DEL MAR",
+        "julProm":  7.7348,
+        "julZero":  false,
+        "agoProm":  5.6787,
+        "agoZero":  false
     },
     {
-        "rut":  "20175491-7",
-        "nombre":  "CHRISTOPHER PATRICK LISBOA BARRERA",
         "supervisor":  "JUAN CARLOS ESPAÑA GUERRERO",
-        "agoDias":  31,
-        "agoTotal":  135.94,
-        "agoProm":  4.39,
-        "agoZero":  false,
-        "julDias":  25,
-        "julTotal":  139.9,
-        "julProm":  5.6,
-        "julZero":  false
+        "agencia":  "VALPARAÍSO",
+        "julProm":  5.596,
+        "julZero":  false,
+        "agoProm":  4.3852,
+        "agoZero":  false
     },
     {
-        "rut":  "15957153-K",
-        "nombre":  "CRISTIAN ANDRES VASQUEZ MUNOZ",
         "supervisor":  "JULIO HERNAN PINTO HERRERA",
-        "agoDias":  31,
-        "agoTotal":  228.93,
-        "agoProm":  7.38,
-        "agoZero":  false,
-        "julDias":  28,
-        "julTotal":  216.25,
-        "julProm":  7.72,
-        "julZero":  false
+        "agencia":  "SAN ANTONIO",
+        "julProm":  7.7232,
+        "julZero":  false,
+        "agoProm":  7.3848,
+        "agoZero":  false
     },
     {
-        "rut":  "19772487-0",
-        "nombre":  "CRISTIAN NICOLAS SERRANO VELLAGAS",
         "supervisor":  "JULIO HERNAN PINTO HERRERA",
-        "agoDias":  31,
-        "agoTotal":  117.21,
-        "agoProm":  3.78,
-        "agoZero":  false,
-        "julDias":  27,
-        "julTotal":  195.49,
-        "julProm":  7.24,
-        "julZero":  false
+        "agencia":  "VIÑA DEL MAR",
+        "julProm":  7.2404,
+        "julZero":  false,
+        "agoProm":  3.781,
+        "agoZero":  false
     },
     {
-        "rut":  "26758689-6",
-        "nombre":  "DANIEL ALEXANDER RAMIREZ TORRES",
         "supervisor":  "RAMON CARLOS VARGAS FONTECHA",
-        "agoDias":  31,
-        "agoTotal":  188.17,
+        "agencia":  "VIÑA DEL MAR",
+        "julProm":  6.2618,
+        "julZero":  false,
         "agoProm":  6.07,
-        "agoZero":  false,
-        "julDias":  28,
-        "julTotal":  175.33,
-        "julProm":  6.26,
-        "julZero":  false
+        "agoZero":  false
     },
     {
-        "rut":  "17805227-6",
-        "nombre":  "ESTEBAN DAVID ORTIZ FIGUEROA",
         "supervisor":  "JULIO HERNAN PINTO HERRERA",
-        "agoDias":  31,
-        "agoTotal":  210.39,
-        "agoProm":  6.79,
-        "agoZero":  false,
-        "julDias":  28,
-        "julTotal":  213.54,
-        "julProm":  7.63,
-        "julZero":  false
+        "agencia":  "VIÑA DEL MAR",
+        "julProm":  7.6264,
+        "julZero":  false,
+        "agoProm":  6.7868,
+        "agoZero":  false
     },
     {
-        "rut":  "13426625-2",
-        "nombre":  "FERNANDO ALEXIS HOLM MORALES",
         "supervisor":  "RAMON CARLOS VARGAS FONTECHA",
-        "agoDias":  31,
-        "agoTotal":  162.68,
-        "agoProm":  5.25,
-        "agoZero":  false,
-        "julDias":  28,
-        "julTotal":  166.45,
-        "julProm":  5.94,
-        "julZero":  false
+        "agencia":  "VIÑA DEL MAR",
+        "julProm":  5.9446,
+        "julZero":  false,
+        "agoProm":  5.2477,
+        "agoZero":  false
     },
     {
-        "rut":  "11400843-5",
-        "nombre":  "FRANCISCO ERNESTO GUERRA GOMEZ",
         "supervisor":  "JUAN CARLOS ESPAÑA GUERRERO",
-        "agoDias":  31,
-        "agoTotal":  159.35,
-        "agoProm":  5.14,
-        "agoZero":  false,
-        "julDias":  21,
-        "julTotal":  99.32,
-        "julProm":  4.73,
-        "julZero":  false
+        "agencia":  "VALPARAÍSO",
+        "julProm":  4.7295,
+        "julZero":  false,
+        "agoProm":  5.1403,
+        "agoZero":  false
     },
     {
-        "rut":  "21454208-0",
-        "nombre":  "FRANCO JOSUE DIAZ NUNEZ",
         "supervisor":  "RAMON CARLOS VARGAS FONTECHA",
-        "agoDias":  31,
-        "agoTotal":  111.43,
-        "agoProm":  3.59,
-        "agoZero":  false,
-        "julDias":  28,
-        "julTotal":  119.38,
-        "julProm":  4.26,
-        "julZero":  false
+        "agencia":  "VIÑA DEL MAR",
+        "julProm":  4.2636,
+        "julZero":  false,
+        "agoProm":  3.5945,
+        "agoZero":  false
     },
     {
-        "rut":  "15660308-2",
-        "nombre":  "GONZALO ANDRES TAPIA VASCONCELO",
         "supervisor":  "JUAN CARLOS ESPAÑA GUERRERO",
-        "agoDias":  31,
-        "agoTotal":  168.04,
-        "agoProm":  5.42,
-        "agoZero":  false,
-        "julDias":  28,
-        "julTotal":  163.59,
-        "julProm":  5.84,
-        "julZero":  false
+        "agencia":  "VIÑA DEL MAR",
+        "julProm":  5.8425,
+        "julZero":  false,
+        "agoProm":  5.4206,
+        "agoZero":  false
     },
     {
-        "rut":  "16230919-6",
-        "nombre":  "HECTOR DAVID AVALOS RUPCICH",
         "supervisor":  "JULIO HERNAN PINTO HERRERA",
-        "agoDias":  31,
-        "agoTotal":  108.56,
-        "agoProm":  3.5,
-        "agoZero":  false,
-        "julDias":  27,
-        "julTotal":  134.92,
-        "julProm":  5,
-        "julZero":  false
+        "agencia":  "VIÑA DEL MAR",
+        "julProm":  4.997,
+        "julZero":  false,
+        "agoProm":  3.5019,
+        "agoZero":  false
     },
     {
-        "rut":  "10387787-3",
-        "nombre":  "HECTOR FERNANDO QUIROZ TORRES",
         "supervisor":  "RAMON CARLOS VARGAS FONTECHA",
-        "agoDias":  31,
-        "agoTotal":  42.9,
-        "agoProm":  1.38,
-        "agoZero":  false,
-        "julDias":  28,
-        "julTotal":  126.11,
-        "julProm":  4.5,
-        "julZero":  false
+        "agencia":  "VIÑA DEL MAR",
+        "julProm":  4.5039,
+        "julZero":  false,
+        "agoProm":  1.3839,
+        "agoZero":  false
     },
     {
-        "rut":  "26972231-2",
-        "nombre":  "HECTOR JOSE ORTIZ MARQUEZ",
         "supervisor":  "JULIO HERNAN PINTO HERRERA",
-        "agoDias":  31,
-        "agoTotal":  136.4,
+        "agencia":  "VIÑA DEL MAR",
+        "julProm":  4.535,
+        "julZero":  false,
         "agoProm":  4.4,
-        "agoZero":  false,
-        "julDias":  24,
-        "julTotal":  108.84,
-        "julProm":  4.54,
-        "julZero":  false
+        "agoZero":  false
     },
     {
-        "rut":  "12637747-9",
-        "nombre":  "HECTOR LEONARDO MUNOZ MIRANDA",
         "supervisor":  "JULIO HERNAN PINTO HERRERA",
-        "agoDias":  31,
-        "agoTotal":  200.59,
-        "agoProm":  6.47,
-        "agoZero":  false,
-        "julDias":  28,
-        "julTotal":  180.62,
-        "julProm":  6.45,
-        "julZero":  false
+        "agencia":  "SAN ANTONIO",
+        "julProm":  6.4507,
+        "julZero":  false,
+        "agoProm":  6.4706,
+        "agoZero":  false
     },
     {
-        "rut":  "13428454-4",
-        "nombre":  "HENRY MURIEL DIAZ TORRIJO",
         "supervisor":  "RAMON CARLOS VARGAS FONTECHA",
-        "agoDias":  31,
-        "agoTotal":  135.18,
-        "agoProm":  4.36,
-        "agoZero":  false,
-        "julDias":  27,
-        "julTotal":  145.03,
-        "julProm":  5.37,
-        "julZero":  false
+        "agencia":  "VIÑA DEL MAR",
+        "julProm":  5.3715,
+        "julZero":  false,
+        "agoProm":  4.3606,
+        "agoZero":  false
     },
     {
-        "rut":  "15445679-1",
-        "nombre":  "IVAN ALEJANDRO CALDERON MUNOZ",
         "supervisor":  "JULIO HERNAN PINTO HERRERA",
-        "agoDias":  31,
-        "agoTotal":  164.43,
-        "agoProm":  5.3,
-        "agoZero":  false,
-        "julDias":  28,
-        "julTotal":  152.01,
-        "julProm":  5.43,
-        "julZero":  false
+        "agencia":  "SAN ANTONIO",
+        "julProm":  5.4289,
+        "julZero":  false,
+        "agoProm":  5.3042,
+        "agoZero":  false
     },
     {
-        "rut":  "18829522-3",
-        "nombre":  "JAIR JESUS VALENCIA DIAZ",
         "supervisor":  "RAMON CARLOS VARGAS FONTECHA",
-        "agoDias":  31,
-        "agoTotal":  147.78,
-        "agoProm":  4.77,
-        "agoZero":  false,
-        "julDias":  27,
-        "julTotal":  168.69,
-        "julProm":  6.25,
-        "julZero":  false
+        "agencia":  "VIÑA DEL MAR",
+        "julProm":  6.2478,
+        "julZero":  false,
+        "agoProm":  4.7671,
+        "agoZero":  false
     },
     {
-        "rut":  "14472203-5",
-        "nombre":  "JONATHAN RICARDO HENRIQUEZ VENEGAS",
         "supervisor":  "JULIO HERNAN PINTO HERRERA",
-        "agoDias":  31,
-        "agoTotal":  115.82,
-        "agoProm":  3.74,
-        "agoZero":  false,
-        "julDias":  28,
-        "julTotal":  135.74,
-        "julProm":  4.85,
-        "julZero":  false
+        "agencia":  "VIÑA DEL MAR",
+        "julProm":  4.8479,
+        "julZero":  false,
+        "agoProm":  3.7361,
+        "agoZero":  false
     },
     {
-        "rut":  "16034875-5",
-        "nombre":  "JORGE EDUARDO JORQUERA FLORES",
         "supervisor":  "JUAN CARLOS ESPAÑA GUERRERO",
-        "agoDias":  31,
-        "agoTotal":  62.02,
-        "agoProm":  2,
-        "agoZero":  false,
-        "julDias":  28,
-        "julTotal":  247.12,
-        "julProm":  8.83,
-        "julZero":  false
+        "agencia":  "VALPARAÍSO",
+        "julProm":  8.8257,
+        "julZero":  false,
+        "agoProm":  2.0006,
+        "agoZero":  false
     },
     {
-        "rut":  "13650694-3",
-        "nombre":  "JORGE RENE RAMIREZ DE LA BARRA",
         "supervisor":  "JUAN CARLOS ESPAÑA GUERRERO",
-        "agoDias":  31,
-        "agoTotal":  97.72,
-        "agoProm":  3.15,
-        "agoZero":  false,
-        "julDias":  28,
-        "julTotal":  157.61,
-        "julProm":  5.63,
-        "julZero":  false
+        "agencia":  "VALPARAÍSO",
+        "julProm":  5.6289,
+        "julZero":  false,
+        "agoProm":  3.1523,
+        "agoZero":  false
     },
     {
-        "rut":  "10792174-5",
-        "nombre":  "JOSE GERARDO CORNEJO GARRIDO",
         "supervisor":  "JUAN CARLOS ESPAÑA GUERRERO",
-        "agoDias":  31,
-        "agoTotal":  162.94,
-        "agoProm":  5.26,
-        "agoZero":  false,
-        "julDias":  27,
-        "julTotal":  168.84,
-        "julProm":  6.25,
-        "julZero":  false
+        "agencia":  "VALPARAÍSO",
+        "julProm":  6.2533,
+        "julZero":  false,
+        "agoProm":  5.2561,
+        "agoZero":  false
     },
     {
-        "rut":  "9338001-0",
-        "nombre":  "JOSE MANUEL SEPULVEDA ROJAS",
         "supervisor":  "JULIO HERNAN PINTO HERRERA",
-        "agoDias":  31,
-        "agoTotal":  138.96,
-        "agoProm":  4.48,
-        "agoZero":  false,
-        "julDias":  28,
-        "julTotal":  136.1,
-        "julProm":  4.86,
-        "julZero":  false
+        "agencia":  "VIÑA DEL MAR",
+        "julProm":  4.8607,
+        "julZero":  false,
+        "agoProm":  4.4826,
+        "agoZero":  false
     },
     {
-        "rut":  "19325742-9",
-        "nombre":  "JUAN ESTEBAN MARTINEZ LOCK",
         "supervisor":  "JUAN CARLOS ESPAÑA GUERRERO",
-        "agoDias":  31,
-        "agoTotal":  154.94,
-        "agoProm":  5,
-        "agoZero":  false,
-        "julDias":  28,
-        "julTotal":  171,
-        "julProm":  6.11,
-        "julZero":  false
+        "agencia":  "VALPARAÍSO",
+        "julProm":  6.1071,
+        "julZero":  false,
+        "agoProm":  4.9981,
+        "agoZero":  false
     },
     {
-        "rut":  "17144358-K",
-        "nombre":  "JUAN HERIBERTO VARGAS ALARCON",
         "supervisor":  "JUAN CARLOS ESPAÑA GUERRERO",
-        "agoDias":  31,
-        "agoTotal":  146.02,
-        "agoProm":  4.71,
-        "agoZero":  false,
-        "julDias":  28,
-        "julTotal":  171.09,
-        "julProm":  6.11,
-        "julZero":  false
+        "agencia":  "VALPARAÍSO",
+        "julProm":  6.1104,
+        "julZero":  false,
+        "agoProm":  4.7103,
+        "agoZero":  false
     },
     {
-        "rut":  "26658025-8",
-        "nombre":  "JUAN JOSE MARCANO GONZALEZ",
         "supervisor":  "JULIO HERNAN PINTO HERRERA",
-        "agoDias":  31,
-        "agoTotal":  152.15,
-        "agoProm":  4.91,
-        "agoZero":  false,
-        "julDias":  28,
-        "julTotal":  139.3,
-        "julProm":  4.98,
-        "julZero":  false
+        "agencia":  "VIÑA DEL MAR",
+        "julProm":  4.975,
+        "julZero":  false,
+        "agoProm":  4.9081,
+        "agoZero":  false
     },
     {
-        "rut":  "26266054-0",
-        "nombre":  "LUIS ALFONSO VALLEJO GARCIA",
         "supervisor":  "RAMON CARLOS VARGAS FONTECHA",
-        "agoDias":  31,
-        "agoTotal":  179.91,
-        "agoProm":  5.8,
-        "agoZero":  false,
-        "julDias":  28,
-        "julTotal":  141.76,
-        "julProm":  5.06,
-        "julZero":  false
+        "agencia":  "VIÑA DEL MAR",
+        "julProm":  5.0629,
+        "julZero":  false,
+        "agoProm":  5.8035,
+        "agoZero":  false
     },
     {
-        "rut":  "17165085-2",
-        "nombre":  "MANUEL DARIO JELDES ARANCIBIA",
         "supervisor":  "JUAN CARLOS ESPAÑA GUERRERO",
-        "agoDias":  31,
-        "agoTotal":  152.55,
-        "agoProm":  4.92,
-        "agoZero":  false,
-        "julDias":  28,
-        "julTotal":  164.58,
-        "julProm":  5.88,
-        "julZero":  false
+        "agencia":  "VALPARAÍSO",
+        "julProm":  5.8779,
+        "julZero":  false,
+        "agoProm":  4.921,
+        "agoZero":  false
     },
     {
-        "rut":  "12221336-6",
-        "nombre":  "MARCO MANUEL VEGA VEGA",
         "supervisor":  "JULIO HERNAN PINTO HERRERA",
-        "agoDias":  31,
-        "agoTotal":  140.95,
-        "agoProm":  4.55,
-        "agoZero":  false,
-        "julDias":  28,
-        "julTotal":  138.53,
-        "julProm":  4.95,
-        "julZero":  false
+        "agencia":  "VIÑA DEL MAR",
+        "julProm":  4.9475,
+        "julZero":  false,
+        "agoProm":  4.5468,
+        "agoZero":  false
     },
     {
-        "rut":  "19469218-8",
-        "nombre":  "MATIAS HERNAN VILLALOBOS RAMOS",
         "supervisor":  "JUAN CARLOS ESPAÑA GUERRERO",
-        "agoDias":  31,
-        "agoTotal":  187.68,
-        "agoProm":  6.05,
-        "agoZero":  false,
-        "julDias":  15,
-        "julTotal":  70.09,
-        "julProm":  4.67,
-        "julZero":  false
+        "agencia":  "VALPARAÍSO",
+        "julProm":  4.6727,
+        "julZero":  false,
+        "agoProm":  6.0542,
+        "agoZero":  false
     },
     {
-        "rut":  "20521993-5",
-        "nombre":  "MATIAS RODRIGO MONTECINOS POZO",
         "supervisor":  "JUAN CARLOS ESPAÑA GUERRERO",
-        "agoDias":  31,
-        "agoTotal":  188.28,
-        "agoProm":  6.07,
-        "agoZero":  false,
-        "julDias":  28,
-        "julTotal":  206.5,
-        "julProm":  7.37,
-        "julZero":  false
+        "agencia":  "VALPARAÍSO",
+        "julProm":  7.375,
+        "julZero":  false,
+        "agoProm":  6.0735,
+        "agoZero":  false
     },
     {
-        "rut":  "16403671-5",
-        "nombre":  "MAURICIO RODOLFO ASTORGA HERRERA",
         "supervisor":  "JULIO HERNAN PINTO HERRERA",
-        "agoDias":  31,
-        "agoTotal":  0,
+        "agencia":  "SAN ANTONIO",
+        "julProm":  4.9243,
+        "julZero":  false,
         "agoProm":  0,
-        "agoZero":  true,
-        "julDias":  28,
-        "julTotal":  137.88,
-        "julProm":  4.92,
-        "julZero":  false
+        "agoZero":  true
     },
     {
-        "rut":  "9998160-1",
-        "nombre":  "NESTOR FABIAN PASTEN ALARCON",
         "supervisor":  "JULIO HERNAN PINTO HERRERA",
-        "agoDias":  31,
-        "agoTotal":  83.76,
-        "agoProm":  2.7,
-        "agoZero":  false,
-        "julDias":  28,
-        "julTotal":  154.83,
-        "julProm":  5.53,
-        "julZero":  false
+        "agencia":  "VIÑA DEL MAR",
+        "julProm":  5.5296,
+        "julZero":  false,
+        "agoProm":  2.7019,
+        "agoZero":  false
     },
     {
-        "rut":  "18915265-5",
-        "nombre":  "OSCAR ANDRES JOFRE LE CERF",
         "supervisor":  "JUAN CARLOS ESPAÑA GUERRERO",
-        "agoDias":  31,
-        "agoTotal":  188.83,
-        "agoProm":  6.09,
-        "agoZero":  false,
-        "julDias":  28,
-        "julTotal":  213.83,
-        "julProm":  7.64,
-        "julZero":  false
+        "agencia":  "VALPARAÍSO",
+        "julProm":  7.6368,
+        "julZero":  false,
+        "agoProm":  6.0913,
+        "agoZero":  false
     },
     {
-        "rut":  "17478977-0",
-        "nombre":  "PATRICIO CANALES GEVE",
         "supervisor":  "RAMON CARLOS VARGAS FONTECHA",
-        "agoDias":  31,
-        "agoTotal":  208.06,
-        "agoProm":  6.71,
-        "agoZero":  false,
-        "julDias":  21,
-        "julTotal":  145.61,
-        "julProm":  6.93,
-        "julZero":  false
+        "agencia":  "VIÑA DEL MAR",
+        "julProm":  6.9338,
+        "julZero":  false,
+        "agoProm":  6.7116,
+        "agoZero":  false
     },
     {
-        "rut":  "17473940-4",
-        "nombre":  "PATRICIO EDUARDO DELANO SCHWAIGER",
         "supervisor":  "JUAN CARLOS ESPAÑA GUERRERO",
-        "agoDias":  31,
-        "agoTotal":  109.3,
-        "agoProm":  3.53,
-        "agoZero":  false,
-        "julDias":  28,
-        "julTotal":  250.34,
-        "julProm":  8.94,
-        "julZero":  false
+        "agencia":  "VALPARAÍSO",
+        "julProm":  8.9407,
+        "julZero":  false,
+        "agoProm":  3.5258,
+        "agoZero":  false
     },
     {
-        "rut":  "16523139-2",
-        "nombre":  "PEDRO ISAIAS CONCHA JORQUERA",
         "supervisor":  "JUAN CARLOS ESPAÑA GUERRERO",
-        "agoDias":  31,
-        "agoTotal":  152.17,
-        "agoProm":  4.91,
-        "agoZero":  false,
-        "julDias":  25,
-        "julTotal":  144.71,
-        "julProm":  5.79,
-        "julZero":  false
+        "agencia":  "VALPARAÍSO",
+        "julProm":  5.7884,
+        "julZero":  false,
+        "agoProm":  4.9087,
+        "agoZero":  false
     },
     {
-        "rut":  "25671905-3",
-        "nombre":  "PROPHETE GABRIEL",
         "supervisor":  "JUAN CARLOS ESPAÑA GUERRERO",
-        "agoDias":  31,
-        "agoTotal":  156.03,
-        "agoProm":  5.03,
-        "agoZero":  false,
-        "julDias":  27,
-        "julTotal":  171.85,
-        "julProm":  6.36,
-        "julZero":  false
+        "agencia":  "VALPARAÍSO",
+        "julProm":  6.3648,
+        "julZero":  false,
+        "agoProm":  5.0332,
+        "agoZero":  false
     },
     {
-        "rut":  "11826964-0",
-        "nombre":  "RICHARDS ANTONIO CRUZ CUEVAS",
         "supervisor":  "JULIO HERNAN PINTO HERRERA",
-        "agoDias":  31,
-        "agoTotal":  91.39,
-        "agoProm":  2.95,
-        "agoZero":  false,
-        "julDias":  27,
-        "julTotal":  118.01,
-        "julProm":  4.37,
-        "julZero":  false
+        "agencia":  "VIÑA DEL MAR",
+        "julProm":  4.3707,
+        "julZero":  false,
+        "agoProm":  2.9481,
+        "agoZero":  false
     },
     {
-        "rut":  "13637135-5",
-        "nombre":  "SANTIAGO EMILIO ANGEL ARIAS",
         "supervisor":  "RAMON CARLOS VARGAS FONTECHA",
-        "agoDias":  31,
-        "agoTotal":  128.31,
-        "agoProm":  4.14,
-        "agoZero":  false,
-        "julDias":  27,
-        "julTotal":  198.87,
-        "julProm":  7.37,
-        "julZero":  false
+        "agencia":  "VIÑA DEL MAR",
+        "julProm":  7.3656,
+        "julZero":  false,
+        "agoProm":  4.139,
+        "agoZero":  false
     },
     {
-        "rut":  "18741232-3",
-        "nombre":  "SEBASTIAN ANDRES SANCHEZ CAYUQUEO",
         "supervisor":  "JULIO HERNAN PINTO HERRERA",
-        "agoDias":  31,
-        "agoTotal":  199.64,
+        "agencia":  "SAN ANTONIO",
+        "julProm":  7.3789,
+        "julZero":  false,
         "agoProm":  6.44,
-        "agoZero":  false,
-        "julDias":  28,
-        "julTotal":  206.61,
-        "julProm":  7.38,
-        "julZero":  false
+        "agoZero":  false
     },
     {
-        "rut":  "17769689-7",
-        "nombre":  "SIMON ANDRES SILVA PHILIP",
         "supervisor":  "JULIO HERNAN PINTO HERRERA",
-        "agoDias":  31,
-        "agoTotal":  178.85,
-        "agoProm":  5.77,
-        "agoZero":  false,
-        "julDias":  28,
-        "julTotal":  189.29,
-        "julProm":  6.76,
-        "julZero":  false
+        "agencia":  "SAN ANTONIO",
+        "julProm":  6.7604,
+        "julZero":  false,
+        "agoProm":  5.7694,
+        "agoZero":  false
     },
     {
-        "rut":  "10466681-7",
-        "nombre":  "WILFRED RENE ROCCO ZUNIGA",
         "supervisor":  "RAMON CARLOS VARGAS FONTECHA",
-        "agoDias":  31,
-        "agoTotal":  168.39,
-        "agoProm":  5.43,
-        "agoZero":  false,
-        "julDias":  23,
-        "julTotal":  118.19,
-        "julProm":  5.14,
-        "julZero":  false
+        "agencia":  "VIÑA DEL MAR",
+        "julProm":  5.1387,
+        "julZero":  false,
+        "agoProm":  5.4319,
+        "agoZero":  false
     },
     {
-        "rut":  "12104020-4",
-        "nombre":  "YUSSEF ALI SAT PINO",
         "supervisor":  "RAMON CARLOS VARGAS FONTECHA",
-        "agoDias":  31,
-        "agoTotal":  120.55,
-        "agoProm":  3.89,
-        "agoZero":  false,
-        "julDias":  27,
-        "julTotal":  118.45,
-        "julProm":  4.39,
-        "julZero":  false
+        "agencia":  "VIÑA DEL MAR",
+        "julProm":  4.387,
+        "julZero":  false,
+        "agoProm":  3.8887,
+        "agoZero":  false
     }
 ]
-
 </script>
 
 <script>
@@ -1082,22 +754,27 @@
     var parts = full.trim().split(/\s+/);
     return parts.slice(-2).join(' ');
   }
-  function titleCase(s){
-    return s.toLowerCase().replace(/(^|\s)([a-zñáéíóúü])/g, function(_,sp,c){ return sp + c.toUpperCase(); });
-  }
   function fmt1(n){ return (Math.round(n*10)/10).toFixed(1).replace('.',','); }
   function fmtPct(n){ var v = Math.round(n*1000)/10; var s=(v>0?'+':'')+v.toString().replace('.',',')+'%'; return s; }
 
+  var AGENCIA_COLOR = {};
+  var AGENCIA_ORDER = [];
+  raw.forEach(function(t){ if (AGENCIA_ORDER.indexOf(t.agencia) === -1) AGENCIA_ORDER.push(t.agencia); });
+  AGENCIA_ORDER.forEach(function(a,i){ AGENCIA_COLOR[a] = palette[i % palette.length]; });
+  function titleCaseWord(s){
+    return s.charAt(0) + s.slice(1).toLowerCase();
+  }
+  function agenciaLabel(a){ return a.split(' ').map(titleCaseWord).join(' '); }
+
   var data = raw.map(function(t){
     return {
-      rut: t.rut, nombre: t.nombre, supervisor: t.supervisor,
+      supervisor: t.supervisor, agencia: t.agencia,
       jul: t.julProm, ago: t.agoProm, julZero: t.julZero, agoZero: t.agoZero,
       excluded: t.julZero || t.agoZero,
       delta: t.agoProm - t.julProm
     };
   });
   var included = data.filter(function(t){ return !t.excluded; });
-  var excludedList = data.filter(function(t){ return t.excluded; });
 
   var maxVal = Math.max.apply(null, data.map(function(t){ return Math.max(t.jul, t.ago); })) ;
   var domainMax = Math.ceil(maxVal) + 0.5;
@@ -1181,86 +858,27 @@
     supGrid.appendChild(card);
   })();
 
-  // ---------- Roster ----------
-  var chipGroup = document.getElementById('chip-group');
-  var activeSup = 'Todos';
-  var chips = ['Todos'].concat(SUP_ORDER);
-  chips.forEach(function(c){
-    var b = document.createElement('button');
-    b.className = 'chip'; b.type = 'button';
-    b.textContent = c === 'Todos' ? 'Todos' : shortSup(c);
-    b.setAttribute('aria-pressed', c === 'Todos' ? 'true' : 'false');
-    b.addEventListener('click', function(){
-      activeSup = c;
-      Array.prototype.forEach.call(chipGroup.children, function(ch){ ch.setAttribute('aria-pressed','false'); });
-      b.setAttribute('aria-pressed','true');
-      render();
-    });
-    chipGroup.appendChild(b);
+  // ---------- Agencia cards ----------
+  var agenciaGrid = document.getElementById('agencia-grid');
+  var agenciaStats = AGENCIA_ORDER.map(function(ag){
+    var arr = included.filter(function(t){ return t.agencia === ag; });
+    return { ag:ag, n:arr.length, jul:avg(arr,'jul'), ago:avg(arr,'ago') };
+  }).sort(function(a,b){ return (a.ago-a.jul)/a.jul - (b.ago-b.jul)/b.jul; });
+  agenciaStats.forEach(function(s){
+    var improved = s.ago >= s.jul;
+    var card = document.createElement('div');
+    card.className = 'sup-card';
+    card.style.setProperty('--dot', 'var('+AGENCIA_COLOR[s.ag]+')');
+    card.innerHTML =
+      '<div class="sup-name"><span class="dot"></span>'+agenciaLabel(s.ag)+'</div>' +
+      '<div class="sup-count">'+s.n+' técnicos</div>' +
+      '<div class="sup-numbers">' +
+        '<span class="n num">'+fmt1(s.jul)+'</span><span class="arrow">→</span><span class="n num" style="color:'+(improved?'var(--good)':'var(--bad)')+'">'+fmt1(s.ago)+'</span>' +
+        '<span class="pill '+(improved?'good':'bad')+'">'+fmtPct((s.ago-s.jul)/s.jul)+'</span>' +
+      '</div>' +
+      dumbbellSVG(s.jul, s.ago, 260, 34);
+    agenciaGrid.appendChild(card);
   });
-
-  var searchEl = document.getElementById('search');
-  var sortEl = document.getElementById('sortsel');
-  searchEl.addEventListener('input', render);
-  sortEl.addEventListener('change', render);
-
-  var rosterEl = document.getElementById('roster');
-  var countEl = document.getElementById('roster-count');
-
-  function rowHTML(t){
-    var colorVar = SUP_COLOR[t.supervisor];
-    if (t.excluded) {
-      return '<div class="row no-data" style="--dot:var('+colorVar+')">' +
-        '<div class="row-top">' +
-          '<span class="dot"></span>' +
-          '<div class="name-wrap"><div class="name">'+titleCase(t.nombre)+'</div><div class="rut mono">'+t.rut+' · '+shortSup(t.supervisor)+'</div></div>' +
-        '</div>' +
-        '<div class="metrics"><span class="pill warn">Sin actividad en '+(t.agoZero?'agosto':'julio')+'</span></div>' +
-      '</div>';
-    }
-    var improved = t.delta >= 0;
-    return '<div class="row" style="--dot:var('+colorVar+')">' +
-      '<div class="row-top">' +
-        '<span class="dot"></span>' +
-        '<div class="name-wrap"><div class="name">'+titleCase(t.nombre)+'</div><div class="rut mono">'+t.rut+' · '+shortSup(t.supervisor)+'</div></div>' +
-      '</div>' +
-      '<div class="metrics">' +
-        '<span class="mval jul num">'+fmt1(t.jul)+'</span>' +
-        dumbbellSVG(t.jul, t.ago, 96, 22) +
-        '<span class="mval num" style="color:'+(improved?'var(--good)':'var(--bad)')+'">'+fmt1(t.ago)+'</span>' +
-        '<span class="pill delta '+(improved?'good':'bad')+'">' +
-          '<svg viewBox="0 0 10 10" aria-hidden="true">'+(improved
-            ? '<path d="M5 1 L9 7 L1 7 Z" fill="currentColor"/>'
-            : '<path d="M5 9 L1 3 L9 3 Z" fill="currentColor"/>')+'</svg>' +
-          fmtPct(t.delta/t.jul) +
-        '</span>' +
-      '</div>' +
-    '</div>';
-  }
-
-  function render(){
-    var q = searchEl.value.trim().toLowerCase();
-    var list = data.filter(function(t){
-      if (activeSup !== 'Todos' && t.supervisor !== activeSup) return false;
-      if (q && t.nombre.toLowerCase().indexOf(q) === -1 && t.rut.toLowerCase().indexOf(q) === -1) return false;
-      return true;
-    });
-    var mode = sortEl.value;
-    var withData = list.filter(function(t){ return !t.excluded; });
-    var without = list.filter(function(t){ return t.excluded; });
-    if (mode === 'caida') withData.sort(function(a,b){ return a.delta - b.delta; });
-    else if (mode === 'mejora') withData.sort(function(a,b){ return b.delta - a.delta; });
-    else withData.sort(function(a,b){ return a.nombre.localeCompare(b.nombre); });
-    without.sort(function(a,b){ return a.nombre.localeCompare(b.nombre); });
-
-    var ordered = withData.concat(without);
-    countEl.textContent = ordered.length + ' de ' + data.length + ' técnicos';
-    rosterEl.innerHTML = ordered.length
-      ? ordered.map(rowHTML).join('')
-      : '<div class="empty-state">Ningún técnico coincide con la búsqueda.</div>';
-  }
-
-  render();
 
   var today = new Date();
   var pad2 = function(n){ return String(n).padStart(2,'0'); };

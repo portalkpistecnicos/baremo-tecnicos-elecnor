@@ -1,0 +1,1293 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Baremo Julio–Agosto</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800&family=Public+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    color-scheme: light;
+    --page:#f6f3ec;
+    --surface:#fffdf9;
+    --surface-2:#edE8db;
+    --ink:#17160f;
+    --ink-2:#57544a;
+    --muted:#8d8977;
+    --grid:#e3ded0;
+    --border:rgba(23,22,15,.12);
+    --border-strong:rgba(23,22,15,.20);
+    --brand:#003F86;
+    --brand-ink:#00295c;
+    --brand-tint:#e2ebf5;
+    --sup2:#F47C02;
+    --sup2-tint:#fdead2;
+    --sup3:#128a5f;
+    --sup3-tint:#dcf2e9;
+    --good:#006300;
+    --good-tint:#e4f3e0;
+    --bad:#b23434;
+    --bad-tint:#fbe6e2;
+    --warn:#8a6100;
+    --warn-tint:#faedcb;
+    --shadow: 0 1px 2px rgba(23,22,15,.06), 0 6px 20px -8px rgba(23,22,15,.18);
+  }
+  @media (prefers-color-scheme: dark){
+    :root:not([data-theme="light"]){
+      color-scheme: dark;
+      --page:#061b36;
+      --surface:#0d2c52;
+      --surface-2:#123a68;
+      --ink:#f5f8fc;
+      --ink-2:#c9d7ea;
+      --muted:#8fa4c2;
+      --grid:#1c3f66;
+      --border:rgba(255,255,255,.14);
+      --border-strong:rgba(255,255,255,.26);
+      --brand:#5aa8f0;
+      --brand-ink:#dbeeff;
+      --brand-tint:#123a68;
+      --sup2:#ff9f4d;
+      --sup2-tint:#3a2416;
+      --sup3:#3fc496;
+      --sup3-tint:#123527;
+      --good:#3fbf3f;
+      --good-tint:#123018;
+      --bad:#e97c7c;
+      --bad-tint:#3a1717;
+      --warn:#e0b13a;
+      --warn-tint:#3a2f0d;
+      --shadow: 0 1px 2px rgba(0,0,0,.3), 0 10px 26px -10px rgba(0,0,0,.6);
+    }
+  }
+  :root[data-theme="dark"]{
+    color-scheme: dark;
+    --page:#061b36;
+    --surface:#0d2c52;
+    --surface-2:#123a68;
+    --ink:#f5f8fc;
+    --ink-2:#c9d7ea;
+    --muted:#8fa4c2;
+    --grid:#1c3f66;
+    --border:rgba(255,255,255,.14);
+    --border-strong:rgba(255,255,255,.26);
+    --brand:#5aa8f0;
+    --brand-ink:#dbeeff;
+    --brand-tint:#123a68;
+    --sup2:#ff9f4d;
+    --sup2-tint:#3a2416;
+    --sup3:#3fc496;
+    --sup3-tint:#123527;
+    --good:#3fbf3f;
+    --good-tint:#123018;
+    --bad:#e97c7c;
+    --bad-tint:#3a1717;
+    --warn:#e0b13a;
+    --warn-tint:#3a2f0d;
+    --shadow: 0 1px 2px rgba(0,0,0,.3), 0 10px 26px -10px rgba(0,0,0,.6);
+  }
+
+  *{box-sizing:border-box;}
+  body{
+    margin:0;
+    background:var(--page);
+    color:var(--ink);
+    font-family:"Public Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
+    -webkit-font-smoothing:antialiased;
+  }
+  .wrap{ max-width: 980px; margin:0 auto; padding: 18px 16px 48px; }
+  h1,h2,h3{ font-family:"Barlow Condensed","Public Sans",sans-serif; text-wrap:balance; margin:0; }
+  .num{ font-variant-numeric: tabular-nums; }
+  .mono{ font-family:"IBM Plex Mono", ui-monospace, monospace; }
+
+  /* ---------- Masthead ---------- */
+  .masthead{
+    display:flex; align-items:flex-start; justify-content:space-between; gap:16px;
+    padding: 4px 0 20px;
+    border-bottom: 2px solid var(--ink);
+    margin-bottom: 22px;
+  }
+  .masthead-mark{ display:flex; align-items:center; gap:12px; }
+  .logo-chip{
+    background:#ffffff; border-radius:8px; padding:8px 12px; display:block;
+    border:1px solid var(--border); flex:none; width:132px; height:auto;
+  }
+  .masthead-right{ display:flex; flex-direction:column; align-items:flex-end; gap:9px; }
+  .theme-toggle{
+    width:32px; height:32px; border-radius:8px; flex:none;
+    border:1px solid var(--border-strong); background:var(--surface); color:var(--ink-2);
+    display:flex; align-items:center; justify-content:center; cursor:pointer;
+  }
+  .theme-toggle:hover{ background:var(--surface-2); }
+  .theme-toggle:focus-visible{ outline:2px solid var(--brand); outline-offset:2px; }
+  .theme-toggle svg{ width:16px; height:16px; }
+  .theme-toggle .icon-moon{ display:none; }
+  .theme-toggle.dark-active .icon-sun{ display:none; }
+  .theme-toggle.dark-active .icon-moon{ display:block; }
+  .eyebrow{
+    font-family:"IBM Plex Mono", monospace;
+    font-size:11px; letter-spacing:.12em; text-transform:uppercase;
+    color:var(--muted); margin:0 0 2px;
+  }
+  h1.title{ font-size: clamp(28px,6vw,40px); font-weight:800; line-height:1; color:var(--ink); }
+  .period-badge{
+    text-align:right; font-family:"IBM Plex Mono",monospace; font-size:12px; color:var(--ink-2);
+    white-space:nowrap;
+  }
+  .period-badge b{ display:block; font-size:15px; color:var(--ink); font-weight:600; }
+  .pdf-btn{
+    margin-top:10px; display:inline-flex; align-items:center; gap:6px;
+    font-family:"Public Sans", sans-serif; font-size:12px; font-weight:700;
+    background:var(--brand); color:#fff; border:none; border-radius:7px;
+    padding:7px 12px; cursor:pointer; white-space:nowrap;
+  }
+  .pdf-btn:hover{ filter:brightness(1.08); }
+  .pdf-btn:focus-visible{ outline:2px solid var(--brand); outline-offset:2px; }
+  .pdf-btn svg{ width:13px; height:13px; flex:none; }
+
+  /* ---------- KPI strip ---------- */
+  .kpis{
+    display:grid; grid-template-columns:repeat(auto-fit,minmax(150px,1fr));
+    gap:10px; margin-bottom:28px;
+  }
+  .kpi{
+    background:var(--surface); border:1px solid var(--border); border-radius:10px;
+    padding:14px 16px; box-shadow:var(--shadow);
+  }
+  .kpi .label{ font-size:12px; color:var(--muted); font-weight:600; letter-spacing:.02em; }
+  .kpi .value{ font-family:"Barlow Condensed"; font-size:34px; font-weight:700; line-height:1.05; margin-top:2px; }
+  .kpi .sub{ font-size:12px; color:var(--ink-2); margin-top:3px; }
+  .kpi.headline{ border-top:3px solid var(--brand); }
+  .split-bar{ display:flex; height:8px; border-radius:5px; overflow:hidden; margin-top:10px; background:var(--grid); }
+  .split-bar span{ display:block; height:100%; }
+  .split-legend{ display:flex; justify-content:space-between; font-size:11px; margin-top:5px; color:var(--ink-2); }
+
+  .pill{
+    display:inline-flex; align-items:center; gap:4px;
+    font-size:12px; font-weight:700; padding:2px 8px; border-radius:99px;
+    font-variant-numeric: tabular-nums;
+  }
+  .pill.good{ background:var(--good-tint); color:var(--good); }
+  .pill.bad{ background:var(--bad-tint); color:var(--bad); }
+  .pill.warn{ background:var(--warn-tint); color:var(--warn); }
+  .pill svg{ width:10px; height:10px; }
+
+  /* ---------- Section headers ---------- */
+  section{ margin-bottom:30px; }
+  .section-head{ display:flex; align-items:baseline; justify-content:space-between; gap:10px; margin-bottom:12px; }
+  .section-head h2{ font-size:22px; font-weight:700; }
+  .section-head .hint{ font-size:12px; color:var(--muted); }
+
+  /* ---------- Supervisor cards ---------- */
+  .sup-grid{ display:grid; grid-template-columns:repeat(auto-fit,minmax(230px,1fr)); gap:10px; }
+  .sup-card{
+    background:var(--surface); border:1px solid var(--border); border-radius:10px;
+    padding:14px 16px 16px; box-shadow:var(--shadow); border-left:4px solid var(--dot,var(--brand));
+  }
+  .sup-card .sup-name{ font-weight:700; font-size:14px; display:flex; align-items:center; gap:7px; }
+  .sup-card .dot{ width:9px; height:9px; border-radius:50%; background:var(--dot,var(--brand)); flex:none; }
+  .sup-card .sup-count{ font-size:11.5px; color:var(--muted); margin-top:2px; }
+  .sup-card .sup-numbers{ display:flex; align-items:baseline; gap:10px; margin-top:10px; }
+  .sup-card .sup-numbers .n{ font-family:"Barlow Condensed"; font-size:26px; font-weight:700; }
+  .sup-card .sup-numbers .arrow{ color:var(--muted); font-size:14px; }
+  .sup-card svg.mini{ width:100%; height:34px; margin-top:8px; display:block; }
+
+  /* ---------- Roster controls ---------- */
+  .controls{
+    display:flex; flex-wrap:wrap; gap:8px; align-items:center; margin-bottom:12px;
+  }
+  .search{
+    flex:1 1 180px; min-width:140px;
+    font: inherit; font-size:13px; padding:8px 12px; border-radius:8px;
+    border:1px solid var(--border-strong); background:var(--surface); color:var(--ink);
+  }
+  .search:focus{ outline:2px solid var(--brand); outline-offset:1px; }
+  .chip{
+    font-size:12px; font-weight:600; padding:6px 12px; border-radius:99px;
+    border:1px solid var(--border-strong); background:var(--surface); color:var(--ink-2);
+    cursor:pointer; white-space:nowrap;
+  }
+  .chip[aria-pressed="true"]{ background:var(--ink); color:var(--surface); border-color:var(--ink); }
+  .chip:focus-visible{ outline:2px solid var(--brand); outline-offset:2px; }
+  select.sortsel{
+    font: inherit; font-size:12.5px; font-weight:600; padding:7px 10px; border-radius:8px;
+    border:1px solid var(--border-strong); background:var(--surface); color:var(--ink);
+  }
+
+  /* ---------- Roster list ---------- */
+  .roster-head-row{
+    display:none;
+    padding:0 14px 6px; font-size:11px; color:var(--muted); font-weight:600; letter-spacing:.03em;
+  }
+  .roster-head-row .rh-metrics{ display:flex; align-items:center; gap:10px; }
+  .roster-head-row .rh-jul, .roster-head-row .rh-ago{ width:32px; text-align:right; }
+  .roster-head-row .rh-chart{ width:96px; text-align:center; }
+  .roster-head-row .rh-delta{ width:70px; }
+  .roster{ border:1px solid var(--border); border-radius:10px; overflow:hidden; background:var(--surface); box-shadow:var(--shadow); }
+
+  .row{ padding:11px 14px; border-top:1px solid var(--border); }
+  .row:first-child{ border-top:none; }
+  .row-top{ display:flex; align-items:flex-start; gap:10px; }
+  .row .dot{ width:9px; height:9px; border-radius:50%; margin-top:5px; flex:none; background:var(--dot,var(--brand)); }
+  .row .name-wrap{ min-width:0; flex:1; }
+  .row .name{ font-weight:600; font-size:13.5px; line-height:1.25; }
+  .row .rut{ font-size:11px; color:var(--muted); }
+  .row .metrics{ display:flex; align-items:center; gap:10px; margin-top:7px; padding-left:19px; }
+  .row .mval{ font-family:"IBM Plex Mono"; font-size:12.5px; font-weight:500; width:32px; text-align:right; flex:none; }
+  .row .mval.jul{ color:var(--ink-2); }
+  .row svg.chart{ width:88px; height:22px; flex:none; }
+  .row .delta{ margin-left:auto; flex:none; }
+  .row.no-data .metrics{ color:var(--muted); font-size:12px; font-style:normal; }
+
+  @media (min-width:700px){
+    .roster-head-row{ display:flex; align-items:center; gap:12px; }
+    .roster-head-row .rh-name{ flex:1; }
+    .row{ display:flex; align-items:center; gap:12px; }
+    .row-top{ flex:1; align-items:center; min-width:0; }
+    .row .dot{ margin-top:0; }
+    .row .metrics{ margin-top:0; padding-left:0; flex:none; }
+    .row svg.chart{ width:96px; }
+  }
+
+  .empty-state{ padding:26px 14px; text-align:center; color:var(--muted); font-size:13px; }
+
+  /* ---------- Notes ---------- */
+  .note{
+    background:var(--warn-tint); border:1px solid var(--border); border-left:4px solid var(--warn);
+    border-radius:8px; padding:12px 14px; font-size:13px; color:var(--ink-2); line-height:1.5;
+  }
+  .note b{ color:var(--ink); }
+  .note ul{ margin:6px 0 0; padding-left:18px; }
+  .methodology{ font-size:12px; color:var(--muted); line-height:1.6; margin-top:10px; }
+
+  footer{ border-top:1px solid var(--border); padding-top:14px; font-size:11.5px; color:var(--muted); display:flex; justify-content:space-between; flex-wrap:wrap; gap:6px; }
+
+  @media (prefers-reduced-motion: no-preference){
+    .row, .sup-card, .kpi{ animation: rise .35s ease backwards; }
+  }
+  @keyframes rise{ from{ opacity:0; transform:translateY(4px);} to{ opacity:1; transform:none; } }
+
+  /* ---------- Print / PDF export ---------- */
+  @media print{
+    :root, :root[data-theme="dark"]{
+      color-scheme: light;
+      --page:#ffffff; --surface:#ffffff; --surface-2:#f1efe7;
+      --ink:#100f0a; --ink-2:#4a4840; --muted:#767268;
+      --grid:#dedad0; --border:rgba(16,15,10,.16); --border-strong:rgba(16,15,10,.28);
+      --brand:#003F86; --sup2:#c96a02; --sup3:#0e7351;
+      --good:#005200; --good-tint:#e4f3e0; --bad:#9c2b2b; --bad-tint:#fbe6e2;
+      --warn:#7a5300; --warn-tint:#faedcb; --shadow:none;
+    }
+    *{ print-color-adjust:exact; -webkit-print-color-adjust:exact; animation:none !important; }
+    body{ background:#fff; }
+    .pdf-btn{ display:none; }
+    .controls .search, .controls #chip-group, .controls .sortsel{ display:none; }
+    .kpi, .sup-card, .row, .note{ box-shadow:none; break-inside:avoid; }
+    .roster{ break-inside:auto; }
+    section{ break-inside:avoid-page; }
+    .wrap{ max-width:100%; padding:0; }
+    a[href]:after{ content:""; }
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <div class="masthead">
+    <div class="masthead-mark">
+      <img class="logo-chip" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAQ4AAACUCAMAAABV5TcGAAABQVBMVEX////0fAIAP4YDPYbyfQIAQYUAMH3///xnk7ututEBN4MAFW72ewIAQYcAQIksQoP3+v0AKnuiscwAQIArU5QAJHMAIXbx9PcAPYzI2OXV3OeBkrUADmpJXJDd5O3wbgBjeakAQn6etcrg6/CxxNlbbZ/7vpD/+PKOor8ADnD1//4AGXdjgKlVZJoyTYn717TyhSUAMHYAAF3/8uLuZQAAF2gAAGb+/O4cWZX/3sj02Kv4ixj95tb2r3j5uoH3rWn3o2D/bgDtWgAAN4wAI4zs8f4wZaUAAFR3h7ZTfLD55cb8zZ74nkr5mCr6xKD4z7X6pG/3jTvyeCf1kE3zk1r3qlr3o0HojDXxt2Lxby/tSwD3hEPxp4V2n7mCnMq9w+FibpQbIFvR2vN7i8msuOJCVp88Snk6a5obTKIuPXIuLG87Hc0YAAAcM0lEQVR4nO2dDV/ayNbAITFDCSQQQkIg8iYBURBNBa0rvlQWF2trRbe79+7ubbvebn3a7/8BnnMmLyQhqN1ttXo9v9UqhMnMf845c86ZiRuJfBcSi911D+5U1rdQVqn8APJifX198a47dWsSA1l/0d9aPd57+curbZA5lGQyGY1G4Rv8Ci/By292T16/eLG+GHuY6hKLLS4ubq3u7r159Wp7rgwCCJL0m/19IvhmuQvf5rbX9nZ/eLG4+ICYWCBOGqf7r0ALcJhlSxeiKHMBFMm5OUdfbDTd5Hjv+Ic+MLnrkfxjWVxcR7s4PwMGB12LAx0lcJghFBJSidJfAMzzbrdbjp7vvAYkdz2gvyugEuvrWyenY1R9Oh5ntNZArWFTHfHhidpaEfUBsxo52z/euodEYkBitbH3ZhztomlQEjDupOswbZmzfrFedzDY0BwmLqgo2llyfHrSv1dAFhf7rxv7L7eTlrucc5XB+jkZ9Y82GfVrhe1R5pzPWTis66LoepLjxtY9AbK43t862RlbC4elD44mUG9g/0QdpsPBucJ1HX4v4pqVTRGUpHwfgGwiitPztahvhidOYkqueTtcktSRRH89Wb/r8V4li/2txs75OGqFE97u+37752JrVLd7unXXY54hMXAWf/x8RuMm6h59s/mVcVBTo271/Lvksb51vLN/BiuIuzQGZvIrG0syaq3Kye+PR6z/+mQHQiyIsuecsGlquLPGe51rmYHDXqZAQbq/f0/+I7YI6ykNsmi04C6USXcarxpuMnD5jcVeesBikgf738v6EuuvNk7HlmdAU56L+pdFOxFzxfN74J3yl2pH1Mp/gXa5e3LXHKhsrjZ+PoOula3YaKL2NCoo04Aaxrm9PX4JsrOzS6VhC/y4s7e3t79//usY8nnr8ucuGFuj7HDeCr6CKmTPQvds865RgO8EG7GyUiehsCccv0P/117u7zROTk5eb/XXURbDhb6HCR4Q2tmDMNZK+21VcuL16CxjQn0sd1fvGMYW6MWZ5S2wTkM5PLd14eXebmO174w/FrlJQk6zfwvPC6yG7I8BgRPUWsG5ZSBTOHAeDva++YCvkPXjN+OzcjnppFTP0Sjm5l798mZ3te9A+PtioVlfPd5582rbMqBocLlyzYWuZAdrX21sXyqbx/uWXtgJd7d7cFAeA4gX/xRDQCwqr3dpFti18uEpJEnqVp6v3ZHz6O+O7UwdnB+WL8prbxqvt75l1S4GevLml4PuQRcsMcjDsqVu+S5Cj/XVl+WDrlXOK3cPymv7O8e3VXXov977Za6Ldw9xpt2128fR342COlAU4DfW9m8/u+439sZOhdX1pBjpPL9tHIsnvyQP7LWv/Ove6p0VGraO32wnnVXYitOTZ+Vfb9V39HfX0GPA19xLWDzuOOjZ7DferFnpALhS8B3Jg19u7+7rq3tz6DPnztZeNr6X7HH9ePfNGNZgyKAxi/vXLd12sX9yjivIv89e7hx/T5kjXXF2casCoBzcTlS6CFYCYUX37PSk/32xcGTxh52fISS8jTstbu2sHRz8+3ynsfU9b3wt9o/f7G5hTvBNb3KyX0YWr79PtfDJ3m/bay/3Tvr99a+7ZRlb79N/F/uNX8tnPzdW7wGLSORF+YDGQtHxeeN4tf919CSGG0V728gErCR5vrN691WEm8nxb3O0+JFEJNvj08bJFirK39eT2OJ6f7WxMy4fnEX6J6dn453jrfsCIxI779o4aEEZoayNzxHKVn9980uhxBb7/deN05eYkp2dvo6cj09Pvv/dLY+8wOqCBSQ6Z5cNaSS/dna+D1DwtMwNdAXz5/7W6snOz7+fYfGmfHaKocUf98F5euVf3clZgDl3bzvqHBlYG+/v/bHTOH7Rt0tyvg/bBbl+f/W48ccf++O1ObueN4ZFBBHeJ8VA2Vwrz0Unx0CcxM4u21p1xufUfvZPd3YaDfC2Hmk0dnd2Tk/3z9fmaGXXrm7/3ti6Z0rhyHHZLd9bSkIrztHJnobjZu36K7yyZotV5/aU+a3zEmfn92AvfIZsviwn54L7XE5tyKk4+zY6fDsayclmcpI6nfLa3uv7dXTEJ8dn7u5OdGovOGw3Kzm51Dpu5O7pIaZzCHC/5xj8OtnrJsOrylcJ3QaZeBur6guKcQqKcZ9hRNbPn0cnZ2VuToN6FOc4ET0aQet795pFBG3l+RWbUrOB4LfJyapy8tXuC2cJvs+HV3fKyS9WjqjlY6yVCGOTs9NVT+53j2ks7lMcX+o8nE1UZLG9d/IQju5SWT/v2tX0L8WxDXrxW3kMweoDQYHyYtxF5fhCHHPR5wcH3e2Xe6sPCAXK+rhMXYf/mOLkR89Zq8kpXnCdc7/urX6b+CI9HKYj6XRtmC4tf4v2r5TN/QO6t+A5VOHqgHMWIuo5s4wR6dzazmr/m/XIOBSfZZ89e5YV1P98s5vMlOOz7nY06Zl+z2EzG82kDlKOgoEcv/imHYqnFJOKtPHkm94oVDZ3u8+TroXMTZQk6Zy3oKcMYDEdv9ndvYViZzxFRFYTWZFP3AGOyHrjd89Otv0MQNTCQB+agcz+fPd49bbSMsDBsCzDCIOlu8ABQHbPz8661kMR5fLz59ZDHiDj8/39ncatgbAEcQisKN6RdqAsbh2fNHb2f8bxg+xhled4detOtsoAhyAwIOyd4bBkcZGeydu825o3NRaAIdyddnxP8ojDJ484fPKIwyePOHzyiMMnjzh88ojDJ484fPKIwyf3CEd6mMvl/mETtbxh5I18adYFN8AxzBvxuAHNlG7SmVI+nsk0M5k4XD+88spcwcg09WZzwZjZO1dq+YWmPmq39WbGuEjPumoIwGrDIRb4rE/52zCao5UOSKqzMtIz+bAWrsNRyuhHxRTPs6lUp1h5++HqEb7T25edFEsIz8Pll21dd2+agYHrb9/q9ktpQ68UUyker8wWR/GZQ8RxxEdwKSfLDMtCP4rvm6FDScfrKCuVer1AX2gWPe8W3q6kiCrx0ATPE2IyH9vGl+Io6MUUgSYw42V5YppsUQ/titXW+5SCJFhGYOCeMFT1p6Y9znS2N5BAiJKKY8OjlCQNWEtMSU1VZjZ7oWdZRSK8hgPRBoOBqZjZkTHNL53pwe3hFr0EDnT4XvrR895HbIMVOE0TGQ66N5DUP99ffAmOdKaTQJwaXsCyogittNROJtxmLipmQqIXAg5OgO8sJyUWXBwqI3OcxvAs4DCKqsTJjCgIHCcw0C7pdd7NYJyFKeU4GIFGG+Y4uIGksvqUhaUzEsH3OUkFHLmVHi86bw3/qyo8A40I2C+R1TRN0Fizx364OY7hSFHoTAvwDTSVAyAsI0vqKMxiMkQ14QrKQwDhZLipqjiTns4qggBA2AGJRz6koKsCK8JM4b21Ki8yPao1QRm2lYRGGYgsqBwMgxFEURC1gZIKDoXiYBhRlCQjMjzssaJgv5O7TBA6DhbnFsYiw2/QlKjKmZviKLUVgrMHODm5yoiDgYZVVU4mvfeFqX6/7SkAi6syqJCCCLoEQKrqJ+dKwAFKIHAin1pY+KxCM7LAVWWODpXTWJlVi9P2ks8mTFmsUsQiI8PlOBQRZkfgVaUZikMQJWJEdAJXcjaN4hIvW/otslRxRYDCiBwDl/qhzsRRqqgEzQM6IcCkwDVytVqFvsgy2WgH9ePtU1WoohaycDfsN8yfJgpq1jEsCwe8zQiXzwjFBd8EGCAw5DVolVdGQSvMyxsDhqsOAIimATwZxgD6BHeoVgVNfeqfWhsHJ5u9gpEiGqiqReNyg4cZ0hAETyRFlYgJI4E+8qwoMb5JmIVjqPcGVJ9ZWRioLVVSVUkCPAIoiEgSut+TvdtQYeKhs9S6wbRVVQHXxbQOAzgYmCUGB1+Fi+Aywosiz8FgZVlTUwFXP8wucbJIqvApWdSI1AKReECIWDnksRCCQ5BVrTBSeTAGmb7c3JA4sE3UK0WRnx0eHmZZ9UeNqcowFXLvvXcos3DEJUVAz8MImtRLHY2ePGlXlZ6GHm3AVom/5zWlJcgsKkYVkEuKImazWYEfqE8DOAR0ZTBRjIzLw+XlIadIrDiQQfsEligj30bg8sq8huakwVSykmI+e/LkCWiWyqMrRA/A/fjUO7WOdoiqoGcJh6aFL5cSKvU8wF3pNPO19HKuZoyIpAlVWRRl8qdXx2bgKBR7YFsyuA2+l2rS/crl2rtPvQHYG3ZEaXtDnPaSgI4DZk1kSC81Mi5qtVr+4t37P+s+HOCNcZmCrqlKxYCODS9GpipWqZMWBMXvPZoKC/4bHAcnssqnkYEGmiu87SgETI3F+a4uZadwsDJPYC7AnERJxVcrCRGQCgJ430oBT8PEYpsxHLfGwTQI4LM8lh+OI9ecJ6D8HBAl9YuIdRY6Frmoq3TVYATeqx5Gb1Cljh/mnje9i/m7vKOJDg64Gdix0sk4b3xIgbMUcPo40/RO1EVHxWHA+MRBD0DhsR78Guom+B54CzRde+pxp64rlTkTbqIp5gpO7BK4QFBqjjMrhZhVp8dm4uYANF/jROJd0sJxFIoq+l5G1qQjqga0nU1Y9xIm9ENmeFV3mS6vwMVcFW2A4zvN8PjSMhY0KJzrjx6YmZ6k4UIK6FXdYy36j+CJoE0grbwf0ml1hv1JEsAH8aLGKZ8m4YeNAyjhfTQ1+wFVsz3P474J9Ljtj9nfKqzIaeAZe5VrcKTjCZ6j8y19LES8561KEvhMWB5EUncV2yA8g0EGdGTAz6Dh4IDlEjpqZrxXVZdw9kC1OLUy0dt8iuCCDf6Z7XUKm75TTk1wOCIH/eOE1tsgDkoWHHPxwr4vzissqSn/OhQbcgo0AW5cKU6QhuIoVSCGAcIyL2Vy1NroH6EEyY0UXkBXRjruBOsK+BMwZzAhZWoF9uPA6ziYJ19E+RbWQegD2KBan7zRJBga4JdkxpdjviNww7oCfUbjY9SVIA4BowNByVo2a/QIwmZ4Uik5g6ASiYBTEXDp9lpLKI5CVsKOy7KUzbv9sBoxTCKgEvOkaXvJYVGRMfKFZV3tzMw8LBzYV4EE4s8LWAixD4KgFt34rlaXMIKBD2hqHXXJd7olkzJZkUarxHSnxcbBoIbAPFov6ku8QHHwzUhsedmDI2a0NJn6O1W/Ekc6Tgh6Y45N6LnAnxqtZSW4XZXTFGeKDZZATMRhVN4bzaLhLLSoR0rdH9QOVcUaueAJTI0OLmKszGkSRPUxLw4YSamuaIADYkLNdMfiaAf4ZZhHW00PWzBNwAi12X9eaDMnKVXqIVsV13bDcOSaCV5E70bUuKMa7nsVBV0so0nOoDISC0EjZAGylJqRhrk4kAgr6f7oM6clwB8FcGR4HqNp4C5lc86i4uIAAx1wGGRDLFsP4IBIEbzQW2uEaWibwQGSolHySaF0ISoyRttgcK6TDcNRa+N6CjEK4eOFgEDeSjMhVnIMQ1fRkcLVnG8FD8UBMbbA84FcbTk7D/qMauvBofPo90XQO3T8sdiUtQAOCFU5UZnkATYOCJhMYq/2FxBNUjfNZo+O2l6ptI8gPuYwIZQmtw3DUVpRBTByCI3YYn1lpY5fK45kWZHOpOQYbQVxsOg+vCvWbBwkGItHsvNiEEd6ZMoa4AA17OkWCg+OmNVtmAVOUFjH/bquVOQU0bFkVRIYq6rCD4hEfMKCjUPGoEmTZSEUR1bhGBpWiUTB7APyFSJZgkmGiNUHQqxSxnJdhQBdhHWZ6U1c0gwcmIKRqcwVcAgBHLUK4TSaAQ96TctQfNqR7xBQAlaz0lcfDgzo1JWcg4O3cIDzp//Q/yyhRgTOTDSvxyFgQoaLPmOJYIvblqlYIUZuReVkbJZhlWtxwNSxUsCTUmPB3JDz4CjVCToaGSakl4n43Tn+XCvirGMmMoUDwl4u0bZxZBIUBy43zggYxh0SHRa4qElIEoajkFJgCROtqlawEUs4iB6slTZXBGMRGZohBQoQYTimF5ZQHIU6wRIeOGgecfiux9/ygANjHYGZ1g74YMLx1pl5y51YMMQQ4eTrcORTEqZvLHYo+GmbDuLQXRwCRjpfF8eKxCIOAVLIYKsUR4dQHLBkTOMQ2HknOHZxMFbZkuV51i88qxHTvUW4dkjQpobRxSDwad4RVlrS6fKUQ78LLgmcwvXGgtZ3UxwwGTDRVb5nn3d1DQZ/MDpY7aORMB/AAZrAuziMFrFYQEKUAJlPTEtrvncljhIEpZA8QVamEdUR25VOftho2zgUwEGN5XpXiiWwG+EoVQgqN+TprPokgAPVYyHFU8fGCWQah8i3nIr1hcrbmpFt6zNldJ0rBWcBKQsR281wyWSaul3br2BMiXrLqpXrcKDfvxGOnM6D4xIxp27VQ3BARkMrlxyjiG451l5oMXx0cOQl08IBKWdutlwZlZbAT3Gw6LOSmU/P+HzabWMkyTIWdSC7vD4Mu6mxRHSTwQIbROGtaggOXUK/AcbEKVm3pOJktOwEBwTiMvo1lmRDNpmmJTRIbyfQZUAiNJ+5anfMkiaBABI0F9bEqVr/RNwE/2YLbSRjDkSEBxmf5GQbdiYKX+BaICwBlwW505F7C0c7OOIaS+SvHoM7OSzPXOHnr8HRbPG4PSPzicr126dGCvI9jKNgabkuhbs5DqMjoStlrY7FPNUf/DGekjQrxPAsZ6E4RvOaQCMU6QZDmZHgG7xZ5bAYQMTZW5CO1IqqiMVuCFSsYtFXwVGrKzJuPUAQqYrDTStxoyzgh3Rb4mExA2viJOK2FopjoSVpWBlhpancgErMf6w3vN5RVGRaGecTzet37dsJFnDgHiM/e6n9UhwRHVZSLJIxImnpLgpLQ4wOFvYEzKTVw8ktwnDkRBU0l8OFdiV8robemmEojuFoiZVF3NAAww31HsOLCaa4omHGAt0TByQTdvXfwWGkYBzoGTlR+jPueyD0AkIdjD0hMtI2JulxKI6IvgGWItJgJGwzNf3hk3cKZ5SOeUVEm4OUQAzRsWHm0/uJJeayCZEu97AQSKE7rX8HR2Sk4gYiUBZk1XxHq/mWetTa4NpkzKm06rxnZyEcR0k1cWkB02KfBu8MHzl66oulw3GU2vM8JIzQQ1ElQf0YfqgrP3lLOM0e4XAVxeRJNXXPHOQyjrF9OY78RwXidIwZOFExmzUssgONofG+x2OOBGGJZv7koR+OI/JfE7iBHxQ4dqOzUHOX5XQ6r2dbLYVcjyOS5yURizrgzpT5igFxRpq2kK4tjFIbCclf0cr2ZJpe0plsZXWjBFeWjKZ++FPqb+OIvFUIfgQL1ZzSOvzPQmlYiOt1MzHATSSBAwXZOPJc70SlARzDjy2tCl6GZbSBqmT1hXyhVCoYzSeH0kYLN6kCOAS69+jHkWsqJgTJsFxzDEmQw3YzkzcyzSeXnKRKsAoTrw5EDMWEyeIwjoRMDq7gDo8Os7yi8PN/+XGA9k+FYeln82IYjghW7WVIABjc/lLnJR6iKaVHsEqAGTunbWS9k5LOEBO3b0XBhyNyYapoKwLuvQ+g9zQN5bGAg3v6nvwtMtEOJrBHW6irPCtUsQIj8ANJIiYeIZIk+EeEdDZQ79SfmpymsazG0BqaCamOIhEyYBUPDtzTgCRwSjsAB9YRGDmIo1Zv8TIscRyeiWFY+sgeLr0yFpVh9WylfKd3UDs4DFQEXvXiiGQUlRatOdzHt7NQCHoZuQpTyIfjCD7eU1hReZme7sDln4EGaCILqw1aYQBHut6TsHCAiQT6VJFWXOD2klhzcWANjWG1EBxL+DAefAWPeBTqPVZmhYEm4v4TLT3hEQ3rjAab6Pi9POLAQx2Qs/i0I5JuphI8PSPCyfR8iIjrktXRGdoxfdwlX1cJLZtgM1XBOeTEMXhARQ1Uw4cVRWVwJq1jU0ACbyxPipaWsXDQ2TBjEegeUlA78GyaChOr2ZUX0D+RbvRqsKwQNZiFpDOqBCOFKQ/gwFNdKm/1n86IRo+X4B3BlYWsLELYYajCiKgE5pweqMISmwhqihMFOVJCD6zhOT3VogUskbFqZ3juSBMl1hlgVqXlNXFaOyJoLBxinj4ANNRTsFAiWFrPooeF6Fky5dMoeM4NtQPjH3YKBx5cS0mEp6VRaAuFhlU8GZAV7z0Bh1UTIvNTR+VqmRUTDwLikgaKT/uC1iZJqfrUycd0vM5KBE0aPTMn0AhbUJzDYblsDy0OOqBO49iwa0pKyHmod+2/wP3xLGuX+AA0uMFUezq+STdVBfzbQCLqRhAHhEqjDnSc4FDtMhZRcSAZH9W4maDFHCnxtD11g0ghU09JKrELYHggE7pCOu1M2FHXUqZuwrv8RAiv8i4OFQcCPZkylshhgublDBeGI5J7NypCpiZZuwLQVcJ1KvFayIUZpvMs2+l0nnXYkHOqw7heKbJ0NwBXFSLxK+2mEehLXre3YfT3YSlOupCBRuiZKsjjYTTZOrQxKzeEi9vFLCzPPB7PST27bOsZx6gybukoHkyD4s0MrShlMlNvWQPJx/XRSrHTgbEWVyp6ZkYHSng2mko89IJcKZ9xK2Bww0JpGlquZomnJDTdSMapgWWMQu2qEghcbMStq6Fv+dpkeFbBKE3juaCkw1/2tjss5OlA8zc7Cj67IXu8uevueKWkr+/x37z4UR7lUR7lUR7ljuXigzFzqa3BSvzA/lzUNVLSP6eCMedQH1lPHRkfzdFN9g8ejgxHTxPBzbC8mbDS9DjZmFEvf6gCOKSgdhgJuwBsyPM32l16ODIcJUgwXy2sfC7SDNdgl/7HcNTaCXXmznH8fw7HcLQ0G4fBzbdDUv8HLIVKb8pYXAFX6tWOf/hM9vcruWb76Kj9JJND7Whl0hf65eVR3TnylGuO3tKilsFNjKVZ+T9hRmv3XHIfBkutpaWNjWIefYeZj7NP5xOJ3k8rFo+c8NNny5UyDo5CPdHr9e6uy99QcvqGKnUu6yud94hjPttOJf46el/kf5y3Ht/I/bVhbTK4OC4OVfXZ0dEVjd5faW6oZjufXl7OQ3hea6uMQvT8MsSiClmiFHLZJT+OXL2lPjOWb/9Pjt6CFFRFmjz3Mxwp7pHWZ0qLnjfKZQPa0SQ97uJe/1Hs2fKk1fI8NgTa0crav75NzP+F/wKOlBfHcrvVat7s/x17/ySb8DyOhKc7Ws4WoNHq0XODQe3IFxMSPr7yEEOQobT02XOmCFypsuA+j9DLon8I4jA6KnNZqVRCdo7uvZSkJdOzBQQ43BTOUOdtHPN+HCmJU1RiqnfQ3W8tJannxVFqJ67F8S6lCM1MZmHWQbX7LDUu4T2gU7qBdlx0ErgZ+iDX2UhlSZ08yngjY0nXwd3eRVdvQ+JLLc8jmLUbGEtEV1rM9QeE76fkVp5Kl9bgahiVLnlwJMJxwEqrFsP3v++/FMiGdKjHjYyuF26GI71AElJHf4iuFKTQ2VhSUylW/RSPlCqT0nF8/ilL/6pH6qn1OFtc3bBOjyxnPvUS6uc76/G3lYLeIZIiSUUDcpbPn1ztSH2+xH9z71MrlnYUU/Yf0Eob/+1UxRnN3XvJlfILCwtGKR1J10ruCY80BOL0B3gtbb/gvjcsFR6iN3X+cvoNj4x88f+V857Jw0zTv5o8zKLOl8nDYxB4zOorSc5tPKz9/wd8ba30VKEg+wAAAABJRU5ErkJggg==" alt="Elecnor" width="132" height="72">
+      <div>
+        <p class="eyebrow">Producción en terreno · Baremo diario</p>
+        <h1 class="title">Julio → Agosto</h1>
+      </div>
+    </div>
+    <div class="masthead-right">
+      <button class="theme-toggle" id="theme-toggle" type="button" aria-label="Cambiar entre tema claro y oscuro">
+        <svg class="icon-sun" viewBox="0 0 20 20" fill="none" aria-hidden="true">
+          <circle cx="10" cy="10" r="4" stroke="currentColor" stroke-width="1.6"/>
+          <path d="M10 1.5v2M10 16.5v2M18.5 10h-2M3.5 10h-2M15.7 4.3l-1.4 1.4M5.7 14.3l-1.4 1.4M15.7 15.7l-1.4-1.4M5.7 5.7 4.3 4.3" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
+        </svg>
+        <svg class="icon-moon" viewBox="0 0 20 20" fill="none" aria-hidden="true">
+          <path d="M17 12.5A7.5 7.5 0 0 1 7.5 3a7.5 7.5 0 1 0 9.5 9.5Z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/>
+        </svg>
+      </button>
+      <div class="period-badge">
+        <b>50 técnicos</b>
+        3 supervisores<br>
+        Generado <span id="gen-date">08-09-2026</span>
+        <br>
+        <button class="pdf-btn" id="pdf-btn" type="button">
+          <svg viewBox="0 0 20 20" fill="none" aria-hidden="true">
+            <path d="M10 2v10.5M10 12.5 6 8.5M10 12.5l4-4" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M3 14.5v1.8A1.7 1.7 0 0 0 4.7 18h10.6a1.7 1.7 0 0 0 1.7-1.7v-1.8" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        Exportar a PDF
+      </button>
+      </div>
+    </div>
+  </div>
+
+  <section class="kpis" aria-label="Resumen general">
+    <div class="kpi headline">
+      <div class="label">PROMEDIO JULIO</div>
+      <div class="value num" id="kpi-jul">–</div>
+      <div class="sub" id="kpi-jul-sub">&nbsp;</div>
+    </div>
+    <div class="kpi headline">
+      <div class="label">PROMEDIO AGOSTO</div>
+      <div class="value num" id="kpi-ago">–</div>
+      <div class="sub" id="kpi-ago-sub">&nbsp;</div>
+    </div>
+    <div class="kpi">
+      <div class="label">VARIACIÓN GENERAL</div>
+      <div class="value num" id="kpi-delta">–</div>
+      <div class="sub">promedio Baremo/día, Jul → Ago</div>
+    </div>
+    <div class="kpi">
+      <div class="label">TÉCNICOS</div>
+      <div class="sub" style="margin-top:2px;">Mejoraron vs. bajaron</div>
+      <div class="split-bar" id="kpi-split"></div>
+      <div class="split-legend">
+        <span id="kpi-mejoraron"></span>
+        <span id="kpi-empeoraron"></span>
+      </div>
+    </div>
+  </section>
+
+  <section aria-label="Comparativo por supervisor">
+    <div class="section-head">
+      <h2>Por supervisor</h2>
+      <span class="hint">promedio Baremo/día · Jul → Ago</span>
+    </div>
+    <div class="sup-grid" id="sup-grid"></div>
+  </section>
+
+  <section aria-label="Detalle por técnico">
+    <div class="section-head">
+      <h2>Por técnico</h2>
+      <span class="hint" id="roster-count"></span>
+    </div>
+    <div class="controls">
+      <input class="search" id="search" type="search" placeholder="Buscar técnico o RUT…" aria-label="Buscar técnico">
+      <div id="chip-group" role="group" aria-label="Filtrar por supervisor" style="display:flex; gap:8px; flex-wrap:wrap;"></div>
+      <select class="sortsel" id="sortsel" aria-label="Ordenar por">
+        <option value="caida">Mayor caída primero</option>
+        <option value="mejora">Mayor mejora primero</option>
+        <option value="az">Alfabético (A–Z)</option>
+      </select>
+    </div>
+    <div class="roster-head-row" aria-hidden="true">
+      <span style="width:9px;"></span><span class="rh-name">Técnico</span>
+      <span class="rh-metrics">
+        <span class="rh-jul">Jul</span><span class="rh-chart">Julio → Agosto</span><span class="rh-ago">Ago</span><span class="rh-delta">Variación</span>
+      </span>
+    </div>
+    <div class="roster" id="roster"></div>
+  </section>
+
+  <section aria-label="Notas de calidad de datos">
+    <div class="note">
+      <b>2 técnicos sin actividad registrada en agosto</b> (los 31 días en 0 — probable licencia o desvinculación, no bajo desempeño real). Se excluyen del promedio de su supervisor y del total general; se listan aparte, abajo de su fila de supervisor.
+      <div class="methodology">
+        Metodología: el promedio diario de cada técnico ignora los días sin turno asignado (celda vacía en la base). Un día con Baremo&nbsp;=&nbsp;0 sí se contabiliza (turno trabajado, sin actividad facturable ese día). Fuente: Julio-Agosto.xlsx · almacenado en Historico_Comparativo_Tecnicos.xlsx.
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <span>Baremo Julio–Agosto 2026 · Generado <span id="gen-date-footer">08-09-2026</span></span>
+    <span>Comparativos\Historico_Comparativo_Tecnicos.xlsx</span>
+    <span>Diseñado por Xas</span>
+  </footer>
+
+</div>
+
+<script id="tecnicos-data" type="application/json">
+[
+    {
+        "rut":  "11620226-3",
+        "nombre":  "ABELARDO HIPOLITO VENEGAS HERNANDEZ",
+        "supervisor":  "JULIO HERNAN PINTO HERRERA",
+        "agoDias":  31,
+        "agoTotal":  182.18,
+        "agoProm":  5.88,
+        "agoZero":  false,
+        "julDias":  28,
+        "julTotal":  175.59,
+        "julProm":  6.27,
+        "julZero":  false
+    },
+    {
+        "rut":  "12056884-1",
+        "nombre":  "ALEJANDRO ENRIQUE LAGOS GONZALEZ",
+        "supervisor":  "JULIO HERNAN PINTO HERRERA",
+        "agoDias":  31,
+        "agoTotal":  212.57,
+        "agoProm":  6.86,
+        "agoZero":  false,
+        "julDias":  28,
+        "julTotal":  183.58,
+        "julProm":  6.56,
+        "julZero":  false
+    },
+    {
+        "rut":  "17160888-0",
+        "nombre":  "ALEJANDRO NICOLAS PARA GOMEZ",
+        "supervisor":  "RAMON CARLOS VARGAS FONTECHA",
+        "agoDias":  31,
+        "agoTotal":  186.13,
+        "agoProm":  6,
+        "agoZero":  false,
+        "julDias":  28,
+        "julTotal":  188.57,
+        "julProm":  6.73,
+        "julZero":  false
+    },
+    {
+        "rut":  "16033846-6",
+        "nombre":  "ALEJANDRO SEBASTIAN CISTERNAS MARIN",
+        "supervisor":  "RAMON CARLOS VARGAS FONTECHA",
+        "agoDias":  31,
+        "agoTotal":  181.13,
+        "agoProm":  5.84,
+        "agoZero":  false,
+        "julDias":  27,
+        "julTotal":  152.54,
+        "julProm":  5.65,
+        "julZero":  false
+    },
+    {
+        "rut":  "9424247-9",
+        "nombre":  "AUGUSTO ANDRES FUENTES TAPIA",
+        "supervisor":  "JULIO HERNAN PINTO HERRERA",
+        "agoDias":  31,
+        "agoTotal":  0,
+        "agoProm":  0,
+        "agoZero":  true,
+        "julDias":  28,
+        "julTotal":  145.96,
+        "julProm":  5.21,
+        "julZero":  false
+    },
+    {
+        "rut":  "19016218-4",
+        "nombre":  "BASTIAN IGNACIO RIOS MADRID",
+        "supervisor":  "RAMON CARLOS VARGAS FONTECHA",
+        "agoDias":  31,
+        "agoTotal":  133.95,
+        "agoProm":  4.32,
+        "agoZero":  false,
+        "julDias":  28,
+        "julTotal":  159.78,
+        "julProm":  5.71,
+        "julZero":  false
+    },
+    {
+        "rut":  "15714377-8",
+        "nombre":  "BENJAMIN ALFREDO MIRANDA IRARRAZABAL",
+        "supervisor":  "JUAN CARLOS ESPAÑA GUERRERO",
+        "agoDias":  31,
+        "agoTotal":  93.64,
+        "agoProm":  3.02,
+        "agoZero":  false,
+        "julDias":  28,
+        "julTotal":  104.06,
+        "julProm":  3.72,
+        "julZero":  false
+    },
+    {
+        "rut":  "21504558-7",
+        "nombre":  "CARLOS HERNAN MUNOZ MATUS",
+        "supervisor":  "RAMON CARLOS VARGAS FONTECHA",
+        "agoDias":  31,
+        "agoTotal":  176.04,
+        "agoProm":  5.68,
+        "agoZero":  false,
+        "julDias":  25,
+        "julTotal":  193.37,
+        "julProm":  7.73,
+        "julZero":  false
+    },
+    {
+        "rut":  "20175491-7",
+        "nombre":  "CHRISTOPHER PATRICK LISBOA BARRERA",
+        "supervisor":  "JUAN CARLOS ESPAÑA GUERRERO",
+        "agoDias":  31,
+        "agoTotal":  135.94,
+        "agoProm":  4.39,
+        "agoZero":  false,
+        "julDias":  25,
+        "julTotal":  139.9,
+        "julProm":  5.6,
+        "julZero":  false
+    },
+    {
+        "rut":  "15957153-K",
+        "nombre":  "CRISTIAN ANDRES VASQUEZ MUNOZ",
+        "supervisor":  "JULIO HERNAN PINTO HERRERA",
+        "agoDias":  31,
+        "agoTotal":  228.93,
+        "agoProm":  7.38,
+        "agoZero":  false,
+        "julDias":  28,
+        "julTotal":  216.25,
+        "julProm":  7.72,
+        "julZero":  false
+    },
+    {
+        "rut":  "19772487-0",
+        "nombre":  "CRISTIAN NICOLAS SERRANO VELLAGAS",
+        "supervisor":  "JULIO HERNAN PINTO HERRERA",
+        "agoDias":  31,
+        "agoTotal":  117.21,
+        "agoProm":  3.78,
+        "agoZero":  false,
+        "julDias":  27,
+        "julTotal":  195.49,
+        "julProm":  7.24,
+        "julZero":  false
+    },
+    {
+        "rut":  "26758689-6",
+        "nombre":  "DANIEL ALEXANDER RAMIREZ TORRES",
+        "supervisor":  "RAMON CARLOS VARGAS FONTECHA",
+        "agoDias":  31,
+        "agoTotal":  188.17,
+        "agoProm":  6.07,
+        "agoZero":  false,
+        "julDias":  28,
+        "julTotal":  175.33,
+        "julProm":  6.26,
+        "julZero":  false
+    },
+    {
+        "rut":  "17805227-6",
+        "nombre":  "ESTEBAN DAVID ORTIZ FIGUEROA",
+        "supervisor":  "JULIO HERNAN PINTO HERRERA",
+        "agoDias":  31,
+        "agoTotal":  210.39,
+        "agoProm":  6.79,
+        "agoZero":  false,
+        "julDias":  28,
+        "julTotal":  213.54,
+        "julProm":  7.63,
+        "julZero":  false
+    },
+    {
+        "rut":  "13426625-2",
+        "nombre":  "FERNANDO ALEXIS HOLM MORALES",
+        "supervisor":  "RAMON CARLOS VARGAS FONTECHA",
+        "agoDias":  31,
+        "agoTotal":  162.68,
+        "agoProm":  5.25,
+        "agoZero":  false,
+        "julDias":  28,
+        "julTotal":  166.45,
+        "julProm":  5.94,
+        "julZero":  false
+    },
+    {
+        "rut":  "11400843-5",
+        "nombre":  "FRANCISCO ERNESTO GUERRA GOMEZ",
+        "supervisor":  "JUAN CARLOS ESPAÑA GUERRERO",
+        "agoDias":  31,
+        "agoTotal":  159.35,
+        "agoProm":  5.14,
+        "agoZero":  false,
+        "julDias":  21,
+        "julTotal":  99.32,
+        "julProm":  4.73,
+        "julZero":  false
+    },
+    {
+        "rut":  "21454208-0",
+        "nombre":  "FRANCO JOSUE DIAZ NUNEZ",
+        "supervisor":  "RAMON CARLOS VARGAS FONTECHA",
+        "agoDias":  31,
+        "agoTotal":  111.43,
+        "agoProm":  3.59,
+        "agoZero":  false,
+        "julDias":  28,
+        "julTotal":  119.38,
+        "julProm":  4.26,
+        "julZero":  false
+    },
+    {
+        "rut":  "15660308-2",
+        "nombre":  "GONZALO ANDRES TAPIA VASCONCELO",
+        "supervisor":  "JUAN CARLOS ESPAÑA GUERRERO",
+        "agoDias":  31,
+        "agoTotal":  168.04,
+        "agoProm":  5.42,
+        "agoZero":  false,
+        "julDias":  28,
+        "julTotal":  163.59,
+        "julProm":  5.84,
+        "julZero":  false
+    },
+    {
+        "rut":  "16230919-6",
+        "nombre":  "HECTOR DAVID AVALOS RUPCICH",
+        "supervisor":  "JULIO HERNAN PINTO HERRERA",
+        "agoDias":  31,
+        "agoTotal":  108.56,
+        "agoProm":  3.5,
+        "agoZero":  false,
+        "julDias":  27,
+        "julTotal":  134.92,
+        "julProm":  5,
+        "julZero":  false
+    },
+    {
+        "rut":  "10387787-3",
+        "nombre":  "HECTOR FERNANDO QUIROZ TORRES",
+        "supervisor":  "RAMON CARLOS VARGAS FONTECHA",
+        "agoDias":  31,
+        "agoTotal":  42.9,
+        "agoProm":  1.38,
+        "agoZero":  false,
+        "julDias":  28,
+        "julTotal":  126.11,
+        "julProm":  4.5,
+        "julZero":  false
+    },
+    {
+        "rut":  "26972231-2",
+        "nombre":  "HECTOR JOSE ORTIZ MARQUEZ",
+        "supervisor":  "JULIO HERNAN PINTO HERRERA",
+        "agoDias":  31,
+        "agoTotal":  136.4,
+        "agoProm":  4.4,
+        "agoZero":  false,
+        "julDias":  24,
+        "julTotal":  108.84,
+        "julProm":  4.54,
+        "julZero":  false
+    },
+    {
+        "rut":  "12637747-9",
+        "nombre":  "HECTOR LEONARDO MUNOZ MIRANDA",
+        "supervisor":  "JULIO HERNAN PINTO HERRERA",
+        "agoDias":  31,
+        "agoTotal":  200.59,
+        "agoProm":  6.47,
+        "agoZero":  false,
+        "julDias":  28,
+        "julTotal":  180.62,
+        "julProm":  6.45,
+        "julZero":  false
+    },
+    {
+        "rut":  "13428454-4",
+        "nombre":  "HENRY MURIEL DIAZ TORRIJO",
+        "supervisor":  "RAMON CARLOS VARGAS FONTECHA",
+        "agoDias":  31,
+        "agoTotal":  135.18,
+        "agoProm":  4.36,
+        "agoZero":  false,
+        "julDias":  27,
+        "julTotal":  145.03,
+        "julProm":  5.37,
+        "julZero":  false
+    },
+    {
+        "rut":  "15445679-1",
+        "nombre":  "IVAN ALEJANDRO CALDERON MUNOZ",
+        "supervisor":  "JULIO HERNAN PINTO HERRERA",
+        "agoDias":  31,
+        "agoTotal":  164.43,
+        "agoProm":  5.3,
+        "agoZero":  false,
+        "julDias":  28,
+        "julTotal":  152.01,
+        "julProm":  5.43,
+        "julZero":  false
+    },
+    {
+        "rut":  "18829522-3",
+        "nombre":  "JAIR JESUS VALENCIA DIAZ",
+        "supervisor":  "RAMON CARLOS VARGAS FONTECHA",
+        "agoDias":  31,
+        "agoTotal":  147.78,
+        "agoProm":  4.77,
+        "agoZero":  false,
+        "julDias":  27,
+        "julTotal":  168.69,
+        "julProm":  6.25,
+        "julZero":  false
+    },
+    {
+        "rut":  "14472203-5",
+        "nombre":  "JONATHAN RICARDO HENRIQUEZ VENEGAS",
+        "supervisor":  "JULIO HERNAN PINTO HERRERA",
+        "agoDias":  31,
+        "agoTotal":  115.82,
+        "agoProm":  3.74,
+        "agoZero":  false,
+        "julDias":  28,
+        "julTotal":  135.74,
+        "julProm":  4.85,
+        "julZero":  false
+    },
+    {
+        "rut":  "16034875-5",
+        "nombre":  "JORGE EDUARDO JORQUERA FLORES",
+        "supervisor":  "JUAN CARLOS ESPAÑA GUERRERO",
+        "agoDias":  31,
+        "agoTotal":  62.02,
+        "agoProm":  2,
+        "agoZero":  false,
+        "julDias":  28,
+        "julTotal":  247.12,
+        "julProm":  8.83,
+        "julZero":  false
+    },
+    {
+        "rut":  "13650694-3",
+        "nombre":  "JORGE RENE RAMIREZ DE LA BARRA",
+        "supervisor":  "JUAN CARLOS ESPAÑA GUERRERO",
+        "agoDias":  31,
+        "agoTotal":  97.72,
+        "agoProm":  3.15,
+        "agoZero":  false,
+        "julDias":  28,
+        "julTotal":  157.61,
+        "julProm":  5.63,
+        "julZero":  false
+    },
+    {
+        "rut":  "10792174-5",
+        "nombre":  "JOSE GERARDO CORNEJO GARRIDO",
+        "supervisor":  "JUAN CARLOS ESPAÑA GUERRERO",
+        "agoDias":  31,
+        "agoTotal":  162.94,
+        "agoProm":  5.26,
+        "agoZero":  false,
+        "julDias":  27,
+        "julTotal":  168.84,
+        "julProm":  6.25,
+        "julZero":  false
+    },
+    {
+        "rut":  "9338001-0",
+        "nombre":  "JOSE MANUEL SEPULVEDA ROJAS",
+        "supervisor":  "JULIO HERNAN PINTO HERRERA",
+        "agoDias":  31,
+        "agoTotal":  138.96,
+        "agoProm":  4.48,
+        "agoZero":  false,
+        "julDias":  28,
+        "julTotal":  136.1,
+        "julProm":  4.86,
+        "julZero":  false
+    },
+    {
+        "rut":  "19325742-9",
+        "nombre":  "JUAN ESTEBAN MARTINEZ LOCK",
+        "supervisor":  "JUAN CARLOS ESPAÑA GUERRERO",
+        "agoDias":  31,
+        "agoTotal":  154.94,
+        "agoProm":  5,
+        "agoZero":  false,
+        "julDias":  28,
+        "julTotal":  171,
+        "julProm":  6.11,
+        "julZero":  false
+    },
+    {
+        "rut":  "17144358-K",
+        "nombre":  "JUAN HERIBERTO VARGAS ALARCON",
+        "supervisor":  "JUAN CARLOS ESPAÑA GUERRERO",
+        "agoDias":  31,
+        "agoTotal":  146.02,
+        "agoProm":  4.71,
+        "agoZero":  false,
+        "julDias":  28,
+        "julTotal":  171.09,
+        "julProm":  6.11,
+        "julZero":  false
+    },
+    {
+        "rut":  "26658025-8",
+        "nombre":  "JUAN JOSE MARCANO GONZALEZ",
+        "supervisor":  "JULIO HERNAN PINTO HERRERA",
+        "agoDias":  31,
+        "agoTotal":  152.15,
+        "agoProm":  4.91,
+        "agoZero":  false,
+        "julDias":  28,
+        "julTotal":  139.3,
+        "julProm":  4.98,
+        "julZero":  false
+    },
+    {
+        "rut":  "26266054-0",
+        "nombre":  "LUIS ALFONSO VALLEJO GARCIA",
+        "supervisor":  "RAMON CARLOS VARGAS FONTECHA",
+        "agoDias":  31,
+        "agoTotal":  179.91,
+        "agoProm":  5.8,
+        "agoZero":  false,
+        "julDias":  28,
+        "julTotal":  141.76,
+        "julProm":  5.06,
+        "julZero":  false
+    },
+    {
+        "rut":  "17165085-2",
+        "nombre":  "MANUEL DARIO JELDES ARANCIBIA",
+        "supervisor":  "JUAN CARLOS ESPAÑA GUERRERO",
+        "agoDias":  31,
+        "agoTotal":  152.55,
+        "agoProm":  4.92,
+        "agoZero":  false,
+        "julDias":  28,
+        "julTotal":  164.58,
+        "julProm":  5.88,
+        "julZero":  false
+    },
+    {
+        "rut":  "12221336-6",
+        "nombre":  "MARCO MANUEL VEGA VEGA",
+        "supervisor":  "JULIO HERNAN PINTO HERRERA",
+        "agoDias":  31,
+        "agoTotal":  140.95,
+        "agoProm":  4.55,
+        "agoZero":  false,
+        "julDias":  28,
+        "julTotal":  138.53,
+        "julProm":  4.95,
+        "julZero":  false
+    },
+    {
+        "rut":  "19469218-8",
+        "nombre":  "MATIAS HERNAN VILLALOBOS RAMOS",
+        "supervisor":  "JUAN CARLOS ESPAÑA GUERRERO",
+        "agoDias":  31,
+        "agoTotal":  187.68,
+        "agoProm":  6.05,
+        "agoZero":  false,
+        "julDias":  15,
+        "julTotal":  70.09,
+        "julProm":  4.67,
+        "julZero":  false
+    },
+    {
+        "rut":  "20521993-5",
+        "nombre":  "MATIAS RODRIGO MONTECINOS POZO",
+        "supervisor":  "JUAN CARLOS ESPAÑA GUERRERO",
+        "agoDias":  31,
+        "agoTotal":  188.28,
+        "agoProm":  6.07,
+        "agoZero":  false,
+        "julDias":  28,
+        "julTotal":  206.5,
+        "julProm":  7.37,
+        "julZero":  false
+    },
+    {
+        "rut":  "16403671-5",
+        "nombre":  "MAURICIO RODOLFO ASTORGA HERRERA",
+        "supervisor":  "JULIO HERNAN PINTO HERRERA",
+        "agoDias":  31,
+        "agoTotal":  0,
+        "agoProm":  0,
+        "agoZero":  true,
+        "julDias":  28,
+        "julTotal":  137.88,
+        "julProm":  4.92,
+        "julZero":  false
+    },
+    {
+        "rut":  "9998160-1",
+        "nombre":  "NESTOR FABIAN PASTEN ALARCON",
+        "supervisor":  "JULIO HERNAN PINTO HERRERA",
+        "agoDias":  31,
+        "agoTotal":  83.76,
+        "agoProm":  2.7,
+        "agoZero":  false,
+        "julDias":  28,
+        "julTotal":  154.83,
+        "julProm":  5.53,
+        "julZero":  false
+    },
+    {
+        "rut":  "18915265-5",
+        "nombre":  "OSCAR ANDRES JOFRE LE CERF",
+        "supervisor":  "JUAN CARLOS ESPAÑA GUERRERO",
+        "agoDias":  31,
+        "agoTotal":  188.83,
+        "agoProm":  6.09,
+        "agoZero":  false,
+        "julDias":  28,
+        "julTotal":  213.83,
+        "julProm":  7.64,
+        "julZero":  false
+    },
+    {
+        "rut":  "17478977-0",
+        "nombre":  "PATRICIO CANALES GEVE",
+        "supervisor":  "RAMON CARLOS VARGAS FONTECHA",
+        "agoDias":  31,
+        "agoTotal":  208.06,
+        "agoProm":  6.71,
+        "agoZero":  false,
+        "julDias":  21,
+        "julTotal":  145.61,
+        "julProm":  6.93,
+        "julZero":  false
+    },
+    {
+        "rut":  "17473940-4",
+        "nombre":  "PATRICIO EDUARDO DELANO SCHWAIGER",
+        "supervisor":  "JUAN CARLOS ESPAÑA GUERRERO",
+        "agoDias":  31,
+        "agoTotal":  109.3,
+        "agoProm":  3.53,
+        "agoZero":  false,
+        "julDias":  28,
+        "julTotal":  250.34,
+        "julProm":  8.94,
+        "julZero":  false
+    },
+    {
+        "rut":  "16523139-2",
+        "nombre":  "PEDRO ISAIAS CONCHA JORQUERA",
+        "supervisor":  "JUAN CARLOS ESPAÑA GUERRERO",
+        "agoDias":  31,
+        "agoTotal":  152.17,
+        "agoProm":  4.91,
+        "agoZero":  false,
+        "julDias":  25,
+        "julTotal":  144.71,
+        "julProm":  5.79,
+        "julZero":  false
+    },
+    {
+        "rut":  "25671905-3",
+        "nombre":  "PROPHETE GABRIEL",
+        "supervisor":  "JUAN CARLOS ESPAÑA GUERRERO",
+        "agoDias":  31,
+        "agoTotal":  156.03,
+        "agoProm":  5.03,
+        "agoZero":  false,
+        "julDias":  27,
+        "julTotal":  171.85,
+        "julProm":  6.36,
+        "julZero":  false
+    },
+    {
+        "rut":  "11826964-0",
+        "nombre":  "RICHARDS ANTONIO CRUZ CUEVAS",
+        "supervisor":  "JULIO HERNAN PINTO HERRERA",
+        "agoDias":  31,
+        "agoTotal":  91.39,
+        "agoProm":  2.95,
+        "agoZero":  false,
+        "julDias":  27,
+        "julTotal":  118.01,
+        "julProm":  4.37,
+        "julZero":  false
+    },
+    {
+        "rut":  "13637135-5",
+        "nombre":  "SANTIAGO EMILIO ANGEL ARIAS",
+        "supervisor":  "RAMON CARLOS VARGAS FONTECHA",
+        "agoDias":  31,
+        "agoTotal":  128.31,
+        "agoProm":  4.14,
+        "agoZero":  false,
+        "julDias":  27,
+        "julTotal":  198.87,
+        "julProm":  7.37,
+        "julZero":  false
+    },
+    {
+        "rut":  "18741232-3",
+        "nombre":  "SEBASTIAN ANDRES SANCHEZ CAYUQUEO",
+        "supervisor":  "JULIO HERNAN PINTO HERRERA",
+        "agoDias":  31,
+        "agoTotal":  199.64,
+        "agoProm":  6.44,
+        "agoZero":  false,
+        "julDias":  28,
+        "julTotal":  206.61,
+        "julProm":  7.38,
+        "julZero":  false
+    },
+    {
+        "rut":  "17769689-7",
+        "nombre":  "SIMON ANDRES SILVA PHILIP",
+        "supervisor":  "JULIO HERNAN PINTO HERRERA",
+        "agoDias":  31,
+        "agoTotal":  178.85,
+        "agoProm":  5.77,
+        "agoZero":  false,
+        "julDias":  28,
+        "julTotal":  189.29,
+        "julProm":  6.76,
+        "julZero":  false
+    },
+    {
+        "rut":  "10466681-7",
+        "nombre":  "WILFRED RENE ROCCO ZUNIGA",
+        "supervisor":  "RAMON CARLOS VARGAS FONTECHA",
+        "agoDias":  31,
+        "agoTotal":  168.39,
+        "agoProm":  5.43,
+        "agoZero":  false,
+        "julDias":  23,
+        "julTotal":  118.19,
+        "julProm":  5.14,
+        "julZero":  false
+    },
+    {
+        "rut":  "12104020-4",
+        "nombre":  "YUSSEF ALI SAT PINO",
+        "supervisor":  "RAMON CARLOS VARGAS FONTECHA",
+        "agoDias":  31,
+        "agoTotal":  120.55,
+        "agoProm":  3.89,
+        "agoZero":  false,
+        "julDias":  27,
+        "julTotal":  118.45,
+        "julProm":  4.39,
+        "julZero":  false
+    }
+]
+
+</script>
+
+<script>
+(function(){
+  "use strict";
+  var raw = JSON.parse(document.getElementById('tecnicos-data').textContent);
+
+  var SUP_COLOR = {}; // full supervisor name -> css var name
+  var SUP_ORDER = [];
+  raw.forEach(function(t){ if (SUP_ORDER.indexOf(t.supervisor) === -1) SUP_ORDER.push(t.supervisor); });
+  var palette = ['--brand','--sup2','--sup3'];
+  SUP_ORDER.forEach(function(s,i){ SUP_COLOR[s] = palette[i % palette.length]; });
+
+  function shortSup(full){
+    var parts = full.trim().split(/\s+/);
+    return parts.slice(-2).join(' ');
+  }
+  function titleCase(s){
+    return s.toLowerCase().replace(/(^|\s)([a-zñáéíóúü])/g, function(_,sp,c){ return sp + c.toUpperCase(); });
+  }
+  function fmt1(n){ return (Math.round(n*10)/10).toFixed(1).replace('.',','); }
+  function fmtPct(n){ var v = Math.round(n*1000)/10; var s=(v>0?'+':'')+v.toString().replace('.',',')+'%'; return s; }
+
+  var data = raw.map(function(t){
+    return {
+      rut: t.rut, nombre: t.nombre, supervisor: t.supervisor,
+      jul: t.julProm, ago: t.agoProm, julZero: t.julZero, agoZero: t.agoZero,
+      excluded: t.julZero || t.agoZero,
+      delta: t.agoProm - t.julProm
+    };
+  });
+  var included = data.filter(function(t){ return !t.excluded; });
+  var excludedList = data.filter(function(t){ return t.excluded; });
+
+  var maxVal = Math.max.apply(null, data.map(function(t){ return Math.max(t.jul, t.ago); })) ;
+  var domainMax = Math.ceil(maxVal) + 0.5;
+
+  function avg(arr, key){ return arr.reduce(function(s,t){return s+t[key];},0) / arr.length; }
+
+  var promJul = avg(included,'jul'), promAgo = avg(included,'ago');
+  var deltaGeneral = promAgo - promJul;
+  var mejoraron = included.filter(function(t){ return t.delta > 0.004; }).length;
+  var empeoraron = included.filter(function(t){ return t.delta < -0.004; }).length;
+  var sinCambio = included.length - mejoraron - empeoraron;
+
+  document.getElementById('kpi-jul').textContent = fmt1(promJul);
+  document.getElementById('kpi-jul-sub').textContent = included.length + ' técnicos activos';
+  document.getElementById('kpi-ago').textContent = fmt1(promAgo);
+  document.getElementById('kpi-ago-sub').textContent = included.length + ' técnicos activos';
+
+  var kd = document.getElementById('kpi-delta');
+  kd.textContent = fmtPct(deltaGeneral/promJul);
+  kd.style.color = deltaGeneral >= 0 ? 'var(--good)' : 'var(--bad)';
+
+  var pctMej = mejoraron/included.length*100, pctEmp = empeoraron/included.length*100, pctSin = 100-pctMej-pctEmp;
+  document.getElementById('kpi-split').innerHTML =
+    '<span style="width:'+pctMej+'%;background:var(--good)"></span>' +
+    '<span style="width:'+pctSin+'%;background:var(--grid)"></span>' +
+    '<span style="width:'+pctEmp+'%;background:var(--bad)"></span>';
+  document.getElementById('kpi-mejoraron').innerHTML = '<b class="num" style="color:var(--good)">'+mejoraron+'</b> mejoraron';
+  document.getElementById('kpi-empeoraron').innerHTML = '<b class="num" style="color:var(--bad)">'+empeoraron+'</b> bajaron';
+
+  function dumbbellSVG(jul, ago, w, h, colorVar){
+    var pad = 8;
+    var x = function(v){ return pad + (v/domainMax) * (w - pad*2); };
+    var y = h/2;
+    var improved = ago >= jul;
+    var endColor = improved ? 'var(--good)' : 'var(--bad)';
+    return '<svg class="chart" viewBox="0 0 '+w+' '+h+'" role="img" aria-label="Julio '+fmt1(jul)+', Agosto '+fmt1(ago)+'">' +
+      '<title>Julio: '+fmt1(jul)+' · Agosto: '+fmt1(ago)+'</title>' +
+      '<line x1="'+pad+'" y1="'+y+'" x2="'+(w-pad)+'" y2="'+y+'" stroke="var(--grid)" stroke-width="1.5"/>' +
+      '<line x1="'+x(jul)+'" y1="'+y+'" x2="'+x(ago)+'" y2="'+y+'" stroke="'+endColor+'" stroke-width="2" stroke-linecap="round"/>' +
+      '<circle cx="'+x(jul)+'" cy="'+y+'" r="4" fill="var(--surface)" stroke="var(--muted)" stroke-width="1.6"/>' +
+      '<circle cx="'+x(ago)+'" cy="'+y+'" r="4.2" fill="'+endColor+'"/>' +
+      '</svg>';
+  }
+
+  // ---------- Supervisor cards ----------
+  var supGrid = document.getElementById('sup-grid');
+  var supStats = SUP_ORDER.map(function(sup){
+    var arr = included.filter(function(t){ return t.supervisor === sup; });
+    return { sup:sup, n:arr.length, jul:avg(arr,'jul'), ago:avg(arr,'ago') };
+  });
+  supStats.forEach(function(s){
+    var improved = s.ago >= s.jul;
+    var card = document.createElement('div');
+    card.className = 'sup-card';
+    card.style.setProperty('--dot', 'var('+SUP_COLOR[s.sup]+')');
+    card.innerHTML =
+      '<div class="sup-name"><span class="dot"></span>'+shortSup(s.sup)+'</div>' +
+      '<div class="sup-count">'+s.n+' técnicos</div>' +
+      '<div class="sup-numbers">' +
+        '<span class="n num">'+fmt1(s.jul)+'</span><span class="arrow">→</span><span class="n num" style="color:'+(improved?'var(--good)':'var(--bad)')+'">'+fmt1(s.ago)+'</span>' +
+        '<span class="pill '+(improved?'good':'bad')+'">'+fmtPct((s.ago-s.jul)/s.jul)+'</span>' +
+      '</div>' +
+      dumbbellSVG(s.jul, s.ago, 260, 34);
+    supGrid.appendChild(card);
+  });
+  // Total general card
+  (function(){
+    var improved = promAgo >= promJul;
+    var card = document.createElement('div');
+    card.className = 'sup-card';
+    card.style.setProperty('--dot', 'var(--ink)');
+    card.style.borderLeftColor = 'var(--ink)';
+    card.innerHTML =
+      '<div class="sup-name"><span class="dot"></span>TOTAL GENERAL</div>' +
+      '<div class="sup-count">'+included.length+' técnicos</div>' +
+      '<div class="sup-numbers">' +
+        '<span class="n num">'+fmt1(promJul)+'</span><span class="arrow">→</span><span class="n num" style="color:'+(improved?'var(--good)':'var(--bad)')+'">'+fmt1(promAgo)+'</span>' +
+        '<span class="pill '+(improved?'good':'bad')+'">'+fmtPct(deltaGeneral/promJul)+'</span>' +
+      '</div>' +
+      dumbbellSVG(promJul, promAgo, 260, 34);
+    supGrid.appendChild(card);
+  })();
+
+  // ---------- Roster ----------
+  var chipGroup = document.getElementById('chip-group');
+  var activeSup = 'Todos';
+  var chips = ['Todos'].concat(SUP_ORDER);
+  chips.forEach(function(c){
+    var b = document.createElement('button');
+    b.className = 'chip'; b.type = 'button';
+    b.textContent = c === 'Todos' ? 'Todos' : shortSup(c);
+    b.setAttribute('aria-pressed', c === 'Todos' ? 'true' : 'false');
+    b.addEventListener('click', function(){
+      activeSup = c;
+      Array.prototype.forEach.call(chipGroup.children, function(ch){ ch.setAttribute('aria-pressed','false'); });
+      b.setAttribute('aria-pressed','true');
+      render();
+    });
+    chipGroup.appendChild(b);
+  });
+
+  var searchEl = document.getElementById('search');
+  var sortEl = document.getElementById('sortsel');
+  searchEl.addEventListener('input', render);
+  sortEl.addEventListener('change', render);
+
+  var rosterEl = document.getElementById('roster');
+  var countEl = document.getElementById('roster-count');
+
+  function rowHTML(t){
+    var colorVar = SUP_COLOR[t.supervisor];
+    if (t.excluded) {
+      return '<div class="row no-data" style="--dot:var('+colorVar+')">' +
+        '<div class="row-top">' +
+          '<span class="dot"></span>' +
+          '<div class="name-wrap"><div class="name">'+titleCase(t.nombre)+'</div><div class="rut mono">'+t.rut+' · '+shortSup(t.supervisor)+'</div></div>' +
+        '</div>' +
+        '<div class="metrics"><span class="pill warn">Sin actividad en '+(t.agoZero?'agosto':'julio')+'</span></div>' +
+      '</div>';
+    }
+    var improved = t.delta >= 0;
+    return '<div class="row" style="--dot:var('+colorVar+')">' +
+      '<div class="row-top">' +
+        '<span class="dot"></span>' +
+        '<div class="name-wrap"><div class="name">'+titleCase(t.nombre)+'</div><div class="rut mono">'+t.rut+' · '+shortSup(t.supervisor)+'</div></div>' +
+      '</div>' +
+      '<div class="metrics">' +
+        '<span class="mval jul num">'+fmt1(t.jul)+'</span>' +
+        dumbbellSVG(t.jul, t.ago, 96, 22) +
+        '<span class="mval num" style="color:'+(improved?'var(--good)':'var(--bad)')+'">'+fmt1(t.ago)+'</span>' +
+        '<span class="pill delta '+(improved?'good':'bad')+'">' +
+          '<svg viewBox="0 0 10 10" aria-hidden="true">'+(improved
+            ? '<path d="M5 1 L9 7 L1 7 Z" fill="currentColor"/>'
+            : '<path d="M5 9 L1 3 L9 3 Z" fill="currentColor"/>')+'</svg>' +
+          fmtPct(t.delta/t.jul) +
+        '</span>' +
+      '</div>' +
+    '</div>';
+  }
+
+  function render(){
+    var q = searchEl.value.trim().toLowerCase();
+    var list = data.filter(function(t){
+      if (activeSup !== 'Todos' && t.supervisor !== activeSup) return false;
+      if (q && t.nombre.toLowerCase().indexOf(q) === -1 && t.rut.toLowerCase().indexOf(q) === -1) return false;
+      return true;
+    });
+    var mode = sortEl.value;
+    var withData = list.filter(function(t){ return !t.excluded; });
+    var without = list.filter(function(t){ return t.excluded; });
+    if (mode === 'caida') withData.sort(function(a,b){ return a.delta - b.delta; });
+    else if (mode === 'mejora') withData.sort(function(a,b){ return b.delta - a.delta; });
+    else withData.sort(function(a,b){ return a.nombre.localeCompare(b.nombre); });
+    without.sort(function(a,b){ return a.nombre.localeCompare(b.nombre); });
+
+    var ordered = withData.concat(without);
+    countEl.textContent = ordered.length + ' de ' + data.length + ' técnicos';
+    rosterEl.innerHTML = ordered.length
+      ? ordered.map(rowHTML).join('')
+      : '<div class="empty-state">Ningún técnico coincide con la búsqueda.</div>';
+  }
+
+  render();
+
+  var today = new Date();
+  var pad2 = function(n){ return String(n).padStart(2,'0'); };
+  var genDate = pad2(today.getDate())+'-'+pad2(today.getMonth()+1)+'-'+today.getFullYear();
+  document.getElementById('gen-date').textContent = genDate;
+  document.getElementById('gen-date-footer').textContent = genDate;
+
+  document.getElementById('pdf-btn').addEventListener('click', function(){
+    window.print();
+  });
+
+  // ---------- Theme toggle (explicit light/dark, remembered per browser) ----------
+  var themeBtn = document.getElementById('theme-toggle');
+  function currentTheme(){
+    var explicit = document.documentElement.getAttribute('data-theme');
+    if (explicit === 'light' || explicit === 'dark') return explicit;
+    return window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+  }
+  function syncThemeIcon(){
+    themeBtn.classList.toggle('dark-active', currentTheme() === 'dark');
+  }
+  try {
+    var saved = localStorage.getItem('baremo-theme');
+    if (saved === 'light' || saved === 'dark') document.documentElement.setAttribute('data-theme', saved);
+  } catch(e) {}
+  syncThemeIcon();
+
+  themeBtn.addEventListener('click', function(){
+    var next = currentTheme() === 'dark' ? 'light' : 'dark';
+    document.documentElement.setAttribute('data-theme', next);
+    try { localStorage.setItem('baremo-theme', next); } catch(e) {}
+    syncThemeIcon();
+  });
+})();
+</script>
+</body>
+</html>

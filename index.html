@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Comparativo Julio - Agosto</title>
+<title>Comparativo Baremos Elecnor</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800&family=Public+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500;600&display=swap" rel="stylesheet">
@@ -153,6 +153,25 @@
   .pdf-btn:focus-visible{ outline:2px solid var(--brand); outline-offset:2px; }
   .pdf-btn svg{ width:13px; height:13px; flex:none; }
 
+  /* ---------- Compare bar (selector de periodo) ---------- */
+  .compare-bar{
+    display:flex; align-items:center; flex-wrap:wrap; gap:10px;
+    background:var(--surface); border:1px solid var(--border); border-radius:10px;
+    padding:12px 16px; margin-bottom:28px; box-shadow:var(--shadow);
+  }
+  .compare-label{ font-size:12px; font-weight:700; color:var(--muted); letter-spacing:.04em; text-transform:uppercase; }
+  .month-select{
+    font: inherit; font-size:13.5px; font-weight:600; padding:7px 30px 7px 12px; border-radius:8px;
+    border:1px solid var(--border-strong); background:var(--surface); color:var(--ink);
+    cursor:pointer;
+    -webkit-appearance:none; appearance:none;
+    background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'><path d='M5 7.5 10 12.5 15 7.5' fill='none' stroke='%2357544a' stroke-width='1.6' stroke-linecap='round' stroke-linejoin='round'/></svg>");
+    background-repeat:no-repeat; background-position:right 10px center; background-size:14px;
+  }
+  .month-select:focus-visible{ outline:2px solid var(--brand); outline-offset:2px; }
+  .compare-arrow{ color:var(--muted); font-size:15px; flex:none; }
+  .compare-note{ flex:1 1 100%; font-size:11.5px; color:var(--muted); }
+
   /* ---------- KPI strip ---------- */
   .kpis{
     display:grid; grid-template-columns:repeat(auto-fit,minmax(170px,1fr));
@@ -245,7 +264,7 @@
       <img class="logo-chip" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAQ4AAACUCAMAAABV5TcGAAABQVBMVEX////0fAIAP4YDPYbyfQIAQYUAMH3///xnk7ututEBN4MAFW72ewIAQYcAQIksQoP3+v0AKnuiscwAQIArU5QAJHMAIXbx9PcAPYzI2OXV3OeBkrUADmpJXJDd5O3wbgBjeakAQn6etcrg6/CxxNlbbZ/7vpD/+PKOor8ADnD1//4AGXdjgKlVZJoyTYn717TyhSUAMHYAAF3/8uLuZQAAF2gAAGb+/O4cWZX/3sj02Kv4ixj95tb2r3j5uoH3rWn3o2D/bgDtWgAAN4wAI4zs8f4wZaUAAFR3h7ZTfLD55cb8zZ74nkr5mCr6xKD4z7X6pG/3jTvyeCf1kE3zk1r3qlr3o0HojDXxt2Lxby/tSwD3hEPxp4V2n7mCnMq9w+FibpQbIFvR2vN7i8msuOJCVp88Snk6a5obTKIuPXIuLG87Hc0YAAAcM0lEQVR4nO2dDV/ayNbAITFDCSQQQkIg8iYBURBNBa0rvlQWF2trRbe79+7ubbvebn3a7/8BnnMmLyQhqN1ttXo9v9UqhMnMf845c86ZiRuJfBcSi911D+5U1rdQVqn8APJifX198a47dWsSA1l/0d9aPd57+curbZA5lGQyGY1G4Rv8Ci/By292T16/eLG+GHuY6hKLLS4ubq3u7r159Wp7rgwCCJL0m/19IvhmuQvf5rbX9nZ/eLG4+ICYWCBOGqf7r0ALcJhlSxeiKHMBFMm5OUdfbDTd5Hjv+Ic+MLnrkfxjWVxcR7s4PwMGB12LAx0lcJghFBJSidJfAMzzbrdbjp7vvAYkdz2gvyugEuvrWyenY1R9Oh5ntNZArWFTHfHhidpaEfUBsxo52z/euodEYkBitbH3ZhztomlQEjDupOswbZmzfrFedzDY0BwmLqgo2llyfHrSv1dAFhf7rxv7L7eTlrucc5XB+jkZ9Y82GfVrhe1R5pzPWTis66LoepLjxtY9AbK43t862RlbC4elD44mUG9g/0QdpsPBucJ1HX4v4pqVTRGUpHwfgGwiitPztahvhidOYkqueTtcktSRRH89Wb/r8V4li/2txs75OGqFE97u+37752JrVLd7unXXY54hMXAWf/x8RuMm6h59s/mVcVBTo271/Lvksb51vLN/BiuIuzQGZvIrG0syaq3Kye+PR6z/+mQHQiyIsuecsGlquLPGe51rmYHDXqZAQbq/f0/+I7YI6ykNsmi04C6USXcarxpuMnD5jcVeesBikgf738v6EuuvNk7HlmdAU56L+pdFOxFzxfN74J3yl2pH1Mp/gXa5e3LXHKhsrjZ+PoOula3YaKL2NCoo04Aaxrm9PX4JsrOzS6VhC/y4s7e3t79//usY8nnr8ucuGFuj7HDeCr6CKmTPQvds865RgO8EG7GyUiehsCccv0P/117u7zROTk5eb/XXURbDhb6HCR4Q2tmDMNZK+21VcuL16CxjQn0sd1fvGMYW6MWZ5S2wTkM5PLd14eXebmO174w/FrlJQk6zfwvPC6yG7I8BgRPUWsG5ZSBTOHAeDva++YCvkPXjN+OzcjnppFTP0Sjm5l798mZ3te9A+PtioVlfPd5582rbMqBocLlyzYWuZAdrX21sXyqbx/uWXtgJd7d7cFAeA4gX/xRDQCwqr3dpFti18uEpJEnqVp6v3ZHz6O+O7UwdnB+WL8prbxqvt75l1S4GevLml4PuQRcsMcjDsqVu+S5Cj/XVl+WDrlXOK3cPymv7O8e3VXXov977Za6Ldw9xpt2128fR342COlAU4DfW9m8/u+439sZOhdX1pBjpPL9tHIsnvyQP7LWv/Ove6p0VGraO32wnnVXYitOTZ+Vfb9V39HfX0GPA19xLWDzuOOjZ7DferFnpALhS8B3Jg19u7+7rq3tz6DPnztZeNr6X7HH9ePfNGNZgyKAxi/vXLd12sX9yjivIv89e7hx/T5kjXXF2casCoBzcTlS6CFYCYUX37PSk/32xcGTxh52fISS8jTstbu2sHRz8+3ynsfU9b3wt9o/f7G5hTvBNb3KyX0YWr79PtfDJ3m/bay/3Tvr99a+7ZRlb79N/F/uNX8tnPzdW7wGLSORF+YDGQtHxeeN4tf919CSGG0V728gErCR5vrN691WEm8nxb3O0+JFEJNvj08bJFirK39eT2OJ6f7WxMy4fnEX6J6dn453jrfsCIxI779o4aEEZoayNzxHKVn9980uhxBb7/deN05eYkp2dvo6cj09Pvv/dLY+8wOqCBSQ6Z5cNaSS/dna+D1DwtMwNdAXz5/7W6snOz7+fYfGmfHaKocUf98F5euVf3clZgDl3bzvqHBlYG+/v/bHTOH7Rt0tyvg/bBbl+f/W48ccf++O1ObueN4ZFBBHeJ8VA2Vwrz0Unx0CcxM4u21p1xufUfvZPd3YaDfC2Hmk0dnd2Tk/3z9fmaGXXrm7/3ti6Z0rhyHHZLd9bSkIrztHJnobjZu36K7yyZotV5/aU+a3zEmfn92AvfIZsviwn54L7XE5tyKk4+zY6fDsayclmcpI6nfLa3uv7dXTEJ8dn7u5OdGovOGw3Kzm51Dpu5O7pIaZzCHC/5xj8OtnrJsOrylcJ3QaZeBur6guKcQqKcZ9hRNbPn0cnZ2VuToN6FOc4ET0aQet795pFBG3l+RWbUrOB4LfJyapy8tXuC2cJvs+HV3fKyS9WjqjlY6yVCGOTs9NVT+53j2ks7lMcX+o8nE1UZLG9d/IQju5SWT/v2tX0L8WxDXrxW3kMweoDQYHyYtxF5fhCHHPR5wcH3e2Xe6sPCAXK+rhMXYf/mOLkR89Zq8kpXnCdc7/urX6b+CI9HKYj6XRtmC4tf4v2r5TN/QO6t+A5VOHqgHMWIuo5s4wR6dzazmr/m/XIOBSfZZ89e5YV1P98s5vMlOOz7nY06Zl+z2EzG82kDlKOgoEcv/imHYqnFJOKtPHkm94oVDZ3u8+TroXMTZQk6Zy3oKcMYDEdv9ndvYViZzxFRFYTWZFP3AGOyHrjd89Otv0MQNTCQB+agcz+fPd49bbSMsDBsCzDCIOlu8ABQHbPz8661kMR5fLz59ZDHiDj8/39ncatgbAEcQisKN6RdqAsbh2fNHb2f8bxg+xhled4detOtsoAhyAwIOyd4bBkcZGeydu825o3NRaAIdyddnxP8ojDJ484fPKIwyePOHzyiMMnjzh88ojDJ484fPKIwyf3CEd6mMvl/mETtbxh5I18adYFN8AxzBvxuAHNlG7SmVI+nsk0M5k4XD+88spcwcg09WZzwZjZO1dq+YWmPmq39WbGuEjPumoIwGrDIRb4rE/52zCao5UOSKqzMtIz+bAWrsNRyuhHxRTPs6lUp1h5++HqEb7T25edFEsIz8Pll21dd2+agYHrb9/q9ktpQ68UUyker8wWR/GZQ8RxxEdwKSfLDMtCP4rvm6FDScfrKCuVer1AX2gWPe8W3q6kiCrx0ATPE2IyH9vGl+Io6MUUgSYw42V5YppsUQ/titXW+5SCJFhGYOCeMFT1p6Y9znS2N5BAiJKKY8OjlCQNWEtMSU1VZjZ7oWdZRSK8hgPRBoOBqZjZkTHNL53pwe3hFr0EDnT4XvrR895HbIMVOE0TGQ66N5DUP99ffAmOdKaTQJwaXsCyogittNROJtxmLipmQqIXAg5OgO8sJyUWXBwqI3OcxvAs4DCKqsTJjCgIHCcw0C7pdd7NYJyFKeU4GIFGG+Y4uIGksvqUhaUzEsH3OUkFHLmVHi86bw3/qyo8A40I2C+R1TRN0Fizx364OY7hSFHoTAvwDTSVAyAsI0vqKMxiMkQ14QrKQwDhZLipqjiTns4qggBA2AGJRz6koKsCK8JM4b21Ki8yPao1QRm2lYRGGYgsqBwMgxFEURC1gZIKDoXiYBhRlCQjMjzssaJgv5O7TBA6DhbnFsYiw2/QlKjKmZviKLUVgrMHODm5yoiDgYZVVU4mvfeFqX6/7SkAi6syqJCCCLoEQKrqJ+dKwAFKIHAin1pY+KxCM7LAVWWODpXTWJlVi9P2ks8mTFmsUsQiI8PlOBQRZkfgVaUZikMQJWJEdAJXcjaN4hIvW/otslRxRYDCiBwDl/qhzsRRqqgEzQM6IcCkwDVytVqFvsgy2WgH9ePtU1WoohaycDfsN8yfJgpq1jEsCwe8zQiXzwjFBd8EGCAw5DVolVdGQSvMyxsDhqsOAIimATwZxgD6BHeoVgVNfeqfWhsHJ5u9gpEiGqiqReNyg4cZ0hAETyRFlYgJI4E+8qwoMb5JmIVjqPcGVJ9ZWRioLVVSVUkCPAIoiEgSut+TvdtQYeKhs9S6wbRVVQHXxbQOAzgYmCUGB1+Fi+Aywosiz8FgZVlTUwFXP8wucbJIqvApWdSI1AKReECIWDnksRCCQ5BVrTBSeTAGmb7c3JA4sE3UK0WRnx0eHmZZ9UeNqcowFXLvvXcos3DEJUVAz8MImtRLHY2ePGlXlZ6GHm3AVom/5zWlJcgsKkYVkEuKImazWYEfqE8DOAR0ZTBRjIzLw+XlIadIrDiQQfsEligj30bg8sq8huakwVSykmI+e/LkCWiWyqMrRA/A/fjUO7WOdoiqoGcJh6aFL5cSKvU8wF3pNPO19HKuZoyIpAlVWRRl8qdXx2bgKBR7YFsyuA2+l2rS/crl2rtPvQHYG3ZEaXtDnPaSgI4DZk1kSC81Mi5qtVr+4t37P+s+HOCNcZmCrqlKxYCODS9GpipWqZMWBMXvPZoKC/4bHAcnssqnkYEGmiu87SgETI3F+a4uZadwsDJPYC7AnERJxVcrCRGQCgJ430oBT8PEYpsxHLfGwTQI4LM8lh+OI9ecJ6D8HBAl9YuIdRY6Frmoq3TVYATeqx5Gb1Cljh/mnje9i/m7vKOJDg64Gdix0sk4b3xIgbMUcPo40/RO1EVHxWHA+MRBD0DhsR78Guom+B54CzRde+pxp64rlTkTbqIp5gpO7BK4QFBqjjMrhZhVp8dm4uYANF/jROJd0sJxFIoq+l5G1qQjqga0nU1Y9xIm9ENmeFV3mS6vwMVcFW2A4zvN8PjSMhY0KJzrjx6YmZ6k4UIK6FXdYy36j+CJoE0grbwf0ml1hv1JEsAH8aLGKZ8m4YeNAyjhfTQ1+wFVsz3P474J9Ljtj9nfKqzIaeAZe5VrcKTjCZ6j8y19LES8561KEvhMWB5EUncV2yA8g0EGdGTAz6Dh4IDlEjpqZrxXVZdw9kC1OLUy0dt8iuCCDf6Z7XUKm75TTk1wOCIH/eOE1tsgDkoWHHPxwr4vzissqSn/OhQbcgo0AW5cKU6QhuIoVSCGAcIyL2Vy1NroH6EEyY0UXkBXRjruBOsK+BMwZzAhZWoF9uPA6ziYJ19E+RbWQegD2KBan7zRJBga4JdkxpdjviNww7oCfUbjY9SVIA4BowNByVo2a/QIwmZ4Uik5g6ASiYBTEXDp9lpLKI5CVsKOy7KUzbv9sBoxTCKgEvOkaXvJYVGRMfKFZV3tzMw8LBzYV4EE4s8LWAixD4KgFt34rlaXMIKBD2hqHXXJd7olkzJZkUarxHSnxcbBoIbAPFov6ku8QHHwzUhsedmDI2a0NJn6O1W/Ekc6Tgh6Y45N6LnAnxqtZSW4XZXTFGeKDZZATMRhVN4bzaLhLLSoR0rdH9QOVcUaueAJTI0OLmKszGkSRPUxLw4YSamuaIADYkLNdMfiaAf4ZZhHW00PWzBNwAi12X9eaDMnKVXqIVsV13bDcOSaCV5E70bUuKMa7nsVBV0so0nOoDISC0EjZAGylJqRhrk4kAgr6f7oM6clwB8FcGR4HqNp4C5lc86i4uIAAx1wGGRDLFsP4IBIEbzQW2uEaWibwQGSolHySaF0ISoyRttgcK6TDcNRa+N6CjEK4eOFgEDeSjMhVnIMQ1fRkcLVnG8FD8UBMbbA84FcbTk7D/qMauvBofPo90XQO3T8sdiUtQAOCFU5UZnkATYOCJhMYq/2FxBNUjfNZo+O2l6ptI8gPuYwIZQmtw3DUVpRBTByCI3YYn1lpY5fK45kWZHOpOQYbQVxsOg+vCvWbBwkGItHsvNiEEd6ZMoa4AA17OkWCg+OmNVtmAVOUFjH/bquVOQU0bFkVRIYq6rCD4hEfMKCjUPGoEmTZSEUR1bhGBpWiUTB7APyFSJZgkmGiNUHQqxSxnJdhQBdhHWZ6U1c0gwcmIKRqcwVcAgBHLUK4TSaAQ96TctQfNqR7xBQAlaz0lcfDgzo1JWcg4O3cIDzp//Q/yyhRgTOTDSvxyFgQoaLPmOJYIvblqlYIUZuReVkbJZhlWtxwNSxUsCTUmPB3JDz4CjVCToaGSakl4n43Tn+XCvirGMmMoUDwl4u0bZxZBIUBy43zggYxh0SHRa4qElIEoajkFJgCROtqlawEUs4iB6slTZXBGMRGZohBQoQYTimF5ZQHIU6wRIeOGgecfiux9/ygANjHYGZ1g74YMLx1pl5y51YMMQQ4eTrcORTEqZvLHYo+GmbDuLQXRwCRjpfF8eKxCIOAVLIYKsUR4dQHLBkTOMQ2HknOHZxMFbZkuV51i88qxHTvUW4dkjQpobRxSDwad4RVlrS6fKUQ78LLgmcwvXGgtZ3UxwwGTDRVb5nn3d1DQZ/MDpY7aORMB/AAZrAuziMFrFYQEKUAJlPTEtrvncljhIEpZA8QVamEdUR25VOftho2zgUwEGN5XpXiiWwG+EoVQgqN+TprPokgAPVYyHFU8fGCWQah8i3nIr1hcrbmpFt6zNldJ0rBWcBKQsR281wyWSaul3br2BMiXrLqpXrcKDfvxGOnM6D4xIxp27VQ3BARkMrlxyjiG451l5oMXx0cOQl08IBKWdutlwZlZbAT3Gw6LOSmU/P+HzabWMkyTIWdSC7vD4Mu6mxRHSTwQIbROGtaggOXUK/AcbEKVm3pOJktOwEBwTiMvo1lmRDNpmmJTRIbyfQZUAiNJ+5anfMkiaBABI0F9bEqVr/RNwE/2YLbSRjDkSEBxmf5GQbdiYKX+BaICwBlwW505F7C0c7OOIaS+SvHoM7OSzPXOHnr8HRbPG4PSPzicr126dGCvI9jKNgabkuhbs5DqMjoStlrY7FPNUf/DGekjQrxPAsZ6E4RvOaQCMU6QZDmZHgG7xZ5bAYQMTZW5CO1IqqiMVuCFSsYtFXwVGrKzJuPUAQqYrDTStxoyzgh3Rb4mExA2viJOK2FopjoSVpWBlhpancgErMf6w3vN5RVGRaGecTzet37dsJFnDgHiM/e6n9UhwRHVZSLJIxImnpLgpLQ4wOFvYEzKTVw8ktwnDkRBU0l8OFdiV8robemmEojuFoiZVF3NAAww31HsOLCaa4omHGAt0TByQTdvXfwWGkYBzoGTlR+jPueyD0AkIdjD0hMtI2JulxKI6IvgGWItJgJGwzNf3hk3cKZ5SOeUVEm4OUQAzRsWHm0/uJJeayCZEu97AQSKE7rX8HR2Sk4gYiUBZk1XxHq/mWetTa4NpkzKm06rxnZyEcR0k1cWkB02KfBu8MHzl66oulw3GU2vM8JIzQQ1ElQf0YfqgrP3lLOM0e4XAVxeRJNXXPHOQyjrF9OY78RwXidIwZOFExmzUssgONofG+x2OOBGGJZv7koR+OI/JfE7iBHxQ4dqOzUHOX5XQ6r2dbLYVcjyOS5yURizrgzpT5igFxRpq2kK4tjFIbCclf0cr2ZJpe0plsZXWjBFeWjKZ++FPqb+OIvFUIfgQL1ZzSOvzPQmlYiOt1MzHATSSBAwXZOPJc70SlARzDjy2tCl6GZbSBqmT1hXyhVCoYzSeH0kYLN6kCOAS69+jHkWsqJgTJsFxzDEmQw3YzkzcyzSeXnKRKsAoTrw5EDMWEyeIwjoRMDq7gDo8Os7yi8PN/+XGA9k+FYeln82IYjghW7WVIABjc/lLnJR6iKaVHsEqAGTunbWS9k5LOEBO3b0XBhyNyYapoKwLuvQ+g9zQN5bGAg3v6nvwtMtEOJrBHW6irPCtUsQIj8ANJIiYeIZIk+EeEdDZQ79SfmpymsazG0BqaCamOIhEyYBUPDtzTgCRwSjsAB9YRGDmIo1Zv8TIscRyeiWFY+sgeLr0yFpVh9WylfKd3UDs4DFQEXvXiiGQUlRatOdzHt7NQCHoZuQpTyIfjCD7eU1hReZme7sDln4EGaCILqw1aYQBHut6TsHCAiQT6VJFWXOD2klhzcWANjWG1EBxL+DAefAWPeBTqPVZmhYEm4v4TLT3hEQ3rjAab6Pi9POLAQx2Qs/i0I5JuphI8PSPCyfR8iIjrktXRGdoxfdwlX1cJLZtgM1XBOeTEMXhARQ1Uw4cVRWVwJq1jU0ACbyxPipaWsXDQ2TBjEegeUlA78GyaChOr2ZUX0D+RbvRqsKwQNZiFpDOqBCOFKQ/gwFNdKm/1n86IRo+X4B3BlYWsLELYYajCiKgE5pweqMISmwhqihMFOVJCD6zhOT3VogUskbFqZ3juSBMl1hlgVqXlNXFaOyJoLBxinj4ANNRTsFAiWFrPooeF6Fky5dMoeM4NtQPjH3YKBx5cS0mEp6VRaAuFhlU8GZAV7z0Bh1UTIvNTR+VqmRUTDwLikgaKT/uC1iZJqfrUycd0vM5KBE0aPTMn0AhbUJzDYblsDy0OOqBO49iwa0pKyHmod+2/wP3xLGuX+AA0uMFUezq+STdVBfzbQCLqRhAHhEqjDnSc4FDtMhZRcSAZH9W4maDFHCnxtD11g0ghU09JKrELYHggE7pCOu1M2FHXUqZuwrv8RAiv8i4OFQcCPZkylshhgublDBeGI5J7NypCpiZZuwLQVcJ1KvFayIUZpvMs2+l0nnXYkHOqw7heKbJ0NwBXFSLxK+2mEehLXre3YfT3YSlOupCBRuiZKsjjYTTZOrQxKzeEi9vFLCzPPB7PST27bOsZx6gybukoHkyD4s0MrShlMlNvWQPJx/XRSrHTgbEWVyp6ZkYHSng2mko89IJcKZ9xK2Bww0JpGlquZomnJDTdSMapgWWMQu2qEghcbMStq6Fv+dpkeFbBKE3juaCkw1/2tjss5OlA8zc7Cj67IXu8uevueKWkr+/x37z4UR7lUR7lUR7ljuXigzFzqa3BSvzA/lzUNVLSP6eCMedQH1lPHRkfzdFN9g8ejgxHTxPBzbC8mbDS9DjZmFEvf6gCOKSgdhgJuwBsyPM32l16ODIcJUgwXy2sfC7SDNdgl/7HcNTaCXXmznH8fw7HcLQ0G4fBzbdDUv8HLIVKb8pYXAFX6tWOf/hM9vcruWb76Kj9JJND7Whl0hf65eVR3TnylGuO3tKilsFNjKVZ+T9hRmv3XHIfBkutpaWNjWIefYeZj7NP5xOJ3k8rFo+c8NNny5UyDo5CPdHr9e6uy99QcvqGKnUu6yud94hjPttOJf46el/kf5y3Ht/I/bVhbTK4OC4OVfXZ0dEVjd5faW6oZjufXl7OQ3hea6uMQvT8MsSiClmiFHLZJT+OXL2lPjOWb/9Pjt6CFFRFmjz3Mxwp7pHWZ0qLnjfKZQPa0SQ97uJe/1Hs2fKk1fI8NgTa0crav75NzP+F/wKOlBfHcrvVat7s/x17/ySb8DyOhKc7Ws4WoNHq0XODQe3IFxMSPr7yEEOQobT02XOmCFypsuA+j9DLon8I4jA6KnNZqVRCdo7uvZSkJdOzBQQ43BTOUOdtHPN+HCmJU1RiqnfQ3W8tJannxVFqJ67F8S6lCM1MZmHWQbX7LDUu4T2gU7qBdlx0ErgZ+iDX2UhlSZ08yngjY0nXwd3eRVdvQ+JLLc8jmLUbGEtEV1rM9QeE76fkVp5Kl9bgahiVLnlwJMJxwEqrFsP3v++/FMiGdKjHjYyuF26GI71AElJHf4iuFKTQ2VhSUylW/RSPlCqT0nF8/ilL/6pH6qn1OFtc3bBOjyxnPvUS6uc76/G3lYLeIZIiSUUDcpbPn1ztSH2+xH9z71MrlnYUU/Yf0Eob/+1UxRnN3XvJlfILCwtGKR1J10ruCY80BOL0B3gtbb/gvjcsFR6iN3X+cvoNj4x88f+V857Jw0zTv5o8zKLOl8nDYxB4zOorSc5tPKz9/wd8ba30VKEg+wAAAABJRU5ErkJggg==" alt="Elecnor" width="264" height="145">
       <div>
         <p class="eyebrow">Producción en terreno · Baremo diario</p>
-        <h1 class="title">Comparativo Julio - Agosto</h1>
+        <h1 class="title" id="page-title">Comparativo Baremos Elecnor</h1>
       </div>
     </div>
     <div class="masthead-right">
@@ -259,8 +278,8 @@
         </svg>
       </button>
       <div class="period-badge">
-        <b>50 técnicos</b>
-        3 supervisores<br>
+        <b><span id="badge-n-tecnicos">–</span> técnicos</b>
+        <span id="badge-n-supervisores">–</span> supervisores<br>
         Generado <span id="gen-date">08-09-2026</span>
         <br>
         <button class="pdf-btn" id="pdf-btn" type="button">
@@ -274,21 +293,29 @@
     </div>
   </div>
 
+  <div class="compare-bar" role="group" aria-label="Selector de periodo a comparar">
+    <span class="compare-label">Comparar</span>
+    <select class="month-select" id="mesA" aria-label="Mes inicial"></select>
+    <span class="compare-arrow">→</span>
+    <select class="month-select" id="mesB" aria-label="Mes final"></select>
+    <span class="compare-note" id="compare-note"></span>
+  </div>
+
   <section class="kpis" aria-label="Resumen general">
     <div class="kpi headline">
-      <div class="label">PROMEDIO JULIO</div>
-      <div class="value num" id="kpi-jul">–</div>
-      <div class="sub" id="kpi-jul-sub">&nbsp;</div>
+      <div class="label" id="kpi-a-label">PROMEDIO</div>
+      <div class="value num" id="kpi-a">–</div>
+      <div class="sub" id="kpi-a-sub">&nbsp;</div>
     </div>
     <div class="kpi headline">
-      <div class="label">PROMEDIO AGOSTO</div>
-      <div class="value num" id="kpi-ago">–</div>
-      <div class="sub" id="kpi-ago-sub">&nbsp;</div>
+      <div class="label" id="kpi-b-label">PROMEDIO</div>
+      <div class="value num" id="kpi-b">–</div>
+      <div class="sub" id="kpi-b-sub">&nbsp;</div>
     </div>
     <div class="kpi">
       <div class="label">VARIACIÓN GENERAL</div>
       <div class="value num" id="kpi-delta">–</div>
-      <div class="sub">promedio Baremo/día, Jul → Ago</div>
+      <div class="sub" id="kpi-delta-sub">promedio Baremo/día</div>
     </div>
     <div class="kpi">
       <div class="label">TÉCNICOS</div>
@@ -304,7 +331,7 @@
   <section aria-label="Comparativo por supervisor">
     <div class="section-head">
       <h2>Por supervisor</h2>
-      <span class="hint">promedio Baremo/día · Jul → Ago</span>
+      <span class="hint" id="sup-hint">promedio Baremo/día</span>
     </div>
     <div class="sup-grid" id="sup-grid"></div>
   </section>
@@ -312,22 +339,23 @@
   <section aria-label="Comparativo por agencia">
     <div class="section-head">
       <h2>Por agencia</h2>
-      <span class="hint">promedio Baremo/día · Jul → Ago</span>
+      <span class="hint" id="agencia-hint">promedio Baremo/día</span>
     </div>
     <div class="sup-grid" id="agencia-grid"></div>
   </section>
 
   <section aria-label="Notas de calidad de datos">
     <div class="note">
-      <b>2 técnicos sin actividad registrada en agosto</b> (los 31 días en 0 — probable licencia o desvinculación, no bajo desempeño real). Se excluyen del promedio de su supervisor, su agencia y del total general.
+      <b><span id="note-excluidos-n">0</span> técnicos excluidos</b> por no tener actividad registrada durante todo el periodo informado en alguno de los dos meses comparados (probable licencia o desvinculación, no bajo desempeño real). Se excluyen del promedio de su supervisor, su agencia y del total general.
+      <div class="methodology" id="note-partial"></div>
       <div class="methodology">
-        Metodología: el promedio diario de cada técnico ignora los días sin turno asignado (celda vacía en la base). Un día con Baremo&nbsp;=&nbsp;0 sí se contabiliza (turno trabajado, sin actividad facturable ese día). Agencia asignada según Maestro personal final.xlsx (cruce por Rut). Fuente: Julio-Agosto.xlsx · almacenado en Historico_Comparativo_Tecnicos.xlsx.
+        Metodología: el promedio diario de cada técnico ignora los días sin turno asignado (celda vacía en la base). Un día con Baremo&nbsp;=&nbsp;0 sí se contabiliza (turno trabajado, sin actividad facturable ese día). Solo se compara un técnico si tiene datos en ambos meses seleccionados. Agencia asignada según Maestro personal final.xlsx (cruce por Rut). Fuente: Historico_Comparativo_Tecnicos.xlsx.
       </div>
     </div>
   </section>
 
   <footer>
-    <span>Baremo Julio–Agosto 2026 · Generado <span id="gen-date-footer">08-09-2026</span></span>
+    <span>Baremo <span id="footer-range">–</span> 2026 · Generado <span id="gen-date-footer">08-09-2026</span></span>
     <span>Comparativos\Historico_Comparativo_Tecnicos.xlsx</span>
     <span>Diseñado por Xas</span>
   </footer>
@@ -337,404 +365,1252 @@
 <script id="tecnicos-data" type="application/json">
 [
     {
+        "mes":  "2026-07",
+        "id":  "6a59a2ed18",
         "supervisor":  "JULIO HERNAN PINTO HERRERA",
         "agencia":  "VIÑA DEL MAR",
-        "julProm":  6.2711,
-        "julZero":  false,
-        "agoProm":  5.8768,
-        "agoZero":  false
+        "promedio":  6.27,
+        "mesEnCero":  false
     },
     {
+        "mes":  "2026-07",
+        "id":  "9ca52e1c4d",
         "supervisor":  "JULIO HERNAN PINTO HERRERA",
         "agencia":  "VIÑA DEL MAR",
-        "julProm":  6.5564,
-        "julZero":  false,
-        "agoProm":  6.8571,
-        "agoZero":  false
+        "promedio":  6.56,
+        "mesEnCero":  false
     },
     {
+        "mes":  "2026-07",
+        "id":  "a23e34f011",
         "supervisor":  "RAMON CARLOS VARGAS FONTECHA",
         "agencia":  "VIÑA DEL MAR",
-        "julProm":  6.7346,
-        "julZero":  false,
-        "agoProm":  6.0042,
-        "agoZero":  false
+        "promedio":  6.73,
+        "mesEnCero":  false
     },
     {
+        "mes":  "2026-07",
+        "id":  "b68e547e87",
         "supervisor":  "RAMON CARLOS VARGAS FONTECHA",
         "agencia":  "VIÑA DEL MAR",
-        "julProm":  5.6496,
-        "julZero":  false,
-        "agoProm":  5.8429,
-        "agoZero":  false
+        "promedio":  5.65,
+        "mesEnCero":  false
     },
     {
+        "mes":  "2026-07",
+        "id":  "910c94ca09",
         "supervisor":  "JULIO HERNAN PINTO HERRERA",
         "agencia":  "VIÑA DEL MAR",
-        "julProm":  5.2129,
-        "julZero":  false,
-        "agoProm":  0,
-        "agoZero":  true
+        "promedio":  5.21,
+        "mesEnCero":  false
     },
     {
+        "mes":  "2026-07",
+        "id":  "73290b6664",
         "supervisor":  "RAMON CARLOS VARGAS FONTECHA",
         "agencia":  "VIÑA DEL MAR",
-        "julProm":  5.7064,
-        "julZero":  false,
-        "agoProm":  4.321,
-        "agoZero":  false
+        "promedio":  5.71,
+        "mesEnCero":  false
     },
     {
+        "mes":  "2026-07",
+        "id":  "272edae6fe",
         "supervisor":  "JUAN CARLOS ESPAÑA GUERRERO",
         "agencia":  "VALPARAÍSO",
-        "julProm":  3.7164,
-        "julZero":  false,
-        "agoProm":  3.0206,
-        "agoZero":  false
+        "promedio":  3.72,
+        "mesEnCero":  false
     },
     {
+        "mes":  "2026-07",
+        "id":  "e642829c87",
         "supervisor":  "RAMON CARLOS VARGAS FONTECHA",
         "agencia":  "VIÑA DEL MAR",
-        "julProm":  7.7348,
-        "julZero":  false,
-        "agoProm":  5.6787,
-        "agoZero":  false
+        "promedio":  7.73,
+        "mesEnCero":  false
     },
     {
+        "mes":  "2026-07",
+        "id":  "b323616104",
         "supervisor":  "JUAN CARLOS ESPAÑA GUERRERO",
         "agencia":  "VALPARAÍSO",
-        "julProm":  5.596,
-        "julZero":  false,
-        "agoProm":  4.3852,
-        "agoZero":  false
+        "promedio":  5.6,
+        "mesEnCero":  false
     },
     {
+        "mes":  "2026-07",
+        "id":  "d3d34478b9",
         "supervisor":  "JULIO HERNAN PINTO HERRERA",
         "agencia":  "SAN ANTONIO",
-        "julProm":  7.7232,
-        "julZero":  false,
-        "agoProm":  7.3848,
-        "agoZero":  false
+        "promedio":  7.72,
+        "mesEnCero":  false
     },
     {
+        "mes":  "2026-07",
+        "id":  "5995af50bb",
         "supervisor":  "JULIO HERNAN PINTO HERRERA",
         "agencia":  "VIÑA DEL MAR",
-        "julProm":  7.2404,
-        "julZero":  false,
-        "agoProm":  3.781,
-        "agoZero":  false
+        "promedio":  7.24,
+        "mesEnCero":  false
     },
     {
+        "mes":  "2026-07",
+        "id":  "42114c4e14",
         "supervisor":  "RAMON CARLOS VARGAS FONTECHA",
         "agencia":  "VIÑA DEL MAR",
-        "julProm":  6.2618,
-        "julZero":  false,
-        "agoProm":  6.07,
-        "agoZero":  false
+        "promedio":  6.26,
+        "mesEnCero":  false
     },
     {
+        "mes":  "2026-07",
+        "id":  "83e7cfe3d0",
         "supervisor":  "JULIO HERNAN PINTO HERRERA",
         "agencia":  "VIÑA DEL MAR",
-        "julProm":  7.6264,
-        "julZero":  false,
-        "agoProm":  6.7868,
-        "agoZero":  false
+        "promedio":  7.63,
+        "mesEnCero":  false
     },
     {
+        "mes":  "2026-07",
+        "id":  "814aadfd1e",
         "supervisor":  "RAMON CARLOS VARGAS FONTECHA",
         "agencia":  "VIÑA DEL MAR",
-        "julProm":  5.9446,
-        "julZero":  false,
-        "agoProm":  5.2477,
-        "agoZero":  false
+        "promedio":  5.94,
+        "mesEnCero":  false
     },
     {
+        "mes":  "2026-07",
+        "id":  "5e49c09661",
         "supervisor":  "JUAN CARLOS ESPAÑA GUERRERO",
         "agencia":  "VALPARAÍSO",
-        "julProm":  4.7295,
-        "julZero":  false,
-        "agoProm":  5.1403,
-        "agoZero":  false
+        "promedio":  4.73,
+        "mesEnCero":  false
     },
     {
+        "mes":  "2026-07",
+        "id":  "7b42ebdde0",
         "supervisor":  "RAMON CARLOS VARGAS FONTECHA",
         "agencia":  "VIÑA DEL MAR",
-        "julProm":  4.2636,
-        "julZero":  false,
-        "agoProm":  3.5945,
-        "agoZero":  false
+        "promedio":  4.26,
+        "mesEnCero":  false
     },
     {
+        "mes":  "2026-07",
+        "id":  "e341665c88",
         "supervisor":  "JUAN CARLOS ESPAÑA GUERRERO",
         "agencia":  "VIÑA DEL MAR",
-        "julProm":  5.8425,
-        "julZero":  false,
-        "agoProm":  5.4206,
-        "agoZero":  false
+        "promedio":  5.84,
+        "mesEnCero":  false
     },
     {
+        "mes":  "2026-07",
+        "id":  "3aa7a40f72",
         "supervisor":  "JULIO HERNAN PINTO HERRERA",
         "agencia":  "VIÑA DEL MAR",
-        "julProm":  4.997,
-        "julZero":  false,
-        "agoProm":  3.5019,
-        "agoZero":  false
+        "promedio":  5,
+        "mesEnCero":  false
     },
     {
+        "mes":  "2026-07",
+        "id":  "388a2e7075",
         "supervisor":  "RAMON CARLOS VARGAS FONTECHA",
         "agencia":  "VIÑA DEL MAR",
-        "julProm":  4.5039,
-        "julZero":  false,
-        "agoProm":  1.3839,
-        "agoZero":  false
+        "promedio":  4.5,
+        "mesEnCero":  false
     },
     {
+        "mes":  "2026-07",
+        "id":  "d9c51fe5b5",
         "supervisor":  "JULIO HERNAN PINTO HERRERA",
         "agencia":  "VIÑA DEL MAR",
-        "julProm":  4.535,
-        "julZero":  false,
-        "agoProm":  4.4,
-        "agoZero":  false
+        "promedio":  4.54,
+        "mesEnCero":  false
     },
     {
+        "mes":  "2026-07",
+        "id":  "3beae3cfc4",
         "supervisor":  "JULIO HERNAN PINTO HERRERA",
         "agencia":  "SAN ANTONIO",
-        "julProm":  6.4507,
-        "julZero":  false,
-        "agoProm":  6.4706,
-        "agoZero":  false
+        "promedio":  6.45,
+        "mesEnCero":  false
     },
     {
+        "mes":  "2026-07",
+        "id":  "9612d4b9e8",
         "supervisor":  "RAMON CARLOS VARGAS FONTECHA",
         "agencia":  "VIÑA DEL MAR",
-        "julProm":  5.3715,
-        "julZero":  false,
-        "agoProm":  4.3606,
-        "agoZero":  false
+        "promedio":  5.37,
+        "mesEnCero":  false
     },
     {
+        "mes":  "2026-07",
+        "id":  "4d844173eb",
         "supervisor":  "JULIO HERNAN PINTO HERRERA",
         "agencia":  "SAN ANTONIO",
-        "julProm":  5.4289,
-        "julZero":  false,
-        "agoProm":  5.3042,
-        "agoZero":  false
+        "promedio":  5.43,
+        "mesEnCero":  false
     },
     {
+        "mes":  "2026-07",
+        "id":  "7019be740c",
         "supervisor":  "RAMON CARLOS VARGAS FONTECHA",
         "agencia":  "VIÑA DEL MAR",
-        "julProm":  6.2478,
-        "julZero":  false,
-        "agoProm":  4.7671,
-        "agoZero":  false
+        "promedio":  6.25,
+        "mesEnCero":  false
     },
     {
+        "mes":  "2026-07",
+        "id":  "92eef64e0c",
         "supervisor":  "JULIO HERNAN PINTO HERRERA",
         "agencia":  "VIÑA DEL MAR",
-        "julProm":  4.8479,
-        "julZero":  false,
-        "agoProm":  3.7361,
-        "agoZero":  false
+        "promedio":  4.85,
+        "mesEnCero":  false
     },
     {
+        "mes":  "2026-07",
+        "id":  "c7746b5eed",
         "supervisor":  "JUAN CARLOS ESPAÑA GUERRERO",
         "agencia":  "VALPARAÍSO",
-        "julProm":  8.8257,
-        "julZero":  false,
-        "agoProm":  2.0006,
-        "agoZero":  false
+        "promedio":  8.83,
+        "mesEnCero":  false
     },
     {
+        "mes":  "2026-07",
+        "id":  "bf5ea8ec61",
         "supervisor":  "JUAN CARLOS ESPAÑA GUERRERO",
         "agencia":  "VALPARAÍSO",
-        "julProm":  5.6289,
-        "julZero":  false,
-        "agoProm":  3.1523,
-        "agoZero":  false
+        "promedio":  5.63,
+        "mesEnCero":  false
     },
     {
+        "mes":  "2026-07",
+        "id":  "2ce224fabe",
         "supervisor":  "JUAN CARLOS ESPAÑA GUERRERO",
         "agencia":  "VALPARAÍSO",
-        "julProm":  6.2533,
-        "julZero":  false,
-        "agoProm":  5.2561,
-        "agoZero":  false
+        "promedio":  6.25,
+        "mesEnCero":  false
     },
     {
+        "mes":  "2026-07",
+        "id":  "456903cb9c",
         "supervisor":  "JULIO HERNAN PINTO HERRERA",
         "agencia":  "VIÑA DEL MAR",
-        "julProm":  4.8607,
-        "julZero":  false,
-        "agoProm":  4.4826,
-        "agoZero":  false
+        "promedio":  4.86,
+        "mesEnCero":  false
     },
     {
+        "mes":  "2026-07",
+        "id":  "cea0423bee",
         "supervisor":  "JUAN CARLOS ESPAÑA GUERRERO",
         "agencia":  "VALPARAÍSO",
-        "julProm":  6.1071,
-        "julZero":  false,
-        "agoProm":  4.9981,
-        "agoZero":  false
+        "promedio":  6.11,
+        "mesEnCero":  false
     },
     {
+        "mes":  "2026-07",
+        "id":  "9e9fa02ec1",
         "supervisor":  "JUAN CARLOS ESPAÑA GUERRERO",
         "agencia":  "VALPARAÍSO",
-        "julProm":  6.1104,
-        "julZero":  false,
-        "agoProm":  4.7103,
-        "agoZero":  false
+        "promedio":  6.11,
+        "mesEnCero":  false
     },
     {
+        "mes":  "2026-07",
+        "id":  "c4b0251ff0",
         "supervisor":  "JULIO HERNAN PINTO HERRERA",
         "agencia":  "VIÑA DEL MAR",
-        "julProm":  4.975,
-        "julZero":  false,
-        "agoProm":  4.9081,
-        "agoZero":  false
+        "promedio":  4.98,
+        "mesEnCero":  false
     },
     {
+        "mes":  "2026-07",
+        "id":  "1f70d2db4b",
         "supervisor":  "RAMON CARLOS VARGAS FONTECHA",
         "agencia":  "VIÑA DEL MAR",
-        "julProm":  5.0629,
-        "julZero":  false,
-        "agoProm":  5.8035,
-        "agoZero":  false
+        "promedio":  5.06,
+        "mesEnCero":  false
     },
     {
+        "mes":  "2026-07",
+        "id":  "3dce29ca75",
         "supervisor":  "JUAN CARLOS ESPAÑA GUERRERO",
         "agencia":  "VALPARAÍSO",
-        "julProm":  5.8779,
-        "julZero":  false,
-        "agoProm":  4.921,
-        "agoZero":  false
+        "promedio":  5.88,
+        "mesEnCero":  false
     },
     {
+        "mes":  "2026-07",
+        "id":  "8717e2dae9",
         "supervisor":  "JULIO HERNAN PINTO HERRERA",
         "agencia":  "VIÑA DEL MAR",
-        "julProm":  4.9475,
-        "julZero":  false,
-        "agoProm":  4.5468,
-        "agoZero":  false
+        "promedio":  4.95,
+        "mesEnCero":  false
     },
     {
+        "mes":  "2026-07",
+        "id":  "5705421df8",
         "supervisor":  "JUAN CARLOS ESPAÑA GUERRERO",
         "agencia":  "VALPARAÍSO",
-        "julProm":  4.6727,
-        "julZero":  false,
-        "agoProm":  6.0542,
-        "agoZero":  false
+        "promedio":  4.67,
+        "mesEnCero":  false
     },
     {
+        "mes":  "2026-07",
+        "id":  "47e77d340d",
         "supervisor":  "JUAN CARLOS ESPAÑA GUERRERO",
         "agencia":  "VALPARAÍSO",
-        "julProm":  7.375,
-        "julZero":  false,
-        "agoProm":  6.0735,
-        "agoZero":  false
+        "promedio":  7.37,
+        "mesEnCero":  false
     },
     {
+        "mes":  "2026-07",
+        "id":  "8836d8a6cd",
         "supervisor":  "JULIO HERNAN PINTO HERRERA",
         "agencia":  "SAN ANTONIO",
-        "julProm":  4.9243,
-        "julZero":  false,
-        "agoProm":  0,
-        "agoZero":  true
+        "promedio":  4.92,
+        "mesEnCero":  false
     },
     {
+        "mes":  "2026-07",
+        "id":  "e6e8d91903",
         "supervisor":  "JULIO HERNAN PINTO HERRERA",
         "agencia":  "VIÑA DEL MAR",
-        "julProm":  5.5296,
-        "julZero":  false,
-        "agoProm":  2.7019,
-        "agoZero":  false
+        "promedio":  5.53,
+        "mesEnCero":  false
     },
     {
+        "mes":  "2026-07",
+        "id":  "428771fe0f",
         "supervisor":  "JUAN CARLOS ESPAÑA GUERRERO",
         "agencia":  "VALPARAÍSO",
-        "julProm":  7.6368,
-        "julZero":  false,
-        "agoProm":  6.0913,
-        "agoZero":  false
+        "promedio":  7.64,
+        "mesEnCero":  false
     },
     {
+        "mes":  "2026-07",
+        "id":  "f7c0345904",
         "supervisor":  "RAMON CARLOS VARGAS FONTECHA",
         "agencia":  "VIÑA DEL MAR",
-        "julProm":  6.9338,
-        "julZero":  false,
-        "agoProm":  6.7116,
-        "agoZero":  false
+        "promedio":  6.93,
+        "mesEnCero":  false
     },
     {
+        "mes":  "2026-07",
+        "id":  "a3a4334fe5",
         "supervisor":  "JUAN CARLOS ESPAÑA GUERRERO",
         "agencia":  "VALPARAÍSO",
-        "julProm":  8.9407,
-        "julZero":  false,
-        "agoProm":  3.5258,
-        "agoZero":  false
+        "promedio":  8.94,
+        "mesEnCero":  false
     },
     {
+        "mes":  "2026-07",
+        "id":  "f8b3b2c1d7",
         "supervisor":  "JUAN CARLOS ESPAÑA GUERRERO",
         "agencia":  "VALPARAÍSO",
-        "julProm":  5.7884,
-        "julZero":  false,
-        "agoProm":  4.9087,
-        "agoZero":  false
+        "promedio":  5.79,
+        "mesEnCero":  false
     },
     {
+        "mes":  "2026-07",
+        "id":  "a1bf0206eb",
         "supervisor":  "JUAN CARLOS ESPAÑA GUERRERO",
         "agencia":  "VALPARAÍSO",
-        "julProm":  6.3648,
-        "julZero":  false,
-        "agoProm":  5.0332,
-        "agoZero":  false
+        "promedio":  6.36,
+        "mesEnCero":  false
     },
     {
+        "mes":  "2026-07",
+        "id":  "a83d388d83",
         "supervisor":  "JULIO HERNAN PINTO HERRERA",
         "agencia":  "VIÑA DEL MAR",
-        "julProm":  4.3707,
-        "julZero":  false,
-        "agoProm":  2.9481,
-        "agoZero":  false
+        "promedio":  4.37,
+        "mesEnCero":  false
     },
     {
+        "mes":  "2026-07",
+        "id":  "ce78faf930",
         "supervisor":  "RAMON CARLOS VARGAS FONTECHA",
         "agencia":  "VIÑA DEL MAR",
-        "julProm":  7.3656,
-        "julZero":  false,
-        "agoProm":  4.139,
-        "agoZero":  false
+        "promedio":  7.37,
+        "mesEnCero":  false
     },
     {
-        "supervisor":  "JULIO HERNAN PINTO HERRERA",
-        "agencia":  "SAN ANTONIO",
-        "julProm":  7.3789,
-        "julZero":  false,
-        "agoProm":  6.44,
-        "agoZero":  false
-    },
-    {
+        "mes":  "2026-07",
+        "id":  "ad11bf2079",
         "supervisor":  "JULIO HERNAN PINTO HERRERA",
         "agencia":  "SAN ANTONIO",
-        "julProm":  6.7604,
-        "julZero":  false,
-        "agoProm":  5.7694,
-        "agoZero":  false
+        "promedio":  7.38,
+        "mesEnCero":  false
     },
     {
-        "supervisor":  "RAMON CARLOS VARGAS FONTECHA",
-        "agencia":  "VIÑA DEL MAR",
-        "julProm":  5.1387,
-        "julZero":  false,
-        "agoProm":  5.4319,
-        "agoZero":  false
+        "mes":  "2026-07",
+        "id":  "8a94ca4a64",
+        "supervisor":  "JULIO HERNAN PINTO HERRERA",
+        "agencia":  "SAN ANTONIO",
+        "promedio":  6.76,
+        "mesEnCero":  false
     },
     {
+        "mes":  "2026-07",
+        "id":  "f7269d3ed0",
         "supervisor":  "RAMON CARLOS VARGAS FONTECHA",
         "agencia":  "VIÑA DEL MAR",
-        "julProm":  4.387,
-        "julZero":  false,
-        "agoProm":  3.8887,
-        "agoZero":  false
+        "promedio":  5.14,
+        "mesEnCero":  false
+    },
+    {
+        "mes":  "2026-07",
+        "id":  "2cb3257e6f",
+        "supervisor":  "RAMON CARLOS VARGAS FONTECHA",
+        "agencia":  "VIÑA DEL MAR",
+        "promedio":  4.39,
+        "mesEnCero":  false
+    },
+    {
+        "mes":  "2026-08",
+        "id":  "6a59a2ed18",
+        "supervisor":  "JULIO HERNAN PINTO HERRERA",
+        "agencia":  "VIÑA DEL MAR",
+        "promedio":  5.88,
+        "mesEnCero":  false
+    },
+    {
+        "mes":  "2026-08",
+        "id":  "9ca52e1c4d",
+        "supervisor":  "JULIO HERNAN PINTO HERRERA",
+        "agencia":  "VIÑA DEL MAR",
+        "promedio":  6.86,
+        "mesEnCero":  false
+    },
+    {
+        "mes":  "2026-08",
+        "id":  "a23e34f011",
+        "supervisor":  "RAMON CARLOS VARGAS FONTECHA",
+        "agencia":  "VIÑA DEL MAR",
+        "promedio":  6,
+        "mesEnCero":  false
+    },
+    {
+        "mes":  "2026-08",
+        "id":  "b68e547e87",
+        "supervisor":  "RAMON CARLOS VARGAS FONTECHA",
+        "agencia":  "VIÑA DEL MAR",
+        "promedio":  5.84,
+        "mesEnCero":  false
+    },
+    {
+        "mes":  "2026-08",
+        "id":  "910c94ca09",
+        "supervisor":  "JULIO HERNAN PINTO HERRERA",
+        "agencia":  "VIÑA DEL MAR",
+        "promedio":  0,
+        "mesEnCero":  true
+    },
+    {
+        "mes":  "2026-08",
+        "id":  "73290b6664",
+        "supervisor":  "RAMON CARLOS VARGAS FONTECHA",
+        "agencia":  "VIÑA DEL MAR",
+        "promedio":  4.32,
+        "mesEnCero":  false
+    },
+    {
+        "mes":  "2026-08",
+        "id":  "272edae6fe",
+        "supervisor":  "JUAN CARLOS ESPAÑA GUERRERO",
+        "agencia":  "VALPARAÍSO",
+        "promedio":  3.02,
+        "mesEnCero":  false
+    },
+    {
+        "mes":  "2026-08",
+        "id":  "e642829c87",
+        "supervisor":  "RAMON CARLOS VARGAS FONTECHA",
+        "agencia":  "VIÑA DEL MAR",
+        "promedio":  5.68,
+        "mesEnCero":  false
+    },
+    {
+        "mes":  "2026-08",
+        "id":  "b323616104",
+        "supervisor":  "JUAN CARLOS ESPAÑA GUERRERO",
+        "agencia":  "VALPARAÍSO",
+        "promedio":  4.39,
+        "mesEnCero":  false
+    },
+    {
+        "mes":  "2026-08",
+        "id":  "d3d34478b9",
+        "supervisor":  "JULIO HERNAN PINTO HERRERA",
+        "agencia":  "SAN ANTONIO",
+        "promedio":  7.38,
+        "mesEnCero":  false
+    },
+    {
+        "mes":  "2026-08",
+        "id":  "5995af50bb",
+        "supervisor":  "JULIO HERNAN PINTO HERRERA",
+        "agencia":  "VIÑA DEL MAR",
+        "promedio":  3.78,
+        "mesEnCero":  false
+    },
+    {
+        "mes":  "2026-08",
+        "id":  "42114c4e14",
+        "supervisor":  "RAMON CARLOS VARGAS FONTECHA",
+        "agencia":  "VIÑA DEL MAR",
+        "promedio":  6.07,
+        "mesEnCero":  false
+    },
+    {
+        "mes":  "2026-08",
+        "id":  "83e7cfe3d0",
+        "supervisor":  "JULIO HERNAN PINTO HERRERA",
+        "agencia":  "VIÑA DEL MAR",
+        "promedio":  6.79,
+        "mesEnCero":  false
+    },
+    {
+        "mes":  "2026-08",
+        "id":  "814aadfd1e",
+        "supervisor":  "RAMON CARLOS VARGAS FONTECHA",
+        "agencia":  "VIÑA DEL MAR",
+        "promedio":  5.25,
+        "mesEnCero":  false
+    },
+    {
+        "mes":  "2026-08",
+        "id":  "5e49c09661",
+        "supervisor":  "JUAN CARLOS ESPAÑA GUERRERO",
+        "agencia":  "VALPARAÍSO",
+        "promedio":  5.14,
+        "mesEnCero":  false
+    },
+    {
+        "mes":  "2026-08",
+        "id":  "7b42ebdde0",
+        "supervisor":  "RAMON CARLOS VARGAS FONTECHA",
+        "agencia":  "VIÑA DEL MAR",
+        "promedio":  3.59,
+        "mesEnCero":  false
+    },
+    {
+        "mes":  "2026-08",
+        "id":  "e341665c88",
+        "supervisor":  "JUAN CARLOS ESPAÑA GUERRERO",
+        "agencia":  "VIÑA DEL MAR",
+        "promedio":  5.42,
+        "mesEnCero":  false
+    },
+    {
+        "mes":  "2026-08",
+        "id":  "3aa7a40f72",
+        "supervisor":  "JULIO HERNAN PINTO HERRERA",
+        "agencia":  "VIÑA DEL MAR",
+        "promedio":  3.5,
+        "mesEnCero":  false
+    },
+    {
+        "mes":  "2026-08",
+        "id":  "388a2e7075",
+        "supervisor":  "RAMON CARLOS VARGAS FONTECHA",
+        "agencia":  "VIÑA DEL MAR",
+        "promedio":  1.38,
+        "mesEnCero":  false
+    },
+    {
+        "mes":  "2026-08",
+        "id":  "d9c51fe5b5",
+        "supervisor":  "JULIO HERNAN PINTO HERRERA",
+        "agencia":  "VIÑA DEL MAR",
+        "promedio":  4.4,
+        "mesEnCero":  false
+    },
+    {
+        "mes":  "2026-08",
+        "id":  "3beae3cfc4",
+        "supervisor":  "JULIO HERNAN PINTO HERRERA",
+        "agencia":  "SAN ANTONIO",
+        "promedio":  6.47,
+        "mesEnCero":  false
+    },
+    {
+        "mes":  "2026-08",
+        "id":  "9612d4b9e8",
+        "supervisor":  "RAMON CARLOS VARGAS FONTECHA",
+        "agencia":  "VIÑA DEL MAR",
+        "promedio":  4.36,
+        "mesEnCero":  false
+    },
+    {
+        "mes":  "2026-08",
+        "id":  "4d844173eb",
+        "supervisor":  "JULIO HERNAN PINTO HERRERA",
+        "agencia":  "SAN ANTONIO",
+        "promedio":  5.3,
+        "mesEnCero":  false
+    },
+    {
+        "mes":  "2026-08",
+        "id":  "7019be740c",
+        "supervisor":  "RAMON CARLOS VARGAS FONTECHA",
+        "agencia":  "VIÑA DEL MAR",
+        "promedio":  4.77,
+        "mesEnCero":  false
+    },
+    {
+        "mes":  "2026-08",
+        "id":  "92eef64e0c",
+        "supervisor":  "JULIO HERNAN PINTO HERRERA",
+        "agencia":  "VIÑA DEL MAR",
+        "promedio":  3.74,
+        "mesEnCero":  false
+    },
+    {
+        "mes":  "2026-08",
+        "id":  "c7746b5eed",
+        "supervisor":  "JUAN CARLOS ESPAÑA GUERRERO",
+        "agencia":  "VALPARAÍSO",
+        "promedio":  2,
+        "mesEnCero":  false
+    },
+    {
+        "mes":  "2026-08",
+        "id":  "bf5ea8ec61",
+        "supervisor":  "JUAN CARLOS ESPAÑA GUERRERO",
+        "agencia":  "VALPARAÍSO",
+        "promedio":  3.15,
+        "mesEnCero":  false
+    },
+    {
+        "mes":  "2026-08",
+        "id":  "2ce224fabe",
+        "supervisor":  "JUAN CARLOS ESPAÑA GUERRERO",
+        "agencia":  "VALPARAÍSO",
+        "promedio":  5.26,
+        "mesEnCero":  false
+    },
+    {
+        "mes":  "2026-08",
+        "id":  "456903cb9c",
+        "supervisor":  "JULIO HERNAN PINTO HERRERA",
+        "agencia":  "VIÑA DEL MAR",
+        "promedio":  4.48,
+        "mesEnCero":  false
+    },
+    {
+        "mes":  "2026-08",
+        "id":  "cea0423bee",
+        "supervisor":  "JUAN CARLOS ESPAÑA GUERRERO",
+        "agencia":  "VALPARAÍSO",
+        "promedio":  5,
+        "mesEnCero":  false
+    },
+    {
+        "mes":  "2026-08",
+        "id":  "9e9fa02ec1",
+        "supervisor":  "JUAN CARLOS ESPAÑA GUERRERO",
+        "agencia":  "VALPARAÍSO",
+        "promedio":  4.71,
+        "mesEnCero":  false
+    },
+    {
+        "mes":  "2026-08",
+        "id":  "c4b0251ff0",
+        "supervisor":  "JULIO HERNAN PINTO HERRERA",
+        "agencia":  "VIÑA DEL MAR",
+        "promedio":  4.91,
+        "mesEnCero":  false
+    },
+    {
+        "mes":  "2026-08",
+        "id":  "1f70d2db4b",
+        "supervisor":  "RAMON CARLOS VARGAS FONTECHA",
+        "agencia":  "VIÑA DEL MAR",
+        "promedio":  5.8,
+        "mesEnCero":  false
+    },
+    {
+        "mes":  "2026-08",
+        "id":  "3dce29ca75",
+        "supervisor":  "JUAN CARLOS ESPAÑA GUERRERO",
+        "agencia":  "VALPARAÍSO",
+        "promedio":  4.92,
+        "mesEnCero":  false
+    },
+    {
+        "mes":  "2026-08",
+        "id":  "8717e2dae9",
+        "supervisor":  "JULIO HERNAN PINTO HERRERA",
+        "agencia":  "VIÑA DEL MAR",
+        "promedio":  4.55,
+        "mesEnCero":  false
+    },
+    {
+        "mes":  "2026-08",
+        "id":  "5705421df8",
+        "supervisor":  "JUAN CARLOS ESPAÑA GUERRERO",
+        "agencia":  "VALPARAÍSO",
+        "promedio":  6.05,
+        "mesEnCero":  false
+    },
+    {
+        "mes":  "2026-08",
+        "id":  "47e77d340d",
+        "supervisor":  "JUAN CARLOS ESPAÑA GUERRERO",
+        "agencia":  "VALPARAÍSO",
+        "promedio":  6.07,
+        "mesEnCero":  false
+    },
+    {
+        "mes":  "2026-08",
+        "id":  "8836d8a6cd",
+        "supervisor":  "JULIO HERNAN PINTO HERRERA",
+        "agencia":  "SAN ANTONIO",
+        "promedio":  0,
+        "mesEnCero":  true
+    },
+    {
+        "mes":  "2026-08",
+        "id":  "e6e8d91903",
+        "supervisor":  "JULIO HERNAN PINTO HERRERA",
+        "agencia":  "VIÑA DEL MAR",
+        "promedio":  2.7,
+        "mesEnCero":  false
+    },
+    {
+        "mes":  "2026-08",
+        "id":  "428771fe0f",
+        "supervisor":  "JUAN CARLOS ESPAÑA GUERRERO",
+        "agencia":  "VALPARAÍSO",
+        "promedio":  6.09,
+        "mesEnCero":  false
+    },
+    {
+        "mes":  "2026-08",
+        "id":  "f7c0345904",
+        "supervisor":  "RAMON CARLOS VARGAS FONTECHA",
+        "agencia":  "VIÑA DEL MAR",
+        "promedio":  6.71,
+        "mesEnCero":  false
+    },
+    {
+        "mes":  "2026-08",
+        "id":  "a3a4334fe5",
+        "supervisor":  "JUAN CARLOS ESPAÑA GUERRERO",
+        "agencia":  "VALPARAÍSO",
+        "promedio":  3.53,
+        "mesEnCero":  false
+    },
+    {
+        "mes":  "2026-08",
+        "id":  "f8b3b2c1d7",
+        "supervisor":  "JUAN CARLOS ESPAÑA GUERRERO",
+        "agencia":  "VALPARAÍSO",
+        "promedio":  4.91,
+        "mesEnCero":  false
+    },
+    {
+        "mes":  "2026-08",
+        "id":  "a1bf0206eb",
+        "supervisor":  "JUAN CARLOS ESPAÑA GUERRERO",
+        "agencia":  "VALPARAÍSO",
+        "promedio":  5.03,
+        "mesEnCero":  false
+    },
+    {
+        "mes":  "2026-08",
+        "id":  "a83d388d83",
+        "supervisor":  "JULIO HERNAN PINTO HERRERA",
+        "agencia":  "VIÑA DEL MAR",
+        "promedio":  2.95,
+        "mesEnCero":  false
+    },
+    {
+        "mes":  "2026-08",
+        "id":  "ce78faf930",
+        "supervisor":  "RAMON CARLOS VARGAS FONTECHA",
+        "agencia":  "VIÑA DEL MAR",
+        "promedio":  4.14,
+        "mesEnCero":  false
+    },
+    {
+        "mes":  "2026-08",
+        "id":  "ad11bf2079",
+        "supervisor":  "JULIO HERNAN PINTO HERRERA",
+        "agencia":  "SAN ANTONIO",
+        "promedio":  6.44,
+        "mesEnCero":  false
+    },
+    {
+        "mes":  "2026-08",
+        "id":  "8a94ca4a64",
+        "supervisor":  "JULIO HERNAN PINTO HERRERA",
+        "agencia":  "SAN ANTONIO",
+        "promedio":  5.77,
+        "mesEnCero":  false
+    },
+    {
+        "mes":  "2026-08",
+        "id":  "f7269d3ed0",
+        "supervisor":  "RAMON CARLOS VARGAS FONTECHA",
+        "agencia":  "VIÑA DEL MAR",
+        "promedio":  5.43,
+        "mesEnCero":  false
+    },
+    {
+        "mes":  "2026-08",
+        "id":  "2cb3257e6f",
+        "supervisor":  "RAMON CARLOS VARGAS FONTECHA",
+        "agencia":  "VIÑA DEL MAR",
+        "promedio":  3.89,
+        "mesEnCero":  false
+    },
+    {
+        "mes":  "2026-09",
+        "id":  "9ca52e1c4d",
+        "supervisor":  "JULIO HERNAN PINTO HERRERA",
+        "agencia":  "VIÑA DEL MAR",
+        "promedio":  7.48,
+        "mesEnCero":  false
+    },
+    {
+        "mes":  "2026-09",
+        "id":  "d3d34478b9",
+        "supervisor":  "JULIO HERNAN PINTO HERRERA",
+        "agencia":  "SAN ANTONIO",
+        "promedio":  8.44,
+        "mesEnCero":  false
+    },
+    {
+        "mes":  "2026-09",
+        "id":  "ce78faf930",
+        "supervisor":  "RAMON CARLOS VARGAS FONTECHA",
+        "agencia":  "VIÑA DEL MAR",
+        "promedio":  7.9,
+        "mesEnCero":  false
+    },
+    {
+        "mes":  "2026-09",
+        "id":  "f7c0345904",
+        "supervisor":  "RAMON CARLOS VARGAS FONTECHA",
+        "agencia":  "VIÑA DEL MAR",
+        "promedio":  7.53,
+        "mesEnCero":  false
+    },
+    {
+        "mes":  "2026-09",
+        "id":  "83e7cfe3d0",
+        "supervisor":  "JULIO HERNAN PINTO HERRERA",
+        "agencia":  "VIÑA DEL MAR",
+        "promedio":  8.86,
+        "mesEnCero":  false
+    },
+    {
+        "mes":  "2026-09",
+        "id":  "428771fe0f",
+        "supervisor":  "JUAN CARLOS ESPAÑA GUERRERO",
+        "agencia":  "VALPARAÍSO",
+        "promedio":  7.43,
+        "mesEnCero":  false
+    },
+    {
+        "mes":  "2026-09",
+        "id":  "a3a4334fe5",
+        "supervisor":  "JUAN CARLOS ESPAÑA GUERRERO",
+        "agencia":  "VALPARAÍSO",
+        "promedio":  8.34,
+        "mesEnCero":  false
+    },
+    {
+        "mes":  "2026-09",
+        "id":  "6a59a2ed18",
+        "supervisor":  "JULIO HERNAN PINTO HERRERA",
+        "agencia":  "VIÑA DEL MAR",
+        "promedio":  7.83,
+        "mesEnCero":  false
+    },
+    {
+        "mes":  "2026-09",
+        "id":  "ad11bf2079",
+        "supervisor":  "JULIO HERNAN PINTO HERRERA",
+        "agencia":  "SAN ANTONIO",
+        "promedio":  7,
+        "mesEnCero":  false
+    },
+    {
+        "mes":  "2026-09",
+        "id":  "e642829c87",
+        "supervisor":  "RAMON CARLOS VARGAS FONTECHA",
+        "agencia":  "VIÑA DEL MAR",
+        "promedio":  8.04,
+        "mesEnCero":  false
+    },
+    {
+        "mes":  "2026-09",
+        "id":  "47e77d340d",
+        "supervisor":  "JUAN CARLOS ESPAÑA GUERRERO",
+        "agencia":  "VALPARAÍSO",
+        "promedio":  6.59,
+        "mesEnCero":  false
+    },
+    {
+        "mes":  "2026-09",
+        "id":  "5e49c09661",
+        "supervisor":  "JUAN CARLOS ESPAÑA GUERRERO",
+        "agencia":  "VALPARAÍSO",
+        "promedio":  7.38,
+        "mesEnCero":  false
+    },
+    {
+        "mes":  "2026-09",
+        "id":  "3dce29ca75",
+        "supervisor":  "JUAN CARLOS ESPAÑA GUERRERO",
+        "agencia":  "VALPARAÍSO",
+        "promedio":  6.8,
+        "mesEnCero":  false
+    },
+    {
+        "mes":  "2026-09",
+        "id":  "f8b3b2c1d7",
+        "supervisor":  "JUAN CARLOS ESPAÑA GUERRERO",
+        "agencia":  "VALPARAÍSO",
+        "promedio":  7.58,
+        "mesEnCero":  false
+    },
+    {
+        "mes":  "2026-09",
+        "id":  "5705421df8",
+        "supervisor":  "JUAN CARLOS ESPAÑA GUERRERO",
+        "agencia":  "VALPARAÍSO",
+        "promedio":  6.88,
+        "mesEnCero":  false
+    },
+    {
+        "mes":  "2026-09",
+        "id":  "42114c4e14",
+        "supervisor":  "RAMON CARLOS VARGAS FONTECHA",
+        "agencia":  "VIÑA DEL MAR",
+        "promedio":  6.85,
+        "mesEnCero":  false
+    },
+    {
+        "mes":  "2026-09",
+        "id":  "7019be740c",
+        "supervisor":  "RAMON CARLOS VARGAS FONTECHA",
+        "agencia":  "VIÑA DEL MAR",
+        "promedio":  7.82,
+        "mesEnCero":  false
+    },
+    {
+        "mes":  "2026-09",
+        "id":  "a23e34f011",
+        "supervisor":  "RAMON CARLOS VARGAS FONTECHA",
+        "agencia":  "VIÑA DEL MAR",
+        "promedio":  5.78,
+        "mesEnCero":  false
+    },
+    {
+        "mes":  "2026-09",
+        "id":  "3beae3cfc4",
+        "supervisor":  "JULIO HERNAN PINTO HERRERA",
+        "agencia":  "SAN ANTONIO",
+        "promedio":  6.66,
+        "mesEnCero":  false
+    },
+    {
+        "mes":  "2026-09",
+        "id":  "1f70d2db4b",
+        "supervisor":  "RAMON CARLOS VARGAS FONTECHA",
+        "agencia":  "VIÑA DEL MAR",
+        "promedio":  5.25,
+        "mesEnCero":  false
+    },
+    {
+        "mes":  "2026-09",
+        "id":  "b68e547e87",
+        "supervisor":  "RAMON CARLOS VARGAS FONTECHA",
+        "agencia":  "VIÑA DEL MAR",
+        "promedio":  5.78,
+        "mesEnCero":  false
+    },
+    {
+        "mes":  "2026-09",
+        "id":  "e341665c88",
+        "supervisor":  "JUAN CARLOS ESPAÑA GUERRERO",
+        "agencia":  "VIÑA DEL MAR",
+        "promedio":  5.89,
+        "mesEnCero":  false
+    },
+    {
+        "mes":  "2026-09",
+        "id":  "2ce224fabe",
+        "supervisor":  "JUAN CARLOS ESPAÑA GUERRERO",
+        "agencia":  "VALPARAÍSO",
+        "promedio":  7.17,
+        "mesEnCero":  false
+    },
+    {
+        "mes":  "2026-09",
+        "id":  "9e9fa02ec1",
+        "supervisor":  "JUAN CARLOS ESPAÑA GUERRERO",
+        "agencia":  "VALPARAÍSO",
+        "promedio":  6.36,
+        "mesEnCero":  false
+    },
+    {
+        "mes":  "2026-09",
+        "id":  "c4b0251ff0",
+        "supervisor":  "JULIO HERNAN PINTO HERRERA",
+        "agencia":  "VIÑA DEL MAR",
+        "promedio":  6.68,
+        "mesEnCero":  false
+    },
+    {
+        "mes":  "2026-09",
+        "id":  "f7269d3ed0",
+        "supervisor":  "RAMON CARLOS VARGAS FONTECHA",
+        "agencia":  "VIÑA DEL MAR",
+        "promedio":  5.43,
+        "mesEnCero":  false
+    },
+    {
+        "mes":  "2026-09",
+        "id":  "cea0423bee",
+        "supervisor":  "JUAN CARLOS ESPAÑA GUERRERO",
+        "agencia":  "VALPARAÍSO",
+        "promedio":  5.67,
+        "mesEnCero":  false
+    },
+    {
+        "mes":  "2026-09",
+        "id":  "b323616104",
+        "supervisor":  "JUAN CARLOS ESPAÑA GUERRERO",
+        "agencia":  "VALPARAÍSO",
+        "promedio":  5.21,
+        "mesEnCero":  false
+    },
+    {
+        "mes":  "2026-09",
+        "id":  "8a94ca4a64",
+        "supervisor":  "JULIO HERNAN PINTO HERRERA",
+        "agencia":  "SAN ANTONIO",
+        "promedio":  6.64,
+        "mesEnCero":  false
+    },
+    {
+        "mes":  "2026-09",
+        "id":  "272edae6fe",
+        "supervisor":  "JUAN CARLOS ESPAÑA GUERRERO",
+        "agencia":  "VALPARAÍSO",
+        "promedio":  6.44,
+        "mesEnCero":  false
+    },
+    {
+        "mes":  "2026-09",
+        "id":  "bf5ea8ec61",
+        "supervisor":  "JUAN CARLOS ESPAÑA GUERRERO",
+        "agencia":  "VALPARAÍSO",
+        "promedio":  6.07,
+        "mesEnCero":  false
+    },
+    {
+        "mes":  "2026-09",
+        "id":  "8717e2dae9",
+        "supervisor":  "JULIO HERNAN PINTO HERRERA",
+        "agencia":  "VIÑA DEL MAR",
+        "promedio":  5.92,
+        "mesEnCero":  false
+    },
+    {
+        "mes":  "2026-09",
+        "id":  "d9c51fe5b5",
+        "supervisor":  "JULIO HERNAN PINTO HERRERA",
+        "agencia":  "VIÑA DEL MAR",
+        "promedio":  5.35,
+        "mesEnCero":  false
+    },
+    {
+        "mes":  "2026-09",
+        "id":  "9612d4b9e8",
+        "supervisor":  "RAMON CARLOS VARGAS FONTECHA",
+        "agencia":  "VIÑA DEL MAR",
+        "promedio":  5.85,
+        "mesEnCero":  false
+    },
+    {
+        "mes":  "2026-09",
+        "id":  "a1bf0206eb",
+        "supervisor":  "JUAN CARLOS ESPAÑA GUERRERO",
+        "agencia":  "VALPARAÍSO",
+        "promedio":  5.52,
+        "mesEnCero":  false
+    },
+    {
+        "mes":  "2026-09",
+        "id":  "456903cb9c",
+        "supervisor":  "JULIO HERNAN PINTO HERRERA",
+        "agencia":  "VIÑA DEL MAR",
+        "promedio":  5.7,
+        "mesEnCero":  false
+    },
+    {
+        "mes":  "2026-09",
+        "id":  "814aadfd1e",
+        "supervisor":  "RAMON CARLOS VARGAS FONTECHA",
+        "agencia":  "VIÑA DEL MAR",
+        "promedio":  5.03,
+        "mesEnCero":  false
+    },
+    {
+        "mes":  "2026-09",
+        "id":  "92eef64e0c",
+        "supervisor":  "JULIO HERNAN PINTO HERRERA",
+        "agencia":  "VIÑA DEL MAR",
+        "promedio":  6.48,
+        "mesEnCero":  false
+    },
+    {
+        "mes":  "2026-09",
+        "id":  "2cb3257e6f",
+        "supervisor":  "RAMON CARLOS VARGAS FONTECHA",
+        "agencia":  "VIÑA DEL MAR",
+        "promedio":  4.82,
+        "mesEnCero":  false
+    },
+    {
+        "mes":  "2026-09",
+        "id":  "c7746b5eed",
+        "supervisor":  "JUAN CARLOS ESPAÑA GUERRERO",
+        "agencia":  "VALPARAÍSO",
+        "promedio":  9.95,
+        "mesEnCero":  false
+    },
+    {
+        "mes":  "2026-09",
+        "id":  "5995af50bb",
+        "supervisor":  "JULIO HERNAN PINTO HERRERA",
+        "agencia":  "VIÑA DEL MAR",
+        "promedio":  7.18,
+        "mesEnCero":  false
+    },
+    {
+        "mes":  "2026-09",
+        "id":  "4d844173eb",
+        "supervisor":  "JULIO HERNAN PINTO HERRERA",
+        "agencia":  "SAN ANTONIO",
+        "promedio":  4.65,
+        "mesEnCero":  false
+    },
+    {
+        "mes":  "2026-09",
+        "id":  "d24745e41f",
+        "supervisor":  "JULIO HERNAN PINTO HERRERA",
+        "agencia":  "VIÑA DEL MAR",
+        "promedio":  6.33,
+        "mesEnCero":  false
+    },
+    {
+        "mes":  "2026-09",
+        "id":  "73290b6664",
+        "supervisor":  "RAMON CARLOS VARGAS FONTECHA",
+        "agencia":  "VIÑA DEL MAR",
+        "promedio":  5.11,
+        "mesEnCero":  false
+    },
+    {
+        "mes":  "2026-09",
+        "id":  "0d328b1be2",
+        "supervisor":  "RAMON CARLOS VARGAS FONTECHA",
+        "agencia":  "VIÑA DEL MAR",
+        "promedio":  6.06,
+        "mesEnCero":  false
+    },
+    {
+        "mes":  "2026-09",
+        "id":  "e5cc68c5d1",
+        "supervisor":  "RAMON CARLOS VARGAS FONTECHA",
+        "agencia":  "VIÑA DEL MAR",
+        "promedio":  5.78,
+        "mesEnCero":  false
+    },
+    {
+        "mes":  "2026-09",
+        "id":  "3d05c738de",
+        "supervisor":  "SAMUEL VALENZUELA",
+        "agencia":  "VIÑA DEL MAR",
+        "promedio":  5.03,
+        "mesEnCero":  false
+    },
+    {
+        "mes":  "2026-09",
+        "id":  "7b42ebdde0",
+        "supervisor":  "RAMON CARLOS VARGAS FONTECHA",
+        "agencia":  "VIÑA DEL MAR",
+        "promedio":  4.29,
+        "mesEnCero":  false
+    },
+    {
+        "mes":  "2026-09",
+        "id":  "e091aa8da8",
+        "supervisor":  "JULIO HERNAN PINTO HERRERA",
+        "agencia":  "VIÑA DEL MAR",
+        "promedio":  3.65,
+        "mesEnCero":  false
+    },
+    {
+        "mes":  "2026-09",
+        "id":  "a83d388d83",
+        "supervisor":  "JULIO HERNAN PINTO HERRERA",
+        "agencia":  "VIÑA DEL MAR",
+        "promedio":  5.54,
+        "mesEnCero":  false
+    },
+    {
+        "mes":  "2026-09",
+        "id":  "3aa7a40f72",
+        "supervisor":  "JULIO HERNAN PINTO HERRERA",
+        "agencia":  "VIÑA DEL MAR",
+        "promedio":  5.1,
+        "mesEnCero":  false
+    },
+    {
+        "mes":  "2026-09",
+        "id":  "8e97772d97",
+        "supervisor":  "RAMON CARLOS VARGAS FONTECHA",
+        "agencia":  "VIÑA DEL MAR",
+        "promedio":  3.64,
+        "mesEnCero":  false
+    },
+    {
+        "mes":  "2026-09",
+        "id":  "ab4b55d125",
+        "supervisor":  "RAMON CARLOS VARGAS FONTECHA",
+        "agencia":  "VALPARAÍSO",
+        "promedio":  5.27,
+        "mesEnCero":  false
+    },
+    {
+        "mes":  "2026-09",
+        "id":  "388a2e7075",
+        "supervisor":  "RAMON CARLOS VARGAS FONTECHA",
+        "agencia":  "VIÑA DEL MAR",
+        "promedio":  5.2,
+        "mesEnCero":  false
+    },
+    {
+        "mes":  "2026-09",
+        "id":  "5d74de2e51",
+        "supervisor":  "RAMON CARLOS VARGAS FONTECHA",
+        "agencia":  "VIÑA DEL MAR",
+        "promedio":  2.59,
+        "mesEnCero":  false
+    },
+    {
+        "mes":  "2026-09",
+        "id":  "e6e8d91903",
+        "supervisor":  "JULIO HERNAN PINTO HERRERA",
+        "agencia":  "VIÑA DEL MAR",
+        "promedio":  0,
+        "mesEnCero":  false
     }
 ]
 </script>
@@ -744,141 +1620,161 @@
   "use strict";
   var raw = JSON.parse(document.getElementById('tecnicos-data').textContent);
 
-  var SUP_COLOR = {}; // full supervisor name -> css var name
-  var SUP_ORDER = [];
-  raw.forEach(function(t){ if (SUP_ORDER.indexOf(t.supervisor) === -1) SUP_ORDER.push(t.supervisor); });
-  var palette = ['--brand','--sup2','--sup3'];
-  SUP_ORDER.forEach(function(s,i){ SUP_COLOR[s] = palette[i % palette.length]; });
+  // ---------- Meses disponibles (orden cronologico) ----------
+  var MONTHS = [];
+  raw.forEach(function(r){ if (MONTHS.indexOf(r.mes) === -1) MONTHS.push(r.mes); });
+  MONTHS.sort();
 
-  function shortSup(full){
-    var parts = full.trim().split(/\s+/);
-    return parts.slice(-2).join(' ');
-  }
+  var MONTH_NAMES = {"01":"Enero","02":"Febrero","03":"Marzo","04":"Abril","05":"Mayo","06":"Junio","07":"Julio","08":"Agosto","09":"Septiembre","10":"Octubre","11":"Noviembre","12":"Diciembre"};
+  function mesLabel(mesKey){ return MONTH_NAMES[mesKey.split('-')[1]] || mesKey; }
+
+  // Meses en curso (parciales) -- quitar la entrada cuando el mes cierre
+  var PARTIAL_UNTIL = { "2026-09": "09-09-2026" };
+
+  // ---------- Agrupar registros por tecnico (id anonimo) ----------
+  var byId = {};
+  raw.forEach(function(r){
+    if (!byId[r.id]) byId[r.id] = {};
+    byId[r.id][r.mes] = r;
+  });
+
+  var SUP_ORDER = [];
+  raw.forEach(function(r){ if (SUP_ORDER.indexOf(r.supervisor) === -1) SUP_ORDER.push(r.supervisor); });
+  var AGENCIA_ORDER = [];
+  raw.forEach(function(r){ if (AGENCIA_ORDER.indexOf(r.agencia) === -1) AGENCIA_ORDER.push(r.agencia); });
+  var palette = ['--brand','--sup2','--sup3','--good','--warn'];
+  var SUP_COLOR = {}; SUP_ORDER.forEach(function(s,i){ SUP_COLOR[s] = palette[i % palette.length]; });
+  var AGENCIA_COLOR = {}; AGENCIA_ORDER.forEach(function(a,i){ AGENCIA_COLOR[a] = palette[i % palette.length]; });
+
+  function shortSup(full){ var parts = full.trim().split(/\s+/); return parts.slice(-2).join(' '); }
+  function titleCaseWord(s){ return s.charAt(0) + s.slice(1).toLowerCase(); }
+  function agenciaLabel(a){ return a.split(' ').map(titleCaseWord).join(' '); }
   function fmt1(n){ return (Math.round(n*10)/10).toFixed(1).replace('.',','); }
   function fmtPct(n){ var v = Math.round(n*1000)/10; var s=(v>0?'+':'')+v.toString().replace('.',',')+'%'; return s; }
-
-  var AGENCIA_COLOR = {};
-  var AGENCIA_ORDER = [];
-  raw.forEach(function(t){ if (AGENCIA_ORDER.indexOf(t.agencia) === -1) AGENCIA_ORDER.push(t.agencia); });
-  AGENCIA_ORDER.forEach(function(a,i){ AGENCIA_COLOR[a] = palette[i % palette.length]; });
-  function titleCaseWord(s){
-    return s.charAt(0) + s.slice(1).toLowerCase();
-  }
-  function agenciaLabel(a){ return a.split(' ').map(titleCaseWord).join(' '); }
-
-  var data = raw.map(function(t){
-    return {
-      supervisor: t.supervisor, agencia: t.agencia,
-      jul: t.julProm, ago: t.agoProm, julZero: t.julZero, agoZero: t.agoZero,
-      excluded: t.julZero || t.agoZero,
-      delta: t.agoProm - t.julProm
-    };
-  });
-  var included = data.filter(function(t){ return !t.excluded; });
-
-  var maxVal = Math.max.apply(null, data.map(function(t){ return Math.max(t.jul, t.ago); })) ;
-  var domainMax = Math.ceil(maxVal) + 0.5;
-
   function avg(arr, key){ return arr.reduce(function(s,t){return s+t[key];},0) / arr.length; }
 
-  var promJul = avg(included,'jul'), promAgo = avg(included,'ago');
-  var deltaGeneral = promAgo - promJul;
-  var mejoraron = included.filter(function(t){ return t.delta > 0.004; }).length;
-  var empeoraron = included.filter(function(t){ return t.delta < -0.004; }).length;
-  var sinCambio = included.length - mejoraron - empeoraron;
+  var domainMax = Math.ceil(Math.max.apply(null, raw.map(function(r){ return r.promedio; }))) + 0.5;
 
-  document.getElementById('kpi-jul').textContent = fmt1(promJul);
-  document.getElementById('kpi-jul-sub').textContent = included.length + ' técnicos activos';
-  document.getElementById('kpi-ago').textContent = fmt1(promAgo);
-  document.getElementById('kpi-ago-sub').textContent = included.length + ' técnicos activos';
-
-  var kd = document.getElementById('kpi-delta');
-  kd.textContent = fmtPct(deltaGeneral/promJul);
-  kd.style.color = deltaGeneral >= 0 ? 'var(--good)' : 'var(--bad)';
-
-  var pctMej = mejoraron/included.length*100, pctEmp = empeoraron/included.length*100, pctSin = 100-pctMej-pctEmp;
-  document.getElementById('kpi-split').innerHTML =
-    '<span style="width:'+pctMej+'%;background:var(--good)"></span>' +
-    '<span style="width:'+pctSin+'%;background:var(--grid)"></span>' +
-    '<span style="width:'+pctEmp+'%;background:var(--bad)"></span>';
-  document.getElementById('kpi-mejoraron').innerHTML = '<b class="num" style="color:var(--good)">'+mejoraron+'</b> mejoraron';
-  document.getElementById('kpi-empeoraron').innerHTML = '<b class="num" style="color:var(--bad)">'+empeoraron+'</b> bajaron';
-
-  function dumbbellSVG(jul, ago, w, h, colorVar){
+  function dumbbellSVG(a, b, w, h, labelA, labelB){
     var pad = 8;
     var x = function(v){ return pad + (v/domainMax) * (w - pad*2); };
     var y = h/2;
-    var improved = ago >= jul;
+    var improved = b >= a;
     var endColor = improved ? 'var(--good)' : 'var(--bad)';
-    return '<svg class="chart" viewBox="0 0 '+w+' '+h+'" role="img" aria-label="Julio '+fmt1(jul)+', Agosto '+fmt1(ago)+'">' +
-      '<title>Julio: '+fmt1(jul)+' · Agosto: '+fmt1(ago)+'</title>' +
+    return '<svg class="chart" viewBox="0 0 '+w+' '+h+'" role="img" aria-label="'+labelA+' '+fmt1(a)+', '+labelB+' '+fmt1(b)+'">' +
+      '<title>'+labelA+': '+fmt1(a)+' · '+labelB+': '+fmt1(b)+'</title>' +
       '<line x1="'+pad+'" y1="'+y+'" x2="'+(w-pad)+'" y2="'+y+'" stroke="var(--grid)" stroke-width="1.5"/>' +
-      '<line x1="'+x(jul)+'" y1="'+y+'" x2="'+x(ago)+'" y2="'+y+'" stroke="'+endColor+'" stroke-width="2" stroke-linecap="round"/>' +
-      '<circle cx="'+x(jul)+'" cy="'+y+'" r="4" fill="var(--surface)" stroke="var(--muted)" stroke-width="1.6"/>' +
-      '<circle cx="'+x(ago)+'" cy="'+y+'" r="4.2" fill="'+endColor+'"/>' +
+      '<line x1="'+x(a)+'" y1="'+y+'" x2="'+x(b)+'" y2="'+y+'" stroke="'+endColor+'" stroke-width="2" stroke-linecap="round"/>' +
+      '<circle cx="'+x(a)+'" cy="'+y+'" r="4" fill="var(--surface)" stroke="var(--muted)" stroke-width="1.6"/>' +
+      '<circle cx="'+x(b)+'" cy="'+y+'" r="4.2" fill="'+endColor+'"/>' +
       '</svg>';
   }
 
-  // ---------- Supervisor cards ----------
-  var supGrid = document.getElementById('sup-grid');
-  var supStats = SUP_ORDER.map(function(sup){
-    var arr = included.filter(function(t){ return t.supervisor === sup; });
-    return { sup:sup, n:arr.length, jul:avg(arr,'jul'), ago:avg(arr,'ago') };
-  });
-  supStats.forEach(function(s){
-    var improved = s.ago >= s.jul;
-    var card = document.createElement('div');
-    card.className = 'sup-card';
-    card.style.setProperty('--dot', 'var('+SUP_COLOR[s.sup]+')');
-    card.innerHTML =
-      '<div class="sup-name"><span class="dot"></span>'+shortSup(s.sup)+'</div>' +
-      '<div class="sup-count">'+s.n+' técnicos</div>' +
+  function cardHTML(name, colorVar, n, a, b, labelA, labelB){
+    var improved = b >= a;
+    return '<div class="sup-card" style="--dot:var('+colorVar+')">' +
+      '<div class="sup-name"><span class="dot"></span>'+name+'</div>' +
+      '<div class="sup-count">'+n+' técnicos</div>' +
       '<div class="sup-numbers">' +
-        '<span class="n num">'+fmt1(s.jul)+'</span><span class="arrow">→</span><span class="n num" style="color:'+(improved?'var(--good)':'var(--bad)')+'">'+fmt1(s.ago)+'</span>' +
-        '<span class="pill '+(improved?'good':'bad')+'">'+fmtPct((s.ago-s.jul)/s.jul)+'</span>' +
+        '<span class="n num">'+fmt1(a)+'</span><span class="arrow">→</span><span class="n num" style="color:'+(improved?'var(--good)':'var(--bad)')+'">'+fmt1(b)+'</span>' +
+        '<span class="pill '+(improved?'good':'bad')+'">'+fmtPct((b-a)/a)+'</span>' +
       '</div>' +
-      dumbbellSVG(s.jul, s.ago, 260, 34);
-    supGrid.appendChild(card);
-  });
-  // Total general card
-  (function(){
-    var improved = promAgo >= promJul;
-    var card = document.createElement('div');
-    card.className = 'sup-card';
-    card.style.setProperty('--dot', 'var(--ink)');
-    card.style.borderLeftColor = 'var(--ink)';
-    card.innerHTML =
-      '<div class="sup-name"><span class="dot"></span>TOTAL GENERAL</div>' +
-      '<div class="sup-count">'+included.length+' técnicos</div>' +
-      '<div class="sup-numbers">' +
-        '<span class="n num">'+fmt1(promJul)+'</span><span class="arrow">→</span><span class="n num" style="color:'+(improved?'var(--good)':'var(--bad)')+'">'+fmt1(promAgo)+'</span>' +
-        '<span class="pill '+(improved?'good':'bad')+'">'+fmtPct(deltaGeneral/promJul)+'</span>' +
-      '</div>' +
-      dumbbellSVG(promJul, promAgo, 260, 34);
-    supGrid.appendChild(card);
-  })();
+      dumbbellSVG(a, b, 260, 34, labelA, labelB) +
+    '</div>';
+  }
 
-  // ---------- Agencia cards ----------
-  var agenciaGrid = document.getElementById('agencia-grid');
-  var agenciaStats = AGENCIA_ORDER.map(function(ag){
-    var arr = included.filter(function(t){ return t.agencia === ag; });
-    return { ag:ag, n:arr.length, jul:avg(arr,'jul'), ago:avg(arr,'ago') };
-  }).sort(function(a,b){ return (a.ago-a.jul)/a.jul - (b.ago-b.jul)/b.jul; });
-  agenciaStats.forEach(function(s){
-    var improved = s.ago >= s.jul;
-    var card = document.createElement('div');
-    card.className = 'sup-card';
-    card.style.setProperty('--dot', 'var('+AGENCIA_COLOR[s.ag]+')');
-    card.innerHTML =
-      '<div class="sup-name"><span class="dot"></span>'+agenciaLabel(s.ag)+'</div>' +
-      '<div class="sup-count">'+s.n+' técnicos</div>' +
-      '<div class="sup-numbers">' +
-        '<span class="n num">'+fmt1(s.jul)+'</span><span class="arrow">→</span><span class="n num" style="color:'+(improved?'var(--good)':'var(--bad)')+'">'+fmt1(s.ago)+'</span>' +
-        '<span class="pill '+(improved?'good':'bad')+'">'+fmtPct((s.ago-s.jul)/s.jul)+'</span>' +
-      '</div>' +
-      dumbbellSVG(s.jul, s.ago, 260, 34);
-    agenciaGrid.appendChild(card);
+  // ---------- Selector de meses ----------
+  var selA = document.getElementById('mesA'), selB = document.getElementById('mesB');
+  MONTHS.forEach(function(m){
+    var oA = document.createElement('option'); oA.value = m; oA.textContent = mesLabel(m); selA.appendChild(oA);
+    var oB = document.createElement('option'); oB.value = m; oB.textContent = mesLabel(m); selB.appendChild(oB);
   });
+  selA.value = MONTHS.length >= 2 ? MONTHS[MONTHS.length-2] : MONTHS[0];
+  selB.value = MONTHS[MONTHS.length-1];
+
+  function render(){
+    var mesA = selA.value, mesB = selB.value;
+    var labelA = mesLabel(mesA), labelB = mesLabel(mesB);
+
+    document.getElementById('footer-range').textContent = labelA + '–' + labelB;
+
+    // Cohorte pareada: solo tecnicos con dato en ambos meses y sin bandera "mes completo en 0" en ninguno
+    var pairs = [];
+    var excluidos = 0;
+    Object.keys(byId).forEach(function(id){
+      var recA = byId[id][mesA], recB = byId[id][mesB];
+      if (!recA || !recB) return;
+      if (recA.mesEnCero || recB.mesEnCero) { excluidos++; return; }
+      pairs.push({ supervisor: recB.supervisor, agencia: recB.agencia, a: recA.promedio, b: recB.promedio, delta: recB.promedio - recA.promedio });
+    });
+
+    var promA = pairs.length ? avg(pairs,'a') : 0;
+    var promB = pairs.length ? avg(pairs,'b') : 0;
+    var deltaGeneral = promB - promA;
+    var mejoraron = pairs.filter(function(t){ return t.delta > 0.004; }).length;
+    var empeoraron = pairs.filter(function(t){ return t.delta < -0.004; }).length;
+
+    document.getElementById('kpi-a-label').textContent = 'PROMEDIO ' + labelA.toUpperCase();
+    document.getElementById('kpi-a').textContent = fmt1(promA);
+    document.getElementById('kpi-a-sub').textContent = pairs.length + ' técnicos activos';
+    document.getElementById('kpi-b-label').textContent = 'PROMEDIO ' + labelB.toUpperCase();
+    document.getElementById('kpi-b').textContent = fmt1(promB);
+    document.getElementById('kpi-b-sub').textContent = pairs.length + ' técnicos activos';
+
+    var kd = document.getElementById('kpi-delta');
+    kd.textContent = promA ? fmtPct(deltaGeneral/promA) : '–';
+    kd.style.color = deltaGeneral >= 0 ? 'var(--good)' : 'var(--bad)';
+    document.getElementById('kpi-delta-sub').textContent = 'promedio Baremo/día, ' + labelA + ' → ' + labelB;
+
+    var pctMej = pairs.length ? mejoraron/pairs.length*100 : 0;
+    var pctEmp = pairs.length ? empeoraron/pairs.length*100 : 0;
+    var pctSin = 100 - pctMej - pctEmp;
+    document.getElementById('kpi-split').innerHTML =
+      '<span style="width:'+pctMej+'%;background:var(--good)"></span>' +
+      '<span style="width:'+pctSin+'%;background:var(--grid)"></span>' +
+      '<span style="width:'+pctEmp+'%;background:var(--bad)"></span>';
+    document.getElementById('kpi-mejoraron').innerHTML = '<b class="num" style="color:var(--good)">'+mejoraron+'</b> mejoraron';
+    document.getElementById('kpi-empeoraron').innerHTML = '<b class="num" style="color:var(--bad)">'+empeoraron+'</b> bajaron';
+
+    document.getElementById('badge-n-tecnicos').textContent = pairs.length;
+    var nSup = {}; pairs.forEach(function(p){ nSup[p.supervisor] = 1; });
+    document.getElementById('badge-n-supervisores').textContent = Object.keys(nSup).length;
+
+    document.getElementById('sup-hint').textContent = 'promedio Baremo/día · ' + labelA + ' → ' + labelB;
+    document.getElementById('agencia-hint').textContent = 'promedio Baremo/día · ' + labelA + ' → ' + labelB;
+
+    document.getElementById('note-excluidos-n').textContent = excluidos;
+    var partialNotes = [];
+    [mesA, mesB].forEach(function(m){ if (PARTIAL_UNTIL[m]) partialNotes.push(mesLabel(m)+': datos hasta el '+PARTIAL_UNTIL[m]+' (mes en curso)'); });
+    document.getElementById('note-partial').textContent = partialNotes.length ? 'Nota: ' + partialNotes.join(' · ') + '.' : '';
+
+    // ---------- Supervisor cards ----------
+    var supGrid = document.getElementById('sup-grid');
+    supGrid.innerHTML = '';
+    SUP_ORDER.filter(function(s){ return pairs.some(function(p){ return p.supervisor === s; }); })
+      .forEach(function(sup){
+        var arr = pairs.filter(function(p){ return p.supervisor === sup; });
+        supGrid.insertAdjacentHTML('beforeend', cardHTML(shortSup(sup), SUP_COLOR[sup], arr.length, avg(arr,'a'), avg(arr,'b'), labelA, labelB));
+      });
+    if (pairs.length) supGrid.insertAdjacentHTML('beforeend', cardHTML('TOTAL GENERAL', '--ink', pairs.length, promA, promB, labelA, labelB));
+
+    // ---------- Agencia cards ----------
+    var agenciaGrid = document.getElementById('agencia-grid');
+    agenciaGrid.innerHTML = '';
+    AGENCIA_ORDER.filter(function(a){ return pairs.some(function(p){ return p.agencia === a; }); })
+      .map(function(ag){
+        var arr = pairs.filter(function(p){ return p.agencia === ag; });
+        return { ag:ag, n:arr.length, a:avg(arr,'a'), b:avg(arr,'b') };
+      })
+      .sort(function(x,y){ return (x.b-x.a)/x.a - (y.b-y.a)/y.a; })
+      .forEach(function(s){
+        agenciaGrid.insertAdjacentHTML('beforeend', cardHTML(agenciaLabel(s.ag), AGENCIA_COLOR[s.ag], s.n, s.a, s.b, labelA, labelB));
+      });
+  }
+
+  selA.addEventListener('change', render);
+  selB.addEventListener('change', render);
+  render();
 
   var today = new Date();
   var pad2 = function(n){ return String(n).padStart(2,'0'); };
